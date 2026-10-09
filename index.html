@@ -1661,40 +1661,142 @@ input[type="range"]::-moz-range-thumb:hover {
    PHASE 3: MOBILE THUMB-ZONE ERGONOMICS & STUDIO SYMMETRY
    ═══════════════════════════════════════════════════════════════ */
 
-/* Mobile Thumb Reach Ergonomics (Viewport < 480px) */
+/* Mobile Thumb Reach Ergonomics & Display Polish (Viewport < 480px) */
 @media (max-width: 480px) {
-  #puzzle-screen {
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem) !important;
+  /* 1. Header & Brand Title Polish */
+  .main-header {
+    padding: 0.35rem 0.5rem !important;
+  }
+  .brand-vak-title {
+    font-size: 1.35rem !important;
+    letter-spacing: 2px !important;
+  }
+  .brand-lotus-icon {
+    font-size: 1.35rem !important;
+  }
+  .brand-title-sep {
+    display: none !important;
+  }
+  .brand-subtitle {
+    display: none !important;
+  }
+  .header-nav-actions button {
+    min-width: 38px !important;
+    min-height: 38px !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 1.05rem !important;
   }
 
-  /* Clamp wheel and keyboard bank to the bottom thumb zone */
+  /* 2. Puzzle Subheader Row */
+  .puzzle-header-row {
+    gap: 0.2rem !important;
+  }
+  #btn-mode-toggle {
+    padding: 0.2rem 0.45rem !important;
+    font-size: 0.72rem !important;
+    min-height: 36px !important;
+  }
+  #hint-btn {
+    padding: 0.2rem 0.5rem !important;
+    font-size: 0.75rem !important;
+    min-height: 36px !important;
+  }
+  #level-theme-label {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* 3. Discovery Area Clamping to Prevent Page Overflow */
+  #discovery-area {
+    max-height: 19vh !important;
+    gap: 0.25rem !important;
+    padding: 0.15rem 0 !important;
+  }
+  .solved-word-card {
+    padding: 0.45rem 0.65rem !important;
+    gap: 0.25rem !important;
+    max-width: 310px !important;
+  }
+  .solved-meaning {
+    font-size: 0.68rem !important;
+    line-height: 1.35 !important;
+    max-height: 2.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #puzzle-screen {
+    padding: 0.25rem 0.5rem !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.4rem) !important;
+  }
+
+  /* 4. Clamp wheel and keyboard bank to the bottom thumb zone */
   #letter-wheel-svg {
-    max-width: clamp(230px, 66vw, 290px) !important;
-    max-height: clamp(230px, 66vw, 290px) !important;
+    max-width: clamp(210px, 64vw, 270px) !important;
+    max-height: clamp(210px, 64vw, 270px) !important;
     margin: 0 auto !important;
   }
 
   #scrambled-keyboard-bank {
     grid-template-columns: repeat(6, 1fr) !important;
-    gap: 0.3rem !important;
-    max-width: 350px !important;
+    gap: 0.25rem !important;
+    max-width: 340px !important;
   }
 
   .bank-letter-key {
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px !important;
-    min-height: 48px !important;
-    font-size: 1.15rem !important;
-  }
-
-  .four-pics-slot {
     width: 46px !important;
     height: 46px !important;
     min-width: 46px !important;
     min-height: 46px !important;
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
   }
+
+  .four-pics-slot {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    font-size: 1.15rem !important;
+  }
+
+  /* 5. Onboarding & Settings Modals Polish */
+  #onboarding-modal, #settings-modal, #event-details-modal, #scripture-card-modal {
+    width: 94% !important;
+    max-width: 360px !important;
+    padding: 1rem 0.85rem !important;
+    max-height: 86dvh !important;
+  }
+}
+
+/* Modal High-Contrast Text Fixes for Light Theme (Dawn of Aspiration) */
+body.theme-aspiration #onboarding-modal {
+  background: rgba(255, 252, 242, 0.96) !important;
+  border: 1.5px solid rgba(180, 83, 9, 0.4) !important;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(251, 191, 36, 0.3) !important;
+}
+
+body.theme-aspiration #card-path-youth {
+  background: rgba(236, 253, 245, 0.95) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+}
+body.theme-aspiration #card-path-youth strong {
+  color: #065f46 !important;
+}
+
+body.theme-aspiration #card-path-seeker {
+  background: rgba(254, 252, 232, 0.95) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+body.theme-aspiration #card-path-seeker strong {
+  color: #92400e !important;
+}
+
+body.theme-aspiration #card-path-scholar {
+  background: rgba(250, 245, 255, 0.95) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+}
+body.theme-aspiration #card-path-scholar strong {
+  color: #6b21a8 !important;
 }
 
 /* Studio Center Stage Visual Parity across 1024px - 1920px */
@@ -3021,10 +3123,11 @@ class ModeManager {
     const hintBox = document.getElementById('hint-box');
     const wisdomDock = document.getElementById('desktop-wisdom-dock');
 
+    const isNarrow = typeof window !== 'undefined' && window.innerWidth < 480;
     if (this.currentMode === ModeManager.MODE_A) {
       if (modeAStage) modeAStage.style.display = '';
       if (modeBStage) modeBStage.style.display = 'none';
-      if (modeToggleLabel) modeToggleLabel.textContent = 'Word Wheel';
+      if (modeToggleLabel) modeToggleLabel.textContent = isNarrow ? 'Wheel' : 'Word Wheel';
       if (quadContainer) quadContainer.style.display = 'none';
       // If there was an active clarity hint in Mode A, show it, otherwise keep default
       if (hintBox && hintBox.textContent && hintBox.textContent.trim().length > 0) {
@@ -3033,7 +3136,7 @@ class ModeManager {
     } else {
       if (modeAStage) modeAStage.style.display = 'none';
       if (modeBStage) modeBStage.style.display = '';
-      if (modeToggleLabel) modeToggleLabel.textContent = '4 Pics 1 Word';
+      if (modeToggleLabel) modeToggleLabel.textContent = isNarrow ? '4 Pics' : '4 Pics 1 Word';
       if (quadContainer) quadContainer.style.display = 'block';
       if (hintBox) hintBox.style.display = 'none';
     }
@@ -3706,8 +3809,10 @@ class OnboardingController {
 
     // First-boot onboarding required
     const modalEl = document.getElementById('onboarding-modal');
+    const backdropEl = document.getElementById('menu-backdrop');
     if (modalEl) {
       modalEl.style.display = 'flex';
+      if (backdropEl) backdropEl.style.display = 'block';
     }
 
     const bindCard = (btnId, mode) => {
@@ -3716,6 +3821,7 @@ class OnboardingController {
         btn.onclick = () => {
           const profile = this.createDefaultProfile(mode);
           if (modalEl) modalEl.style.display = 'none';
+          if (backdropEl) backdropEl.style.display = 'none';
           if (callbacks.onComplete) callbacks.onComplete(profile);
         };
       }
@@ -7958,17 +8064,18 @@ if (typeof module !== 'undefined' && module.exports) {
 
       const levelThemeLabel = document.getElementById('level-theme-label');
       if (levelThemeLabel) {
-        // Show the level's actual REALM (difficulty, from the data), not the
-        // sanctuary mode. Mode is presentation; realm is difficulty. Printing
-        // the mode here produced labels like "TRADITIONAL REALM", which is not
-        // a realm that exists.
         const realmName = rawLevelObj.realm
           || (window.levelManagerController
                 ? window.levelManagerController.realmForMode(sanctuaryMode)
                 : null);
-        levelThemeLabel.textContent = realmName
-          ? `${String(realmName).toUpperCase()} REALM • ${currentLevel.category || 'VIRTUES'}`
-          : `${currentLevel.category || 'VIRTUES'}`;
+        const lvlNum = (userProfile.levelIndex || 0) + 1;
+        const realmUpper = realmName ? String(realmName).toUpperCase() : 'VIRTUES';
+        // Responsive format: On small viewports show realm + lvl, full on desktop
+        const isNarrow = typeof window !== 'undefined' && window.innerWidth < 480;
+        levelThemeLabel.textContent = isNarrow
+          ? `${realmUpper} • LVL ${lvlNum}`
+          : `${realmUpper} • ${currentLevel.category || 'VIRTUES'}`;
+        levelThemeLabel.title = `${realmUpper} Realm — ${currentLevel.category || 'Virtues'} (Level ${lvlNum})`;
       }
 
       // Contemplative hint: the passage with the word blanked out.
