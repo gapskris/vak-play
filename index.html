@@ -3017,17 +3017,25 @@ class ModeManager {
     const modeAStage = document.getElementById('mode-a-stage');
     const modeBStage = document.getElementById('mode-b-stage');
     const modeToggleLabel = document.getElementById('mode-toggle-text');
+    const quadContainer = document.getElementById('quad-image-container');
+    const hintBox = document.getElementById('hint-box');
+    const wisdomDock = document.getElementById('desktop-wisdom-dock');
 
-    if (modeAStage && modeBStage) {
-      if (this.currentMode === ModeManager.MODE_A) {
-        modeAStage.style.display = '';
-        modeBStage.style.display = 'none';
-        if (modeToggleLabel) modeToggleLabel.textContent = 'Word Wheel';
-      } else {
-        modeAStage.style.display = 'none';
-        modeBStage.style.display = '';
-        if (modeToggleLabel) modeToggleLabel.textContent = '4 Pics 1 Word';
+    if (this.currentMode === ModeManager.MODE_A) {
+      if (modeAStage) modeAStage.style.display = '';
+      if (modeBStage) modeBStage.style.display = 'none';
+      if (modeToggleLabel) modeToggleLabel.textContent = 'Word Wheel';
+      if (quadContainer) quadContainer.style.display = 'none';
+      // If there was an active clarity hint in Mode A, show it, otherwise keep default
+      if (hintBox && hintBox.textContent && hintBox.textContent.trim().length > 0) {
+        hintBox.style.display = 'block';
       }
+    } else {
+      if (modeAStage) modeAStage.style.display = 'none';
+      if (modeBStage) modeBStage.style.display = '';
+      if (modeToggleLabel) modeToggleLabel.textContent = '4 Pics 1 Word';
+      if (quadContainer) quadContainer.style.display = 'block';
+      if (hintBox) hintBox.style.display = 'none';
     }
   }
 
@@ -8484,8 +8492,12 @@ if (typeof module !== 'undefined' && module.exports) {
 
       window.modeManager = new ModeManager({
         onModeChange: (newMode) => {
+          const quadContainer = document.getElementById('quad-image-container');
           if (newMode === ModeManager.MODE_B) {
             renderFourPicsCurrentPuzzle();
+            if (quadContainer) quadContainer.style.display = 'block';
+          } else {
+            if (quadContainer) quadContainer.style.display = 'none';
           }
           if (window.showToast) {
             window.showToast(newMode === ModeManager.MODE_B ? 'Entered 4 Pics 1 Word Mode' : 'Entered Word Wheel Mode', 'success');
