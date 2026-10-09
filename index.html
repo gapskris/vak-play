@@ -4343,6 +4343,163 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = { BloomingLotusRenderer, bloomingLotusRenderer };
 }
 
+/* --- src/ui/sanctumMandala.js --- */
+/**
+ * Vak: The Control of Speech — Phase 2 Sanctum Mandala & 3 Spheres Engine
+ * 
+ * 1. The 3 Spheres of Mastery:
+ *    - Sphere 1: Earth (Rooted Virtues) — Levels 1 to 50 (3–5 letters: CALM, PEACE, HOPE, TRUTH)
+ *    - Sphere 2: Sky (Inner Powers) — Levels 51 to 175 (5–7 letters: GRACE, FAITH, SILENCE, PURITY)
+ *    - Sphere 3: Cosmos (Integral Planes) — Levels 176 to 350 (7–10 letters: ASPIRATION, SURRENDER, EQUANIMITY)
+ * 
+ * 2. The Living Mandala Sanctum:
+ *    - Multi-layered sacred geometry SVG mandala (Inner ring: 12 petals, Middle ring: 24 nodes, Outer ring: 36 stars).
+ *    - Progressively illuminates geometric petals based on total levels completed.
+ */
+
+class SanctumMandalaRenderer {
+  constructor() {
+    this.spheres = [
+      { id: 'earth', name: 'Sphere 1: Earth', subtitle: 'Rooted Virtues', minLevel: 1, maxLevel: 50, color: '#f59e0b' },
+      { id: 'sky', name: 'Sphere 2: Sky', subtitle: 'Inner Powers', minLevel: 51, maxLevel: 175, color: '#38bdf8' },
+      { id: 'cosmos', name: 'Sphere 3: Cosmos', subtitle: 'Integral Planes', minLevel: 176, maxLevel: 350, color: '#c084fc' }
+    ];
+  }
+
+  /**
+   * Identifies active sphere for a given level index (1-based).
+   * @param {number} levelIndex
+   */
+  getSphereForLevel(levelIndex = 1) {
+    const lvl = Math.max(1, Number(levelIndex) || 1);
+    if (lvl <= 50) return this.spheres[0];
+    if (lvl <= 175) return this.spheres[1];
+    return this.spheres[2];
+  }
+
+  /**
+   * Renders the Living Sacred Mandala inside target container.
+   * @param {string|HTMLElement} containerTarget
+   * @param {number} completedLevelsCount
+   */
+  renderMandala(containerTarget, completedLevelsCount = 0) {
+    if (typeof document === 'undefined') return null;
+
+    const container = (typeof containerTarget === 'string') ? document.getElementById(containerTarget) : containerTarget;
+    if (!container) return null;
+
+    container.innerHTML = '';
+    const totalNodes = 72; // 12 + 24 + 36
+    const illuminated = Math.min(completedLevelsCount, totalNodes);
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '-150 -150 300 300');
+    svg.setAttribute('class', 'living-mandala-svg');
+    svg.style.width = '100%';
+    svg.style.maxHeight = '280px';
+
+    // Background concentric sacred rings
+    const rings = [40, 80, 120];
+    rings.forEach((r, idx) => {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', 0);
+      circle.setAttribute('cy', 0);
+      circle.setAttribute('r', r);
+      circle.setAttribute('fill', 'none');
+      circle.setAttribute('stroke', 'rgba(212, 175, 55, 0.25)');
+      circle.setAttribute('stroke-width', '1');
+      circle.setAttribute('stroke-dasharray', idx === 1 ? '4,4' : 'none');
+      svg.appendChild(circle);
+    });
+
+    // 1. Ring 1 (Earth - 12 Petals)
+    const ring1Count = 12;
+    for (let i = 0; i < ring1Count; i++) {
+      const angle = (i * 360) / ring1Count;
+      const isLit = i < illuminated;
+      const petal = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      petal.setAttribute('d', 'M0,0 C-8,-18 0,-36 0,-36 C0,-36 8,-18 0,0 Z');
+      petal.setAttribute('transform', `rotate(${angle})`);
+      petal.setAttribute('fill', isLit ? 'url(#mandalaGoldGrad)' : 'rgba(255,255,255,0.05)');
+      petal.setAttribute('stroke', isLit ? '#fbbf24' : 'rgba(212, 175, 55, 0.2)');
+      petal.setAttribute('stroke-width', '0.8');
+      svg.appendChild(petal);
+    }
+
+    // 2. Ring 2 (Sky - 24 Nodes)
+    const ring2Count = 24;
+    for (let i = 0; i < ring2Count; i++) {
+      const angle = (i * 360) / ring2Count;
+      const rad = (angle * Math.PI) / 180;
+      const cx = 80 * Math.cos(rad);
+      const cy = 80 * Math.sin(rad);
+      const isLit = (i + ring1Count) < illuminated;
+
+      const node = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      node.setAttribute('cx', cx);
+      node.setAttribute('cy', cy);
+      node.setAttribute('r', isLit ? '4.5' : '2.5');
+      node.setAttribute('fill', isLit ? '#38bdf8' : 'rgba(255,255,255,0.1)');
+      node.setAttribute('stroke', isLit ? 'rgba(56, 189, 248, 0.8)' : 'none');
+      node.setAttribute('stroke-width', '1.5');
+      if (isLit) node.setAttribute('filter', 'drop-shadow(0 0 6px #38bdf8)');
+      svg.appendChild(node);
+    }
+
+    // 3. Ring 3 (Cosmos - 36 Star Points)
+    const ring3Count = 36;
+    for (let i = 0; i < ring3Count; i++) {
+      const angle = (i * 360) / ring3Count;
+      const rad = (angle * Math.PI) / 180;
+      const cx = 120 * Math.cos(rad);
+      const cy = 120 * Math.sin(rad);
+      const isLit = (i + ring1Count + ring2Count) < illuminated;
+
+      const star = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      // Tiny 4-point star
+      const s = isLit ? 4 : 2;
+      star.setAttribute('points', `${cx},${cy - s} ${cx + s},${cy} ${cx},${cy + s} ${cx - s},${cy}`);
+      star.setAttribute('fill', isLit ? '#c084fc' : 'rgba(255,255,255,0.06)');
+      if (isLit) star.setAttribute('filter', 'drop-shadow(0 0 8px #c084fc)');
+      svg.appendChild(star);
+    }
+
+    // Center Core (The Golden Bindu)
+    const bindu = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    bindu.setAttribute('cx', 0);
+    bindu.setAttribute('cy', 0);
+    bindu.setAttribute('r', 10);
+    bindu.setAttribute('fill', '#d4af37');
+    bindu.setAttribute('filter', 'drop-shadow(0 0 12px #d4af37)');
+    svg.appendChild(bindu);
+
+    // Gradient definition
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.innerHTML = `
+      <radialGradient id="mandalaGoldGrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fef08a" />
+        <stop offset="60%" stop-color="#f59e0b" />
+        <stop offset="100%" stop-color="#b45309" />
+      </radialGradient>
+    `;
+    svg.appendChild(defs);
+
+    container.appendChild(svg);
+    return { illuminated, totalNodes };
+  }
+}
+
+const sanctumMandalaRenderer = new SanctumMandalaRenderer();
+
+if (typeof window !== 'undefined') {
+  window.SanctumMandalaRenderer = SanctumMandalaRenderer;
+  window.sanctumMandalaRenderer = sanctumMandalaRenderer;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { SanctumMandalaRenderer, sanctumMandalaRenderer };
+}
+
 /* --- src/ui/constellationCalendar.js --- */
 /**
  * Vak: The Control of Speech — Phase 7 Constellation Star Calendar & Event Halos
@@ -6307,6 +6464,33 @@ class SanctuaryController {
 
     updateScoreDisplay();
 
+    // Render Living Mandala & Spheres of Mastery
+    if (typeof window !== 'undefined' && window.sanctumMandalaRenderer) {
+      let completedCount = 0;
+      let currentLevel = 1;
+      try {
+        const userRaw = localStorage.getItem('auro_vak_user');
+        if (userRaw) {
+          const userObj = JSON.parse(userRaw);
+          currentLevel = userObj.currentLevelIndex || 1;
+          completedCount = Math.max(0, currentLevel - 1);
+        }
+      } catch (e) {}
+
+      const sphere = window.sanctumMandalaRenderer.getSphereForLevel(currentLevel);
+      const sphereBadge = document.getElementById('active-sphere-badge');
+      if (sphereBadge) {
+        sphereBadge.textContent = `${sphere.name} (${sphere.subtitle})`;
+        sphereBadge.style.color = sphere.color;
+      }
+
+      const mandalaRes = window.sanctumMandalaRenderer.renderMandala('living-mandala-container', completedCount);
+      const caption = document.getElementById('mandala-progress-caption');
+      if (caption && mandalaRes) {
+        caption.textContent = `${mandalaRes.illuminated} of ${mandalaRes.totalNodes} sacred petals illuminated through completed levels`;
+      }
+    }
+
     if (saveBtn) {
       saveBtn.onclick = () => {
         const g = Number(sliderG ? sliderG.value : 2);
@@ -6315,6 +6499,7 @@ class SanctuaryController {
         const notes = notesEl ? notesEl.value : '';
 
         const result = this.saveReflectionLog(g, e, r, notes);
+        if (typeof window !== 'undefined' && window.Haptics) window.Haptics.gongStrike();
         saveBtn.textContent = '✓ Saved to Sanctuary!';
         setTimeout(() => { saveBtn.textContent = 'Save Reflection'; }, 2000);
       };
@@ -7030,6 +7215,14 @@ if (typeof module !== 'undefined' && module.exports) {
 
       <!-- Blooming SVG Lotus Container -->
       <div id="blooming-lotus-container"></div>
+
+      <!-- Living Sacred Mandala Sanctum (Phase 2 Enhancement) -->
+      <div id="sanctum-mandala-box" class="glass-panel" style="width: 100%; box-sizing: border-box; padding: 0.75rem; margin-bottom: 0.6rem; text-align: center; border-color: rgba(251, 191, 36, 0.35);">
+        <span class="micro-label" style="color: var(--accent-gold); font-weight: 700; letter-spacing: 2px;">THE LIVING MANDALA SANCTUM</span>
+        <div id="active-sphere-badge" style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: #fbbf24; margin: 0.25rem 0 0.5rem; font-weight: 700;">Sphere 1: Earth (Rooted Virtues)</div>
+        <div id="living-mandala-container" style="width: 100%; max-width: 280px; margin: 0 auto;"></div>
+        <div id="mandala-progress-caption" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.35rem;">0 of 72 petals illuminated through completed levels</div>
+      </div>
 
       <!-- Consciousness Score Calculator Display -->
       <div style="background: rgba(251, 191, 36, 0.12); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 0.5rem; text-align: center;">
