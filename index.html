@@ -4163,7 +4163,12 @@ class WordSlotsRenderer {
 
     // Active mystery card (only if level not already complete)
     if (solvedWordsArray.length < targetWordsArray.length) {
-      container.appendChild(this._buildMysteryCard());
+      const mystery = this._buildMysteryCard();
+      mystery.onclick = () => {
+        const hintBtn = document.getElementById('hint-btn');
+        if (hintBtn) hintBtn.click();
+      };
+      container.appendChild(mystery);
     }
 
     return [];
@@ -4229,10 +4234,21 @@ class WordSlotsRenderer {
     if (this._solvedCount >= total) {
       const banner = document.createElement('div');
       banner.className = 'level-complete-banner';
-      banner.textContent = '🌸 All Words Found!';
+      banner.style.cursor = 'pointer';
+      banner.innerHTML = '🌸 All Words Found!<br><span style="font-size:0.75rem; letter-spacing:1px; color:var(--accent-gold); font-weight:600; text-transform:none;">Tap to continue to next level →</span>';
+      banner.onclick = () => {
+        if (typeof window !== 'undefined' && typeof window.advanceToNextLevel === 'function') {
+          window.advanceToNextLevel();
+        }
+      };
       container.appendChild(banner);
     } else {
-      container.appendChild(this._buildMysteryCard());
+      const mystery = this._buildMysteryCard();
+      mystery.onclick = () => {
+        const hintBtn = document.getElementById('hint-btn');
+        if (hintBtn) hintBtn.click();
+      };
+      container.appendChild(mystery);
     }
 
     return true;
@@ -8057,6 +8073,23 @@ if (typeof module !== 'undefined' && module.exports) {
               : null;
             window.wordSlotsRenderer.revealWordSlot('discovery-area', result.word, quote);
             if (wordDisplayEl) wordDisplayEl.textContent = `✨ ${result.word}!`;
+
+            // Dynamic Hint Update: Update the left contemplation hint for the remaining unsolved word
+            const remainingWords = targetWords.filter(w => !solvedWords.includes(w.toUpperCase()));
+            const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
+            if (hintBox && remainingWords.length > 0) {
+              const nextWord = remainingWords[0];
+              const nextQuote = window.scriptureCardRenderer
+                ? window.scriptureCardRenderer.getQuoteForWord(nextWord)
+                : null;
+              if (nextQuote && nextQuote.text) {
+                // Cloze blank out the target word
+                const clozeRegex = new RegExp(`\\b${nextWord}\\b`, 'gi');
+                const clozeText = nextQuote.text.replace(clozeRegex, '_______');
+                hintBox.textContent = `“${clozeText}”`;
+                hintBox.style.display = 'block';
+              }
+            }
 
             if (window.levelManagerController.checkLevelCompletion(targetWords, solvedWords)) {
               setTimeout(() => {
