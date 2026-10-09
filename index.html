@@ -1657,6 +1657,59 @@ input[type="range"]::-moz-range-thumb:hover {
   letter-spacing: 1px;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   PHASE 3: MOBILE THUMB-ZONE ERGONOMICS & STUDIO SYMMETRY
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Mobile Thumb Reach Ergonomics (Viewport < 480px) */
+@media (max-width: 480px) {
+  #puzzle-screen {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem) !important;
+  }
+
+  /* Clamp wheel and keyboard bank to the bottom thumb zone */
+  #letter-wheel-svg {
+    max-width: clamp(230px, 66vw, 290px) !important;
+    max-height: clamp(230px, 66vw, 290px) !important;
+    margin: 0 auto !important;
+  }
+
+  #scrambled-keyboard-bank {
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 0.3rem !important;
+    max-width: 350px !important;
+  }
+
+  .bank-letter-key {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    font-size: 1.15rem !important;
+  }
+
+  .four-pics-slot {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Studio Center Stage Visual Parity across 1024px - 1920px */
+@media (min-width: 1024px) {
+  .studio-column-center {
+    min-height: 480px !important;
+    justify-content: center !important;
+  }
+
+  #mode-a-stage, #mode-b-stage {
+    min-height: 440px;
+    justify-content: center;
+  }
+}
+
 
 
 
@@ -5143,7 +5196,8 @@ class ScriptureCardRenderer {
       </div>
       ${note}
       <div style="display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; justify-content: center; width: 100%;">
-        <button id="btn-tts-speak" class="touch-target btn-primary" style="flex: 1; min-width: 140px;">🔊 Listen Narration</button>
+        <button id="btn-tts-speak" class="touch-target btn-primary" style="flex: 1; min-width: 130px;">🔊 Listen (0.75x)</button>
+        <button id="btn-share-wisdom-card" class="touch-target 3d-pill-btn" style="flex: 1; min-width: 130px; border-color: var(--accent-gold); color: #fbbf24; font-weight: 700;">✨ Share Card</button>
         <button id="btn-tts-stop" class="touch-target" style="padding: 0.5rem 0.75rem;">⏹️</button>
         <button id="btn-close-quote" class="touch-target" style="padding: 0.5rem 0.75rem;">Close</button>
       </div>
@@ -5173,13 +5227,30 @@ class ScriptureCardRenderer {
     const speakBtn = document.getElementById('btn-tts-speak');
     const stopBtn = document.getElementById('btn-tts-stop');
     const closeBtn = document.getElementById('btn-close-quote');
+    const shareBtn = document.getElementById('btn-share-wisdom-card');
+
+    if (shareBtn && quoteObj) {
+      shareBtn.onclick = async () => {
+        if (window.wisdomCardExporter) {
+          shareBtn.textContent = '⏳ Rendering...';
+          const res = await window.wisdomCardExporter.shareOrDownload({
+            word: quoteObj.word,
+            quote: quoteObj.text,
+            author: quoteObj.author,
+            meaning: quoteObj.book
+          });
+          shareBtn.textContent = (res && res.shared) ? '✓ Shared!' : '✨ Share Card';
+          setTimeout(() => { shareBtn.textContent = '✨ Share Card'; }, 2500);
+        }
+      };
+    }
 
     if (speakBtn && quoteObj) {
       speakBtn.onclick = () => {
         if (window.speechNarratorEngine) {
           speakBtn.textContent = '🔊 Speaking...';
           window.speechNarratorEngine.speakQuote(quoteObj.text, () => {
-            speakBtn.textContent = '🔊 Listen Narration';
+            speakBtn.textContent = '🔊 Listen (0.75x)';
           });
         }
       };
@@ -5188,7 +5259,7 @@ class ScriptureCardRenderer {
     if (stopBtn) {
       stopBtn.onclick = () => {
         if (window.speechNarratorEngine) window.speechNarratorEngine.stopSpeech();
-        if (speakBtn) speakBtn.textContent = '🔊 Listen Narration';
+        if (speakBtn) speakBtn.textContent = '🔊 Listen (0.75x)';
       };
     }
 
@@ -5207,6 +5278,206 @@ if (typeof window !== 'undefined') {
 }
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { ScriptureCardRenderer, scriptureCardRenderer };
+}
+
+/* --- src/ui/wisdomCardExporter.js --- */
+/**
+ * Vak: The Control of Speech — Phase 3 Wisdom Card Visual Social Exporter
+ * Generates an aesthetic, high-resolution Canvas card (1080x1350 for Instagram/WhatsApp)
+ * featuring the target word, root meaning, authentic quotation, and Sri Aurobindo/Mother attribution.
+ * Supports direct native Web Share API (navigator.share) with PNG file download fallback.
+ */
+
+class WisdomCardExporter {
+  constructor() {
+    this.canvasWidth = 1080;
+    this.canvasHeight = 1350; // 4:5 Instagram Portrait Ratio
+  }
+
+  /**
+   * Renders a golden contemplative wisdom image card on an offscreen canvas.
+   * @param {Object} data - { word, root, meaning, quote, author, levelIndex }
+   * @returns {HTMLCanvasElement}
+   */
+  generateCardCanvas(data = {}) {
+    const word = String(data.word || 'SILENCE').toUpperCase();
+    const meaning = data.meaning || data.root || 'The peaceful stillness of the inner consciousness.';
+    const quote = data.quote || 'In the silence of the mind, the divine force acts.';
+    const author = data.author || 'Sri Aurobindo';
+    const levelStr = data.levelIndex ? `Stage ${data.levelIndex} • The Control of Speech` : 'Vak • The Control of Speech';
+
+    const canvas = document.createElement('canvas');
+    canvas.width = this.canvasWidth;
+    canvas.height = this.canvasHeight;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return canvas;
+
+    // 1. Sacred Deep Obsidian Background Gradient
+    const bgGrad = ctx.createLinearGradient(0, 0, this.canvasWidth, this.canvasHeight);
+    bgGrad.addColorStop(0, '#07060d');
+    bgGrad.addColorStop(0.5, '#0f0e1a');
+    bgGrad.addColorStop(1, '#050409');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
+
+    // 2. Decorative Double Gold Border
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.4)';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(50, 50, this.canvasWidth - 100, this.canvasHeight - 100);
+
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.15)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(65, 65, this.canvasWidth - 130, this.canvasHeight - 130);
+
+    // 3. Header Subtitle
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '600 24px "Cinzel", Georgia, serif';
+    ctx.letterSpacing = '6px';
+    ctx.fillText('VAḰ — THE CONTROL OF SPEECH', this.canvasWidth / 2, 140);
+
+    // Subtle divider
+    ctx.beginPath();
+    ctx.moveTo(this.canvasWidth / 2 - 120, 170);
+    ctx.lineTo(this.canvasWidth / 2 + 120, 170);
+    ctx.strokeStyle = 'rgba(251, 191, 36, 0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // 4. Central Sacred Lotus Monogram / Bindu
+    ctx.beginPath();
+    ctx.arc(this.canvasWidth / 2, 260, 28, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(212, 175, 55, 0.12)';
+    ctx.fill();
+    ctx.strokeStyle = '#d4af37';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.font = '28px serif';
+    ctx.fillStyle = '#fbbf24';
+    ctx.fillText('🪷', this.canvasWidth / 2, 270);
+
+    // 5. Target Word Display
+    ctx.font = 'bold 76px "Cinzel", serif';
+    ctx.fillStyle = '#fbbf24';
+    ctx.shadowColor = 'rgba(251, 191, 36, 0.6)';
+    ctx.shadowBlur = 24;
+    ctx.fillText(word, this.canvasWidth / 2, 400);
+    ctx.shadowBlur = 0; // reset shadow
+
+    // 6. Word Meaning / Contemplation
+    ctx.font = 'italic 32px "Outfit", sans-serif';
+    ctx.fillStyle = '#cbd5e1';
+    this.wrapText(ctx, meaning, this.canvasWidth / 2, 470, 840, 44);
+
+    // 7. Middle Decorative Divider
+    ctx.beginPath();
+    ctx.moveTo(this.canvasWidth / 2 - 240, 580);
+    ctx.lineTo(this.canvasWidth / 2 + 240, 580);
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.25)';
+    ctx.stroke();
+
+    // 8. Sacred Quotation
+    ctx.font = 'italic 38px Georgia, "Times New Roman", serif';
+    ctx.fillStyle = '#f8fafc';
+    const quoteY = 670;
+    this.wrapText(ctx, `“${quote}”`, this.canvasWidth / 2, quoteY, 860, 56);
+
+    // 9. Attribution
+    ctx.font = '600 28px "Cinzel", Georgia, serif';
+    ctx.fillStyle = '#f59e0b';
+    ctx.fillText(`— ${author.toUpperCase()}`, this.canvasWidth / 2, 980);
+
+    // 10. Footer App Badge & QR/Watermark
+    ctx.font = '400 22px "Outfit", sans-serif';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.fillText(levelStr, this.canvasWidth / 2, 1220);
+
+    ctx.font = '300 18px "Outfit", sans-serif';
+    ctx.fillStyle = 'rgba(212, 175, 55, 0.6)';
+    ctx.fillText('gapskris.github.io/vak-play', this.canvasWidth / 2, 1260);
+
+    return canvas;
+  }
+
+  /**
+   * Helper to wrap multi-line text cleanly on Canvas.
+   */
+  wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+    const words = text.split(' ');
+    let line = '';
+    let currentY = y;
+
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + words[n] + ' ';
+      const metrics = ctx.measureText(testLine);
+      if (metrics.width > maxWidth && n > 0) {
+        ctx.fillText(line.trim(), x, currentY);
+        line = words[n] + ' ';
+        currentY += lineHeight;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line.trim(), x, currentY);
+    return currentY;
+  }
+
+  /**
+   * Triggers native Web Share or PNG download.
+   * @param {Object} data - Puzzle info
+   */
+  async shareOrDownload(data = {}) {
+    const canvas = this.generateCardCanvas(data);
+    const fileName = `Vak_${(data.word || 'wisdom').toLowerCase()}_reflection.png`;
+
+    // Attempt Native Web Share API with File
+    if (typeof navigator !== 'undefined' && navigator.share && canvas.toBlob) {
+      try {
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+        if (blob) {
+          const file = new File([blob], fileName, { type: 'image/png' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              title: `Vak: The Control of Speech — ${data.word}`,
+              text: `“${data.quote || ''}” — ${data.author || 'Sri Aurobindo'}`,
+              files: [file]
+            });
+            return { shared: true, method: 'native_share' };
+          }
+        }
+      } catch (err) {
+        // User aborted or system rejected share, proceed to download fallback
+        if (err.name === 'AbortError') return { shared: false, aborted: true };
+      }
+    }
+
+    // Direct Browser Download Fallback
+    try {
+      const dataUrl = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = fileName;
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      return { shared: true, method: 'download' };
+    } catch (e) {
+      console.error('[WisdomCardExporter] Download failed:', e);
+      return { shared: false, error: e.message };
+    }
+  }
+}
+
+const wisdomCardExporter = new WisdomCardExporter();
+
+if (typeof window !== 'undefined') {
+  window.WisdomCardExporter = WisdomCardExporter;
+  window.wisdomCardExporter = wisdomCardExporter;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { WisdomCardExporter, wisdomCardExporter };
 }
 
 /* --- src/ui/themeSelector.js --- */
