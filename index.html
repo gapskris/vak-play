@@ -4163,8 +4163,16 @@ class WordSlotsRenderer {
 
     // Active mystery card (only if level not already complete)
     if (solvedWordsArray.length < targetWordsArray.length) {
-      const mystery = this._buildMysteryCard();
+      const nextWord = targetWordsArray[solvedWordsArray.length] || '';
+      const mystery = this._buildMysteryCard(solvedWordsArray.length + 1, targetWordsArray.length, nextWord.length);
       mystery.onclick = () => {
+        const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
+        if (hintBox) {
+          hintBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          hintBox.style.animation = 'none';
+          void hintBox.offsetWidth;
+          hintBox.style.animation = 'mysteryPulse 0.8s ease-in-out 2';
+        }
         const hintBtn = document.getElementById('hint-btn');
         if (hintBtn) hintBtn.click();
       };
@@ -4243,8 +4251,17 @@ class WordSlotsRenderer {
       };
       container.appendChild(banner);
     } else {
-      const mystery = this._buildMysteryCard();
+      const remainingTargetWords = this._targetWords.filter((_, idx) => idx >= this._solvedCount);
+      const nextWord = remainingTargetWords[0] || '';
+      const mystery = this._buildMysteryCard(this._solvedCount + 1, total, nextWord.length);
       mystery.onclick = () => {
+        const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
+        if (hintBox) {
+          hintBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          hintBox.style.animation = 'none';
+          void hintBox.offsetWidth;
+          hintBox.style.animation = 'mysteryPulse 0.8s ease-in-out 2';
+        }
         const hintBtn = document.getElementById('hint-btn');
         if (hintBtn) hintBtn.click();
       };
@@ -4256,10 +4273,22 @@ class WordSlotsRenderer {
 
   /* ── private helpers ── */
 
-  _buildMysteryCard() {
+  _buildMysteryCard(wordNum = 1, total = 1, letterCount = 0) {
     const card = document.createElement('div');
     card.className = 'mystery-card';
-    card.textContent = '?';
+    card.style.cursor = 'pointer';
+    card.title = `Word ${wordNum} of ${total}${letterCount ? ` (${letterCount} letters)` : ''} — Tap for hint`;
+    if (total > 1) {
+      card.innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; pointer-events:none;">
+          <span style="font-size:0.55rem; letter-spacing:1px; color:var(--accent-gold); font-weight:700; text-transform:uppercase;">WORD ${wordNum}</span>
+          <span style="font-size:1.4rem; line-height:1;">?</span>
+          ${letterCount ? `<span style="font-size:0.52rem; color:var(--text-secondary); letter-spacing:0.5px;">${letterCount} LTRS</span>` : ''}
+        </div>
+      `;
+    } else {
+      card.textContent = '?';
+    }
     return card;
   }
 
@@ -7942,18 +7971,20 @@ if (typeof module !== 'undefined' && module.exports) {
           : `${currentLevel.category || 'VIRTUES'}`;
       }
 
-      // Contemplative hint: the passage with the word blanked out. Present only
-      // where a verified quotation containing the word exists, so the hint box
-      // is hidden rather than showing a generic placeholder line.
+      // Contemplative hint: the passage with the word blanked out.
       const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
       if (hintBox) {
         const clozeHint = (rawLevelObj.hint_kind === 'cloze' && rawLevelObj.hint)
           ? rawLevelObj.hint : '';
         if (clozeHint) {
-          hintBox.textContent = `“${clozeHint}”`;
+          const totalWordsCount = (currentLevel.targetWords || []).length;
+          const wordBadge = totalWordsCount > 1
+            ? `<div class="micro-label" style="color:var(--accent-gold); font-weight:700; font-size:0.62rem; margin-bottom:0.25rem; letter-spacing:1.5px;">CLUE FOR WORD 1 OF ${totalWordsCount}</div>`
+            : `<div class="micro-label" style="color:var(--accent-gold); font-weight:700; font-size:0.62rem; margin-bottom:0.25rem; letter-spacing:1.5px;">CONTEMPLATIVE CLUE</div>`;
+          hintBox.innerHTML = `${wordBadge}<span>“${clozeHint}”</span>`;
           hintBox.style.display = '';
         } else {
-          hintBox.textContent = '';
+          hintBox.innerHTML = '';
           hintBox.style.display = 'none';
         }
       }
@@ -8079,6 +8110,7 @@ if (typeof module !== 'undefined' && module.exports) {
             const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
             if (hintBox && remainingWords.length > 0) {
               const nextWord = remainingWords[0];
+              const wordOrderIndex = targetWords.length - remainingWords.length + 1;
               const nextQuote = window.scriptureCardRenderer
                 ? window.scriptureCardRenderer.getQuoteForWord(nextWord)
                 : null;
@@ -8086,7 +8118,12 @@ if (typeof module !== 'undefined' && module.exports) {
                 // Cloze blank out the target word
                 const clozeRegex = new RegExp(`\\b${nextWord}\\b`, 'gi');
                 const clozeText = nextQuote.text.replace(clozeRegex, '_______');
-                hintBox.textContent = `“${clozeText}”`;
+                hintBox.innerHTML = `
+                  <div class="micro-label" style="color:var(--accent-gold); font-weight:700; font-size:0.62rem; margin-bottom:0.25rem; letter-spacing:1.5px;">
+                    CLUE FOR WORD ${wordOrderIndex} OF ${targetWords.length} (${nextWord.length} LETTERS)
+                  </div>
+                  <span>“${clozeText}”</span>
+                `;
                 hintBox.style.display = 'block';
               }
             }
@@ -8117,6 +8154,72 @@ if (typeof module !== 'undefined' && module.exports) {
           }, 800);
         }
       });
+
+      // Expose word submit handler for universal keyboard typing in Mode A
+      window.handleModeAWordSubmit = (typedWord) => {
+        if (!typedWord) return;
+        const spelledWord = typedWord.trim().toUpperCase();
+        if (!spelledWord) return;
+
+        const isBonusWord = bonusWords.some(w => w.toUpperCase() === spelledWord);
+        const result = isBonusWord && !bonusSolved.includes(spelledWord)
+          ? { status: 'VALID_BONUS', word: spelledWord }
+          : window.wordValidatorController.validateWord(spelledWord, targetWords, solvedWords);
+
+        if (result.status === 'VALID_NEW') {
+          solvedWords.push(result.word);
+          if (window.sanctuaryController && !window.sanctuaryController.getTodayWord()) {
+            window.sanctuaryController.setTodayWord(result.word);
+          }
+          const quote = window.scriptureCardRenderer
+            ? window.scriptureCardRenderer.getQuoteForWord(result.word)
+            : null;
+          window.wordSlotsRenderer.revealWordSlot('discovery-area', result.word, quote);
+          if (wordDisplayEl) wordDisplayEl.textContent = `✨ ${result.word}!`;
+
+          const remainingWords = targetWords.filter(w => !solvedWords.includes(w.toUpperCase()));
+          const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
+          if (hintBox && remainingWords.length > 0) {
+            const nextWord = remainingWords[0];
+            const wordOrderIndex = targetWords.length - remainingWords.length + 1;
+            const nextQuote = window.scriptureCardRenderer
+              ? window.scriptureCardRenderer.getQuoteForWord(nextWord)
+              : null;
+            if (nextQuote && nextQuote.text) {
+              const clozeRegex = new RegExp(`\\b${nextWord}\\b`, 'gi');
+              const clozeText = nextQuote.text.replace(clozeRegex, '_______');
+              hintBox.innerHTML = `
+                <div class="micro-label" style="color:var(--accent-gold); font-weight:700; font-size:0.62rem; margin-bottom:0.25rem; letter-spacing:1.5px;">
+                  CLUE FOR WORD ${wordOrderIndex} OF ${targetWords.length} (${nextWord.length} LETTERS)
+                </div>
+                <span>“${clozeText}”</span>
+              `;
+              hintBox.style.display = 'block';
+            }
+          }
+
+          if (window.levelManagerController.checkLevelCompletion(targetWords, solvedWords)) {
+            setTimeout(() => {
+              window.levelManagerController.completeLevel(userProfile, targetWords);
+            }, 1200);
+          }
+        } else if (result.status === 'VALID_BONUS') {
+          bonusSolved.push(result.word);
+          showBonusToast(result.word);
+          if (wordDisplayEl) wordDisplayEl.textContent = `⭐ ${result.word}!`;
+        } else if (result.status === 'VALID_ALREADY_SOLVED') {
+          if (wordDisplayEl) wordDisplayEl.textContent = `✓ ${result.word}`;
+          window.scriptureCardRenderer.renderScriptureCard(result.word);
+        } else if (result.status === 'INVALID') {
+          if (wordDisplayEl) wordDisplayEl.textContent = `❌ ${spelledWord}`;
+        }
+
+        setTimeout(() => {
+          if (wordDisplayEl && (result.status === 'INVALID' || result.status === 'EMPTY')) {
+            wordDisplayEl.textContent = '';
+          }
+        }, 800);
+      };
 
       }
 
@@ -8707,28 +8810,48 @@ if (typeof module !== 'undefined' && module.exports) {
       }
 
       // Universal Input Manager (Keyboard & Pointer)
+      let typedModeABuffer = '';
       window.universalInput = new UniversalInputManager({
         audioEngine: window.soundEngine,
         onLetterInput: (char) => {
           if (window.modeManager.currentMode === ModeManager.MODE_B && window.activeFourPicsEngine) {
             if (window.soundEngine) window.soundEngine.playLetterSnapChime(660);
             window.activeFourPicsEngine.selectByChar(char);
+          } else if (window.modeManager.currentMode === ModeManager.MODE_A) {
+            typedModeABuffer += char;
+            const wordDisplayEl = document.getElementById('spelled-word-display');
+            if (wordDisplayEl) wordDisplayEl.textContent = typedModeABuffer;
+            if (window.soundEngine) window.soundEngine.playLetterSnapChime(660);
           }
         },
         onBackspace: () => {
           if (window.modeManager.currentMode === ModeManager.MODE_B && window.activeFourPicsEngine) {
             if (window.soundEngine) window.soundEngine.playLetterSnapChime(540);
             window.activeFourPicsEngine.popLastLetter();
+          } else if (window.modeManager.currentMode === ModeManager.MODE_A) {
+            typedModeABuffer = typedModeABuffer.slice(0, -1);
+            const wordDisplayEl = document.getElementById('spelled-word-display');
+            if (wordDisplayEl) wordDisplayEl.textContent = typedModeABuffer;
+            if (window.soundEngine) window.soundEngine.playLetterSnapChime(540);
           }
         },
         onSubmit: () => {
           if (window.modeManager.currentMode === ModeManager.MODE_B && window.activeFourPicsEngine) {
             window.activeFourPicsEngine.validateAnswer();
+          } else if (window.modeManager.currentMode === ModeManager.MODE_A) {
+            if (typedModeABuffer && typeof window.handleModeAWordSubmit === 'function') {
+              const wordToSubmit = typedModeABuffer;
+              typedModeABuffer = '';
+              window.handleModeAWordSubmit(wordToSubmit);
+            }
           }
         },
         onShuffle: () => {
           if (window.modeManager.currentMode === ModeManager.MODE_B && window.activeFourPicsEngine) {
             window.activeFourPicsEngine.shuffleBank();
+          } else if (window.modeManager.currentMode === ModeManager.MODE_A) {
+            const shuffleBtn = document.getElementById('shuffle-btn');
+            if (shuffleBtn) shuffleBtn.click();
           }
         },
         onToggleQuietRoom: () => {
