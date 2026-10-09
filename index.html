@@ -5300,10 +5300,10 @@ class WisdomCardExporter {
    * @returns {HTMLCanvasElement}
    */
   generateCardCanvas(data = {}) {
-    const word = String(data.word || 'SILENCE').toUpperCase();
-    const meaning = data.meaning || data.root || 'The peaceful stillness of the inner consciousness.';
-    const quote = data.quote || 'In the silence of the mind, the divine force acts.';
-    const author = data.author || 'Sri Aurobindo';
+    const word = String(data.word || '').toUpperCase();
+    const meaning = data.meaning || data.root || '';
+    const quote = data.quote || '';
+    const author = data.author || '';
     const levelStr = data.levelIndex ? `Stage ${data.levelIndex} • The Control of Speech` : 'Vak • The Control of Speech';
 
     const canvas = document.createElement('canvas');
@@ -5438,9 +5438,10 @@ class WisdomCardExporter {
         if (blob) {
           const file = new File([blob], fileName, { type: 'image/png' });
           if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            const authorText = data.author ? ` — ${data.author}` : '';
             await navigator.share({
-              title: `Vak: The Control of Speech — ${data.word}`,
-              text: `“${data.quote || ''}” — ${data.author || 'Sri Aurobindo'}`,
+              title: `Vak: The Control of Speech — ${data.word || ''}`,
+              text: data.quote ? `“${data.quote}”${authorText}` : 'Contemplative Word Puzzle',
               files: [file]
             });
             return { shared: true, method: 'native_share' };
