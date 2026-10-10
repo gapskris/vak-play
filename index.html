@@ -113,7 +113,8 @@ body.theme-twilight {
   width: 100%;
   max-width: 500px;
   height: 100%;
-  height: 100dvh;
+  height: 100vh;
+  height: var(--app-height, 100dvh);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -122,8 +123,11 @@ body.theme-twilight {
   box-sizing: border-box;
   background: var(--bg-gradient);
   border-radius: 0;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-top: max(env(safe-area-inset-top, 0px), 4px);
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 4px);
+  padding-left: max(env(safe-area-inset-left, 0px), 0px);
+  padding-right: max(env(safe-area-inset-right, 0px), 0px);
+  container-type: inline-size;
 }
 
 #particle-canvas {
@@ -164,8 +168,8 @@ body.theme-twilight {
 @media (max-width: 599px) {
   #app-container {
     width: 100vw;
-    height: 100dvh;
     height: 100vh;
+    height: var(--app-height, 100dvh);
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -503,16 +507,17 @@ body, p, .body-text {
 
 /* 7. SVG Letter Wheel & Gesture Components */
 #letter-wheel-svg {
-  width: clamp(200px, min(80vw, 36vh), 310px);
-  height: clamp(200px, min(80vw, 36vh), 310px);
+  width: var(--wheel-dynamic-size, clamp(190px, min(76vw, 34vh), 290px));
+  height: var(--wheel-dynamic-size, clamp(190px, min(76vw, 34vh), 290px));
   max-width: 90vw;
-  max-height: 38vh;
+  max-height: 44vh;
   touch-action: none;
   user-select: none;
   overflow: visible;
   flex-shrink: 0;
   margin: 0.1rem auto 0.2rem;
   display: block;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .wheel-node-bg {
@@ -1730,10 +1735,12 @@ input[type="range"]::-moz-range-thumb:hover {
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.4rem) !important;
   }
 
-  /* 4. Clamp wheel and keyboard bank to the bottom thumb zone */
+  /* 4. Clamp wheel and keyboard bank to the bottom thumb zone with dynamic autosizing */
   #letter-wheel-svg {
-    max-width: clamp(210px, 64vw, 270px) !important;
-    max-height: clamp(210px, 64vw, 270px) !important;
+    width: var(--wheel-dynamic-size, clamp(180px, 64vw, 270px)) !important;
+    height: var(--wheel-dynamic-size, clamp(180px, 64vw, 270px)) !important;
+    max-width: 90vw !important;
+    max-height: 48vh !important;
     margin: 0 auto !important;
   }
 
@@ -5959,10 +5966,10 @@ class GestureTrackerController {
       }
     }
 
-    // Fallback bounding rect math
+    // Fallback bounding rect math (viewBox is 0 0 320 320)
     const rect = this.svgEl.getBoundingClientRect();
-    const scaleX = 300 / (rect.width || 300);
-    const scaleY = 300 / (rect.height || 300);
+    const scaleX = 320 / (rect.width || 320);
+    const scaleY = 320 / (rect.height || 320);
     return {
       x: (evt.clientX - rect.left) * scaleX,
       y: (evt.clientY - rect.top) * scaleY
@@ -8211,6 +8218,9 @@ if (typeof module !== 'undefined' && module.exports) {
               : null;
             window.wordSlotsRenderer.revealWordSlot('discovery-area', result.word, quote);
             if (wordDisplayEl) wordDisplayEl.textContent = `✨ ${result.word}!`;
+            if (typeof window.updateDynamicViewportMetrics === 'function') {
+              window.updateDynamicViewportMetrics();
+            }
 
             // Dynamic Hint Update: Update the left contemplation hint for the remaining unsolved word
             const remainingWords = targetWords.filter(w => !solvedWords.includes(w.toUpperCase()));
@@ -8283,6 +8293,9 @@ if (typeof module !== 'undefined' && module.exports) {
             : null;
           window.wordSlotsRenderer.revealWordSlot('discovery-area', result.word, quote);
           if (wordDisplayEl) wordDisplayEl.textContent = `✨ ${result.word}!`;
+          if (typeof window.updateDynamicViewportMetrics === 'function') {
+            window.updateDynamicViewportMetrics();
+          }
 
           const remainingWords = targetWords.filter(w => !solvedWords.includes(w.toUpperCase()));
           const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
@@ -9070,6 +9083,93 @@ if (typeof module !== 'undefined' && module.exports) {
         setTimeout(() => closeMenu(), 500);
       });
     }
+
+    // ═════════════════════════════════════════════════════════════════
+    // DYNAMIC SCREEN ADJUSTING MECHANISM (Option C: Budget-Driven Fit)
+    // ═════════════════════════════════════════════════════════════════
+    (function initDynamicScreenAdjuster() {
+      if (typeof window === 'undefined') return;
+
+      let resizeThrottle = null;
+
+      function updateViewportMetrics() {
+        // 1. Precise Viewport Height Calculation
+        const vp = window.visualViewport;
+        const currentVh = vp ? vp.height : window.innerHeight;
+        document.documentElement.style.setProperty('--app-height', `${Math.round(currentVh)}px`);
+
+        // 2. Budget Measurement for Active Game Screen
+        const puzzleScreen = document.getElementById('puzzle-screen');
+        const wheelSvg = document.getElementById('letter-wheel-svg');
+        const discoveryArea = document.getElementById('discovery-area');
+        const headerRow = document.querySelector('.puzzle-header-row');
+        const mainHeader = document.querySelector('.main-header');
+        const spelledWordContainer = document.getElementById('spelled-word-container');
+        const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
+
+        if (!puzzleScreen || !wheelSvg) return;
+
+        // Skip dynamic wheel squeeze on desktop 3-column grid
+        if (window.innerWidth >= 1024) {
+          document.documentElement.style.setProperty('--wheel-dynamic-size', '310px');
+          return;
+        }
+
+        // Available vertical space inside #puzzle-screen
+        const availableHeight = puzzleScreen.clientHeight || (currentVh - (mainHeader ? mainHeader.offsetHeight : 50));
+        const availableWidth = puzzleScreen.clientWidth || window.innerWidth;
+
+        const headerRowH = headerRow ? headerRow.offsetHeight : 42;
+        const spelledH = spelledWordContainer ? spelledWordContainer.offsetHeight : 36;
+        
+        // Measure hint and discovery box heights (only if visible)
+        let extraOccupiedH = 0;
+        if (hintBox && hintBox.style.display !== 'none' && hintBox.offsetHeight > 0) {
+          extraOccupiedH += hintBox.offsetHeight + 6;
+        }
+        if (discoveryArea && discoveryArea.offsetHeight > 0) {
+          extraOccupiedH += Math.min(discoveryArea.offsetHeight, availableHeight * 0.28);
+        }
+
+        // Safety margin for gap, paddings, and thumb zone
+        const safetyPadding = 28;
+        const freeVerticalHeight = availableHeight - headerRowH - spelledH - extraOccupiedH - safetyPadding;
+
+        // Symmetric square diameter: constrained by both available width and free vertical height
+        const maxAllowedByWidth = Math.round(availableWidth * 0.88);
+        const dynamicDiameter = Math.max(160, Math.min(maxAllowedByWidth, Math.round(freeVerticalHeight)));
+
+        // Apply dynamically to CSS custom property
+        document.documentElement.style.setProperty('--wheel-dynamic-size', `${dynamicDiameter}px`);
+
+        // Notify letter wheel renderer and re-sync node coordinates if needed
+        if (window.letterWheelRenderer && typeof window.letterWheelRenderer.setDynamicDiameter === 'function') {
+          window.letterWheelRenderer.setDynamicDiameter(dynamicDiameter);
+        }
+      }
+
+      window.updateDynamicViewportMetrics = () => {
+        if (resizeThrottle) cancelAnimationFrame(resizeThrottle);
+        resizeThrottle = requestAnimationFrame(() => {
+          updateViewportMetrics();
+          resizeThrottle = null;
+        });
+      };
+
+      // Listen to resize, orientation change, and visualViewport scaling
+      window.addEventListener('resize', window.updateDynamicViewportMetrics, { passive: true });
+      window.addEventListener('orientationchange', () => {
+        setTimeout(window.updateDynamicViewportMetrics, 150);
+      }, { passive: true });
+
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', window.updateDynamicViewportMetrics, { passive: true });
+      }
+
+      // Initial execution
+      requestAnimationFrame(updateViewportMetrics);
+      setTimeout(updateViewportMetrics, 300);
+    })();
   </script>
 
 </body>
