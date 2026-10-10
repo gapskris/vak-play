@@ -1836,6 +1836,40 @@ body.theme-aspiration #card-path-scholar strong {
   </script>
   <script>
 
+/* --- src/config/features.js --- */
+/**
+ * Vak: Words of Light & Wisdom — System Feature Flags
+ * Controls feature rollouts and expansion packages across environments.
+ */
+
+const FEATURE_FLAGS = {
+  /**
+   * Stage 2 (v2) Ashram Sanctum & Sacred Vocabulary Vault Expansion
+   * When false (v1 default):
+   *   - Levels 1–350 only (Universal words).
+   *   - Reaching Level 350 awards "Luminous ✨" Grandmaster trophy & victory certificate.
+   *   - Sanctum UI, Sacred Ranks, and Levels 351–500 remain completely dormant/hidden.
+   * When true (v2 enabled):
+   *   - Completing Level 350 awards +500 Sparks graduation gift.
+   *   - Unlocks the "Ashram Sanctum Portal" leading into Levels 351–500.
+   *   - Activates Sacred Titles: Sadhak 🪷 ➔ Tapasin 🔥 ➔ Jnani ☀️ ➔ Siddha 🌟.
+   */
+  ENABLE_V2_ASHRAM_SANCTUM: false,
+
+  /**
+   * Cloud Remote Configuration Override (Optional)
+   * Allows toggling v2 remotely without requiring a new client build.
+   */
+  ALLOW_REMOTE_CONFIG_OVERRIDE: false
+};
+
+if (typeof window !== 'undefined') {
+  window.FEATURE_FLAGS = FEATURE_FLAGS;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { FEATURE_FLAGS };
+}
+
 /* --- src/controllers/eventBus.js --- */
 /**
  * Vak: The Control of Speech — Decoupled Nano Event Bus
@@ -3710,9 +3744,12 @@ class StorageAdapter {
         }
       }
     }
+    const profile = await this.getProfile();
     return JSON.stringify({
       schema: 'AuroVakJourney_v1',
+      version: '1.0.0',
       exportedAt: new Date().toISOString(),
+      player: profile ? profile.player : null,
       data: backup
     }, null, 2);
   }
@@ -3733,6 +3770,165 @@ class StorageAdapter {
       return false;
     }
   }
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // V1 PLAYER PROFILE & ZERO-DATA-LOSS MIGRATION ENGINE
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  /**
+   * Returns the primary storage key for the v1 player profile.
+   */
+  getProfileKey() {
+    return 'vak_player_profile_v1';
+  }
+
+  /**
+   * Constructs a default fresh profile.
+   */
+  createDefaultProfile(name = 'Friend') {
+    return {
+      version: '1.0.0',
+      player: {
+        name: name || 'Friend',
+        currentLevel: 1,
+        maxLevelUnlocked: 1,
+        currentRank: 'Aspirant',
+        rankIndex: 1,
+        sparks: 100,
+        lifetimeSparksEarned: 100
+      },
+      progress: {
+        completedLevelIds: [],
+        unlockedWordKeys: [],
+        bonusWordsFoundTotal: 0
+      },
+      stats: {
+        hintsUsedTotal: 0,
+        cleanSolvesCount: 0,
+        lastPlayedTimestamp: Date.now()
+      },
+      settings: {
+        soundEnabled: true,
+        hapticsEnabled: true,
+        ambientAudioEnabled: false,
+        preferredMode: 'wheel'
+      }
+    };
+  }
+
+  /**
+   * Retrieves player profile, migrating legacy data if needed without resetting.
+   */
+  async getProfile() {
+    const raw = await this.getItem(this.getProfileKey());
+    if (raw) {
+      try {
+        const parsed = (typeof raw === 'string') ? JSON.parse(raw) : raw;
+        if (parsed && parsed.player) return parsed;
+      } catch (e) {
+        console.warn('[StorageAdapter] Error parsing profile:', e);
+      }
+    }
+
+    // Inspect legacy key: auro_vak_user
+    const legacyRaw = await this.getItem('auro_vak_user');
+    if (legacyRaw) {
+      try {
+        const legacy = (typeof legacyRaw === 'string') ? JSON.parse(legacyRaw) : legacyRaw;
+        if (legacy) {
+          const migrated = this.migrateFromLegacy(legacy);
+          await this.saveProfile(migrated);
+          return migrated;
+        }
+      } catch (err) {
+        console.warn('[StorageAdapter] Legacy migration error:', err);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Synchronous getProfile fallback for immediate template rendering.
+   */
+  getProfileSync() {
+    if (typeof localStorage === 'undefined') return null;
+    const raw = localStorage.getItem(this.getProfileKey());
+    if (raw) {
+      try {
+        return JSON.parse(raw);
+      } catch (e) {}
+    }
+    const legacyRaw = localStorage.getItem('auro_vak_user');
+    if (legacyRaw) {
+      try {
+        const legacy = JSON.parse(legacyRaw);
+        return this.migrateFromLegacy(legacy);
+      } catch (e) {}
+    }
+    return null;
+  }
+
+  /**
+   * Non-destructive migration from legacy auro_vak_user schema.
+   */
+  migrateFromLegacy(legacy) {
+    const profile = this.createDefaultProfile(legacy.name || 'Friend');
+    const legacyLvl = (legacy.levelIndex !== undefined) ? legacy.levelIndex + 1 : (legacy.currentLevelIndex || 1);
+    profile.player.currentLevel = Math.max(1, legacyLvl);
+    profile.player.maxLevelUnlocked = Math.max(1, legacyLvl);
+    
+    // Convert petals to sparks (1:1)
+    const petals = legacy.lotusPetals || 0;
+    profile.player.sparks = Math.max(100, petals + 100);
+    profile.player.lifetimeSparksEarned = profile.player.sparks;
+
+    // Migrate unlocked words if present
+    if (typeof localStorage !== 'undefined') {
+      try {
+        const words = JSON.parse(localStorage.getItem('auro_vak_unlocked_words') || '[]');
+        if (Array.isArray(words)) {
+          profile.progress.unlockedWordKeys = words;
+        }
+      } catch (e) {}
+    }
+
+    // Determine rank based on current level
+    const lvl = profile.player.currentLevel;
+    if (lvl > 290) { profile.player.currentRank = 'Luminous'; profile.player.rankIndex = 7; }
+    else if (lvl > 230) { profile.player.currentRank = 'Devoted'; profile.player.rankIndex = 6; }
+    else if (lvl > 170) { profile.player.currentRank = 'Illumined'; profile.player.rankIndex = 5; }
+    else if (lvl > 110) { profile.player.currentRank = 'Discerner'; profile.player.rankIndex = 4; }
+    else if (lvl > 64) { profile.player.currentRank = 'Thinker'; profile.player.rankIndex = 3; }
+    else if (lvl > 30) { profile.player.currentRank = 'Learner'; profile.player.rankIndex = 2; }
+    else { profile.player.currentRank = 'Aspirant'; profile.player.rankIndex = 1; }
+
+    return profile;
+  }
+
+  /**
+   * Persists profile to IndexedDB, Capacitor, and localStorage.
+   */
+  async saveProfile(profile) {
+    if (!profile) return false;
+    profile.stats = profile.stats || {};
+    profile.stats.lastPlayedTimestamp = Date.now();
+    await this.setItem(this.getProfileKey(), profile);
+
+    // Keep legacy auro_vak_user in sync for backwards-compatibility
+    if (typeof localStorage !== 'undefined') {
+      try {
+        const legacyObj = {
+          name: profile.player.name,
+          levelIndex: profile.player.currentLevel - 1,
+          lotusPetals: profile.player.sparks,
+          settings: profile.settings || {}
+        };
+        localStorage.setItem('auro_vak_user', JSON.stringify(legacyObj));
+      } catch (e) {}
+    }
+    return true;
+  }
 }
 
 const storageAdapter = new StorageAdapter();
@@ -3748,97 +3944,169 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /* --- src/controllers/onboarding.js --- */
 /**
- * Vak: The Control of Speech — Phase 2 Onboarding Controller
- * Handles first-boot path selection (Traditional, Secular, Youth) and user profile instantiation.
+ * Vak: Words of Light & Wisdom — Onboarding & Welcome Controller (v1)
+ * Handles:
+ *  - Welcome banner: "✨ WELCOME TO THE WORLD OF PUZZLES ✨"
+ *  - Player name prompt with 100% on-device privacy guarantee
+ *  - Returning player auto-resume with warm greeting
  */
 
 class OnboardingController {
   constructor() {
-    this.storageKey = 'auro_vak_user';
+    this.storageAdapter = (typeof window !== 'undefined' && window.storageAdapter) ? window.storageAdapter : null;
+  }
+
+  getAdapter() {
+    if (!this.storageAdapter && typeof window !== 'undefined' && window.storageAdapter) {
+      this.storageAdapter = window.storageAdapter;
+    }
+    return this.storageAdapter;
   }
 
   /**
-   * Checks if user profile exists in localStorage.
+   * Checks if user profile exists.
    */
   hasProfile() {
+    const adapter = this.getAdapter();
+    if (adapter && typeof adapter.getProfileSync === 'function') {
+      return adapter.getProfileSync() !== null;
+    }
     if (typeof localStorage === 'undefined') return false;
-    return localStorage.getItem(this.storageKey) !== null;
+    return localStorage.getItem('vak_player_profile_v1') !== null || localStorage.getItem('auro_vak_user') !== null;
   }
 
   /**
-   * Retrieves the stored user profile object.
+   * Retrieves the current profile synchronously or via adapter.
    */
   getProfile() {
-    if (!this.hasProfile()) return null;
+    const adapter = this.getAdapter();
+    if (adapter && typeof adapter.getProfileSync === 'function') {
+      const p = adapter.getProfileSync();
+      if (p) return p;
+    }
+    if (typeof localStorage === 'undefined') return null;
     try {
-      return JSON.parse(localStorage.getItem(this.storageKey));
+      const v1 = localStorage.getItem('vak_player_profile_v1');
+      if (v1) return JSON.parse(v1);
+      const legacy = localStorage.getItem('auro_vak_user');
+      if (legacy) return JSON.parse(legacy);
     } catch (e) {
-      console.error('Error parsing user profile:', e);
-      return null;
+      console.warn('Error reading profile:', e);
     }
-  }
-
-  /**
-   * Creates and persists the default user profile object.
-   * @param {string} sanctuaryMode - 'traditional' | 'secular' | 'youth'
-   */
-  createDefaultProfile(sanctuaryMode = 'traditional') {
-    const defaultProfile = {
-      userId: `usr_${Date.now()}`,
-      levelIndex: 0,
-      lotusPetals: 0,
-      settings: {
-        audioVolume: 0.8,
-        speechNarration: true,
-        voiceName: 'en-IN',
-        themePreference: 'auto',
-        sanctuaryMode: sanctuaryMode,
-        dailyReminderEnabled: false,
-        reminderTime: '18:00'
-      }
-    };
-
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem(this.storageKey, JSON.stringify(defaultProfile));
-    }
-
-    return defaultProfile;
+    return null;
   }
 
   /**
    * Initializes onboarding flow on app boot.
    */
-  initOnboarding(callbacks = {}) {
-    if (this.hasProfile()) {
-      if (callbacks.onProfileExists) callbacks.onProfileExists(this.getProfile());
-      return false; // No onboarding needed
+  async initOnboarding(callbacks = {}) {
+    const adapter = this.getAdapter();
+    let profile = adapter ? await adapter.getProfile() : this.getProfile();
+
+    if (profile) {
+      // Returning player: Show warm resume toast & call onProfileExists
+      this.showWelcomeBackBanner(profile);
+      if (callbacks.onProfileExists) callbacks.onProfileExists(profile);
+      return false;
     }
 
     // First-boot onboarding required
     const modalEl = document.getElementById('onboarding-modal');
     const backdropEl = document.getElementById('menu-backdrop');
     if (modalEl) {
+      this.renderOnboardingModalContent(modalEl);
       modalEl.style.display = 'flex';
       if (backdropEl) backdropEl.style.display = 'block';
     }
 
-    const bindCard = (btnId, mode) => {
-      const btn = document.getElementById(btnId);
-      if (btn) {
-        btn.onclick = () => {
-          const profile = this.createDefaultProfile(mode);
-          if (modalEl) modalEl.style.display = 'none';
-          if (backdropEl) backdropEl.style.display = 'none';
-          if (callbacks.onComplete) callbacks.onComplete(profile);
+    const startBtn = document.getElementById('btn-start-journey');
+    const nameInput = document.getElementById('player-name-input');
+
+    if (startBtn) {
+      startBtn.onclick = async () => {
+        const enteredName = nameInput ? nameInput.value.trim() : '';
+        const playerName = enteredName || 'Friend';
+        const newProfile = adapter ? adapter.createDefaultProfile(playerName) : {
+          version: '1.0.0',
+          player: {
+            name: playerName,
+            currentLevel: 1,
+            maxLevelUnlocked: 1,
+            currentRank: 'Aspirant',
+            rankIndex: 1,
+            sparks: 100,
+            lifetimeSparksEarned: 100
+          },
+          progress: { completedLevelIds: [], unlockedWordKeys: [], bonusWordsFoundTotal: 0 },
+          stats: { hintsUsedTotal: 0, cleanSolvesCount: 0 }
         };
+
+        if (adapter) {
+          await adapter.saveProfile(newProfile);
+        } else if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('vak_player_profile_v1', JSON.stringify(newProfile));
+        }
+
+        if (modalEl) modalEl.style.display = 'none';
+        if (backdropEl) backdropEl.style.display = 'none';
+
+        if (callbacks.onComplete) callbacks.onComplete(newProfile);
+      };
+    }
+
+    return true;
+  }
+
+  /**
+   * Injects the friendly welcome & name entry content into #onboarding-modal.
+   */
+  renderOnboardingModalContent(modalEl) {
+    if (!modalEl) return;
+    modalEl.innerHTML = `
+      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:0.75rem; width:100%;">
+        <div style="font-size:2.4rem; filter:drop-shadow(0 0 16px rgba(251,191,36,0.6));">✨</div>
+        <span class="micro-label" style="color:var(--accent-gold); font-weight:800; font-size:0.75rem; letter-spacing:2.5px;">WELCOME TO THE WORLD OF PUZZLES</span>
+        <h2 style="margin:0; font-family:'Cinzel',serif; font-size:1.35rem; letter-spacing:2px; background:linear-gradient(135deg,#fde68a,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+          VAK — Words of Light & Wisdom
+        </h2>
+        
+        <p class="body-text" style="font-size:0.85rem; line-height:1.45; color:var(--text-secondary); margin:0.2rem 0 0.5rem;">
+          Embark on a mindful journey of discovery across 350 illuminating levels.
+        </p>
+
+        <div style="width:100%; box-sizing:border-box; background:rgba(255,255,255,0.04); border:1px solid rgba(251,191,36,0.25); border-radius:18px; padding:1rem; display:flex; flex-direction:column; gap:0.6rem; text-align:left;">
+          <label for="player-name-input" style="font-family:'Cinzel',serif; font-size:0.78rem; font-weight:700; color:var(--accent-gold); letter-spacing:1px;">
+            WHAT IS YOUR NAME OR ADVENTURER NICKNAME?
+          </label>
+          <input type="text" id="player-name-input" placeholder="e.g. Maya, Aarav, Seeker..." maxlength="24"
+            style="width:100%; box-sizing:border-box; padding:0.65rem 0.85rem; border-radius:10px; border:1px solid rgba(251,191,36,0.4); background:rgba(3,4,12,0.85); color:#fff; font-size:0.95rem; font-family:'Outfit',sans-serif; outline:none;" />
+          <span style="font-size:0.7rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.3rem;">
+            🔒 Stored privately on your device. No login, email or password required.
+          </span>
+        </div>
+
+        <button id="btn-start-journey" class="touch-target 3d-pill-btn" style="width:100%; margin-top:0.4rem; padding:0.75rem 1rem; font-size:0.95rem; font-weight:800; font-family:'Cinzel',serif; letter-spacing:2px; background:linear-gradient(135deg,#fbbf24,#d97706); color:#1c0a00; border:none; box-shadow:0 4px 18px rgba(251,191,36,0.4);">
+          LET'S BEGIN JOURNEY ▶
+        </button>
+      </div>
+    `;
+  }
+
+  /**
+   * Displays warm personalized auto-resume greeting on launch.
+   */
+  showWelcomeBackBanner(profile) {
+    if (!profile || !profile.player) return;
+    const name = profile.player.name || 'Friend';
+    const lvl = profile.player.currentLevel || 1;
+    const rank = profile.player.currentRank || 'Aspirant';
+
+    // Show friendly toast after small delay
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && window.showToast) {
+        window.showToast(`✨ Welcome back, ${name}! Continuing journey at Level ${lvl} (${rank})`, 'success');
       }
-    };
-
-    bindCard('card-path-youth', 'youth');
-    bindCard('card-path-seeker', 'seeker');
-    bindCard('card-path-scholar', 'scholar');
-
-    return true; // Onboarding active
+    }, 600);
   }
 }
 
@@ -6239,78 +6507,105 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /* --- src/controllers/hintSystem.js --- */
 /**
- * Vak: The Control of Speech — Phase 4 Progressive 3-Stage Hint Engine
- * Stage 1: Highlights starting letter node on wheel (.node-hint-start)
- * Stage 2: Temporarily reveals first 2 letters in slot (.hint-revealed)
- * Stage 3: Highlights all letter nodes for the word on the wheel (.node-hint-full)
+ * Vak: Words of Light & Wisdom — Hint System & Sparks Economy Controller (v1)
+ * Rules:
+ *  - Hint cost: -20 Sparks
+ *  - Reveals 1 random unrevealed slot letter
+ *  - Free wheel shuffle (0 Sparks)
+ *  - Prevents hint usage if sparks < 20 and shows helpful guidance
  */
 
 class HintSystemController {
   constructor() {
     this.hintStage = 0;
     this.currentHintWord = '';
+    this.hintsUsedInLevel = 0;
   }
 
-  /**
-   * Resets hint stage counters.
-   */
   resetHintState() {
     this.hintStage = 0;
     this.currentHintWord = '';
+    this.hintsUsedInLevel = 0;
     this.clearHintHighlights();
   }
 
   /**
-   * Triggers progressive hint cycling for the active target level.
+   * Purchases and applies a letter hint using Sparks.
    */
-  triggerHint(targetWordsArray = [], solvedWordsArray = [], nodesCoordinates = [], svgWheelId = 'letter-wheel-svg', slotsContainerId = 'word-slots-container') {
+  async purchaseHint(profile, targetWordsArray = [], solvedWordsArray = [], nodesCoordinates = []) {
+    if (!profile || !profile.player) {
+      return { success: false, reason: 'NO_PROFILE' };
+    }
+
+    const currentSparks = profile.player.sparks || 0;
+    const HINT_COST = 20;
+
+    if (currentSparks < HINT_COST) {
+      if (typeof window !== 'undefined' && window.showToast) {
+        window.showToast(`⚡ Need 20 Sparks. Solve levels to earn more! (Current: ${currentSparks} ⚡)`, 'error');
+      }
+      return { success: false, reason: 'INSUFFICIENT_SPARKS', currentSparks };
+    }
+
     // Find first unsolved target word
     const unsolvedWord = targetWordsArray.find(w => !solvedWordsArray.includes(w.toUpperCase()));
     if (!unsolvedWord) {
-      return { stage: 0, status: 'NO_UNSOLVED_WORDS' };
+      return { success: false, reason: 'NO_UNSOLVED_WORDS' };
     }
 
+    // Deduct Sparks
+    profile.player.sparks -= HINT_COST;
+    profile.stats = profile.stats || {};
+    profile.stats.hintsUsedTotal = (profile.stats.hintsUsedTotal || 0) + 1;
+    this.hintsUsedInLevel++;
+
+    // Save profile
+    if (typeof window !== 'undefined' && window.storageAdapter) {
+      await window.storageAdapter.saveProfile(profile);
+    } else if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('vak_player_profile_v1', JSON.stringify(profile));
+    }
+
+    // Update Header Sparks display
+    if (typeof window !== 'undefined' && typeof window.updateHeaderDisplay === 'function') {
+      window.updateHeaderDisplay(profile);
+    }
+
+    // Reveal 1 random letter or highlight wheel starting node
     const wordUpper = unsolvedWord.toUpperCase();
-
-    // Reset stage if target word changed
-    if (this.currentHintWord !== wordUpper) {
-      this.currentHintWord = wordUpper;
-      this.hintStage = 0;
+    const firstChar = wordUpper[0];
+    const matchNode = nodesCoordinates.find(n => n.letter === firstChar);
+    if (matchNode) {
+      this.applyNodeClass('letter-wheel-svg', matchNode.index, 'node-hint-start');
     }
 
-    this.clearHintHighlights(svgWheelId, slotsContainerId);
-    this.hintStage++;
-
-    if (this.hintStage === 1) {
-      // Stage 1: Start Letter Node Glow
-      const startChar = wordUpper[0];
-      const startNode = nodesCoordinates.find(n => n.letter === startChar);
-      if (startNode) {
-        this.applyNodeClass(svgWheelId, startNode.index, 'node-hint-start');
-      }
-      return { stage: 1, targetWord: wordUpper, startLetter: startChar };
+    if (typeof window !== 'undefined' && window.showToast) {
+      window.showToast(`💡 Hint used (-20 ⚡). Starts with "${firstChar}"! (${profile.player.sparks} ⚡ remaining)`, 'success');
     }
 
-    if (this.hintStage === 2) {
-      // Stage 2: Slot 2-Letter Reveal
-      const chars2 = wordUpper.slice(0, 2);
-      this.revealSlotHintLetters(slotsContainerId, wordUpper, 2);
-      return { stage: 2, targetWord: wordUpper, revealedChars: chars2 };
+    return {
+      success: true,
+      revealedChar: firstChar,
+      targetWord: wordUpper,
+      remainingSparks: profile.player.sparks
+    };
+  }
+
+  // Backwards compatibility triggerHint
+  triggerHint(targetWordsArray = [], solvedWordsArray = [], nodesCoordinates = []) {
+    const profile = (typeof window !== 'undefined' && window.storageAdapter)
+      ? window.storageAdapter.getProfileSync()
+      : null;
+
+    if (profile) {
+      this.purchaseHint(profile, targetWordsArray, solvedWordsArray, nodesCoordinates);
+      return { stage: 1, status: 'PURCHASED' };
     }
 
-    if (this.hintStage >= 3) {
-      // Stage 3: Full Wheel Path Highlight
-      for (let i = 0; i < wordUpper.length; i++) {
-        const char = wordUpper[i];
-        const matchNode = nodesCoordinates.find(n => n.letter === char);
-        if (matchNode) {
-          this.applyNodeClass(svgWheelId, matchNode.index, 'node-hint-full');
-        }
-      }
-      // Reset hint stage for next cycle
-      this.hintStage = 0;
-      return { stage: 3, targetWord: wordUpper };
-    }
+    // Fallback if profile not found
+    const unsolved = targetWordsArray.find(w => !solvedWordsArray.includes(w.toUpperCase()));
+    if (!unsolved) return { stage: 0, status: 'NO_UNSOLVED_WORDS' };
+    return { stage: 1, startLetter: unsolved[0], targetWord: unsolved };
   }
 
   applyNodeClass(svgWheelId, nodeIndex, className) {
@@ -6323,37 +6618,13 @@ class HintSystemController {
     }
   }
 
-  revealSlotHintLetters(slotsContainerId, wordUpper, count = 2) {
+  clearHintHighlights(svgWheelId = 'letter-wheel-svg') {
     if (typeof document === 'undefined') return;
-    const container = document.getElementById(slotsContainerId);
-    if (!container) return;
-    const row = container.querySelector(`.word-slot-row[data-word="${wordUpper}"]`);
-    if (!row) return;
-
-    const tiles = row.querySelectorAll('.letter-box.blank');
-    for (let i = 0; i < Math.min(count, tiles.length); i++) {
-      tiles[i].classList.add('hint-revealed');
-      tiles[i].textContent = tiles[i].getAttribute('data-char');
-    }
-  }
-
-  clearHintHighlights(svgWheelId = 'letter-wheel-svg', slotsContainerId = 'word-slots-container') {
-    if (typeof document === 'undefined') return;
-
     const svgEl = document.getElementById(svgWheelId);
-    if (svgEl) {
-      const groups = svgEl.querySelectorAll('.wheel-node-group');
-      groups.forEach(g => g.classList.remove('node-hint-start', 'node-hint-full'));
-    }
-
-    const container = document.getElementById(slotsContainerId);
-    if (container) {
-      const hintTiles = container.querySelectorAll('.letter-box.hint-revealed');
-      hintTiles.forEach(t => {
-        t.classList.remove('hint-revealed');
-        t.textContent = '';
-      });
-    }
+    if (!svgEl) return;
+    svgEl.querySelectorAll('.node-hint-start, .node-hint-full').forEach(el => {
+      el.classList.remove('node-hint-start', 'node-hint-full');
+    });
   }
 }
 
@@ -6367,9 +6638,31 @@ if (typeof module !== 'undefined' && module.exports) {
 
 /* --- src/controllers/levelManager.js --- */
 /**
- * Vak: The Control of Speech — Phase 4 Level Completion & Reward Engine
- * Handles level completion checking, +5 lotus petal awards, and unlocked word persistence.
+ * Vak: Words of Light & Wisdom — Level Manager & Progression Controller (v1 + v2 Bridge)
+ * Handles:
+ *  - Linear level progression (1 -> 350)
+ *  - 7 Secular Ranks: Aspirant 🌱 -> Learner 📖 -> Thinker 🔥 -> Discerner ⭐ -> Illumined 🌟 -> Devoted 💫 -> Luminous ✨
+ *  - Rank promotion milestones at 30, 64, 110, 170, 230, 290, 350 (+50 Sparks)
+ *  - Sparks awards on completion (+10 level, +5 clean solve, +3 bonus words)
+ *  - Stage 2 (v2) feature flag bridge at Level 350
  */
+
+const RANKS = [
+  { index: 1, name: 'Aspirant', icon: '🌱', maxLevel: 30, title: 'Aspirant 🌱' },
+  { index: 2, name: 'Learner', icon: '📖', maxLevel: 64, title: 'Learner 📖' },
+  { index: 3, name: 'Thinker', icon: '🔥', maxLevel: 110, title: 'Thinker 🔥' },
+  { index: 4, name: 'Discerner', icon: '⭐', maxLevel: 170, title: 'Discerner ⭐' },
+  { index: 5, name: 'Illumined', icon: '🌟', maxLevel: 230, title: 'Illumined 🌟' },
+  { index: 6, name: 'Devoted', icon: '💫', maxLevel: 290, title: 'Devoted 💫' },
+  { index: 7, name: 'Luminous', icon: '✨', maxLevel: 350, title: 'Luminous ✨' }
+];
+
+const SACRED_RANKS = [
+  { index: 8, name: 'Sadhak', icon: '🪷', maxLevel: 390, title: 'Sadhak 🪷' },
+  { index: 9, name: 'Tapasin', icon: '🔥', maxLevel: 430, title: 'Tapasin 🔥' },
+  { index: 10, name: 'Jnani', icon: '☀️', maxLevel: 470, title: 'Jnani ☀️' },
+  { index: 11, name: 'Siddha', icon: '🌟', maxLevel: 500, title: 'Siddha 🌟' }
+];
 
 class LevelManagerController {
   constructor() {
@@ -6377,140 +6670,133 @@ class LevelManagerController {
   }
 
   /**
-   * Filters levels for the active path.
-   *
-   * Two distinct ideas were previously conflated and are now separated:
-   *
-   *   SANCTUARY MODE — presentation only. 'traditional' | 'secular' | 'youth'.
-   *     Controls terminology and visual treatment. Only 'youth' also restricts
-   *     content, and it does so by selecting the Youth realm.
-   *
-   *   REALM — difficulty, carried in the data. 'Youth' | 'Seeker' | 'Scholar'.
-   *
-   * Realm names are also accepted directly so a player can choose a difficulty
-   * independently of presentation.
-   *
-   * @param {Array} rawLevelsArray - Complete master level list
-   * @param {string} sanctuaryMode - Mode or realm name
-   * @returns {Array} Filtered levels
+   * Calculates the rank object for any level number.
    */
-  filterLevelsByMode(rawLevelsArray = [], sanctuaryMode = 'traditional') {
-    if (!Array.isArray(rawLevelsArray) || rawLevelsArray.length === 0) return rawLevelsArray;
-
-    const mode = String(sanctuaryMode || 'traditional').toLowerCase();
-
-    // Presentation-only modes see the whole corpus.
-    if (mode === 'traditional' || mode === 'secular') return rawLevelsArray;
-
-    const byRealm = (wanted) => rawLevelsArray.filter(lvl => {
-      const realm = (lvl.realm || '').toLowerCase();
-      const audience = (lvl.target_audience || '').toLowerCase();
-      if (realm === wanted || audience.includes(wanted)) return true;
-      // Legacy level packs carry a boolean flag instead of a realm.
-      if (wanted === 'youth' && lvl.isYouthFriendly === true) return true;
-      return false;
-    });
-
-    if (mode === 'youth' || mode === 'seeker' || mode === 'scholar') {
-      const matched = byRealm(mode);
-      // Never strand the player on an empty list.
-      return matched.length > 0 ? matched : rawLevelsArray;
+  getRankForLevel(levelNumber) {
+    if (levelNumber > 350 && (typeof FEATURE_FLAGS !== 'undefined' ? FEATURE_FLAGS.ENABLE_V2_ASHRAM_SANCTUM : false)) {
+      for (const r of SACRED_RANKS) {
+        if (levelNumber <= r.maxLevel) return r;
+      }
+      return SACRED_RANKS[SACRED_RANKS.length - 1];
     }
-
-    return rawLevelsArray;
+    for (const r of RANKS) {
+      if (levelNumber <= r.maxLevel) return r;
+    }
+    return RANKS[RANKS.length - 1];
   }
 
   /**
-   * Filters levels to a path.
-   *
-   *   'six-practices' — the app's named purpose: silence, truth, exaggeration,
-   *                     gossip, harsh speech, useful speech.
-   *   'wider-field'   — the broader Integral Yoga vocabulary, optional study.
-   *   'all'           — everything.
-   *
-   * Falls back to the whole list rather than stranding the player on an empty
-   * one, which can happen before the repository has been rebuilt with paths.
+   * Checks if completing this level awards a rank promotion.
    */
-  filterLevelsByPath(rawLevelsArray = [], path = 'all') {
-    if (!Array.isArray(rawLevelsArray) || rawLevelsArray.length === 0) return rawLevelsArray;
-    const wanted = String(path || 'all').toLowerCase();
-    if (wanted === 'all') return rawLevelsArray;
-
-    const matched = rawLevelsArray.filter(lvl => (lvl.path || '') === wanted);
-    return matched.length > 0 ? matched : rawLevelsArray;
-  }
-
-  /**
-   * The realm a mode begins in. Presentation modes do not imply a realm.
-   */
-  realmForMode(sanctuaryMode = 'traditional') {
-    const mode = String(sanctuaryMode || 'traditional').toLowerCase();
-    if (mode === 'youth') return 'Youth';
-    if (mode === 'seeker') return 'Seeker';
-    if (mode === 'scholar') return 'Scholar';
-    return null; // traditional / secular span all realms
+  isMilestoneLevel(levelNumber) {
+    return [30, 64, 110, 170, 230, 290, 350].includes(levelNumber);
   }
 
   /**
    * Checks if all target words for the active level have been solved.
-   * @param {string[]} targetWordsArray 
-   * @param {string[]} solvedWordsArray 
    */
   checkLevelCompletion(targetWordsArray = [], solvedWordsArray = []) {
-    if (targetWordsArray.length === 0) return false;
+    if (!targetWordsArray || targetWordsArray.length === 0) return false;
     return targetWordsArray.every(w => 
       solvedWordsArray.some(s => s.toUpperCase() === w.toUpperCase())
     );
   }
 
   /**
-   * Completes the current level, awards +5 Lotus Petals, and persists unlocked words.
-   * @param {Object} userProfile - User profile object
-   * @param {string[]} targetWordsArray - Solved level target words
+   * Completes the current level, calculates Sparks rewards, updates rank,
+   * and triggers victory modals.
    */
-  completeLevel(userProfile, targetWordsArray = []) {
-    if (!userProfile) return null;
+  async completeLevel(profile, levelData, options = {}) {
+    if (!profile) return null;
 
-    // 1. Award +5 Lotus Petals
-    userProfile.lotusPetals = (userProfile.lotusPetals || 0) + 5;
+    const currentLvl = profile.player ? profile.player.currentLevel : ((profile.levelIndex || 0) + 1);
+    const hintsUsed = options.hintsUsed || 0;
+    const bonusWordsFound = options.bonusWordsFound || 0;
 
-    // 2. Persist updated profile in localStorage
-    if (typeof localStorage !== 'undefined') {
-      try {
-        localStorage.setItem('auro_vak_user', JSON.stringify(userProfile));
+    // 1. Calculate Sparks rewards
+    const baseReward = 10;
+    const cleanBonus = (hintsUsed === 0) ? 5 : 0;
+    const bonusWordsReward = bonusWordsFound * 3;
+    const totalLevelSparks = baseReward + cleanBonus + bonusWordsReward;
 
-        // Append target words to auro_vak_unlocked_words array
-        let unlocked = [];
-        try {
-          const cached = localStorage.getItem(this.unlockedWordsKey);
-          if (cached) unlocked = JSON.parse(cached);
-        } catch (e) {}
+    // Update profile
+    if (!profile.player) {
+      profile.player = {
+        name: profile.name || 'Friend',
+        currentLevel: currentLvl,
+        maxLevelUnlocked: currentLvl,
+        sparks: profile.lotusPetals || 100,
+        lifetimeSparksEarned: profile.lotusPetals || 100
+      };
+    }
 
-        targetWordsArray.forEach(word => {
-          const wordUpper = word.toUpperCase();
-          if (!unlocked.includes(wordUpper)) {
-            unlocked.push(wordUpper);
-          }
-        });
-        localStorage.setItem(this.unlockedWordsKey, JSON.stringify(unlocked));
-      } catch (err) {
-        console.warn('LocalStorage write failed in completeLevel:', err.message);
+    profile.player.sparks = (profile.player.sparks || 0) + totalLevelSparks;
+    profile.player.lifetimeSparksEarned = (profile.player.lifetimeSparksEarned || 0) + totalLevelSparks;
+
+    profile.progress = profile.progress || {};
+    profile.progress.completedLevelIds = profile.progress.completedLevelIds || [];
+    if (!profile.progress.completedLevelIds.includes(currentLvl)) {
+      profile.progress.completedLevelIds.push(currentLvl);
+    }
+
+    profile.stats = profile.stats || {};
+    if (hintsUsed === 0) {
+      profile.stats.cleanSolvesCount = (profile.stats.cleanSolvesCount || 0) + 1;
+    }
+
+    // Append unlocked words
+    const targetWords = (levelData && levelData.targetWords) ? levelData.targetWords : (levelData ? [levelData.targetWord] : []);
+    profile.progress.unlockedWordKeys = profile.progress.unlockedWordKeys || [];
+    targetWords.forEach(w => {
+      const u = String(w).toUpperCase();
+      if (!profile.progress.unlockedWordKeys.includes(u)) {
+        profile.progress.unlockedWordKeys.push(u);
       }
+    });
+
+    // Check rank promotion
+    const isPromo = this.isMilestoneLevel(currentLvl);
+    let promoRank = null;
+    if (isPromo) {
+      const nextLvl = currentLvl + 1;
+      promoRank = this.getRankForLevel(nextLvl);
+      profile.player.currentRank = promoRank.name;
+      profile.player.rankIndex = promoRank.index;
+      // Award +50 sparks promotion gift
+      profile.player.sparks += 50;
+      profile.player.lifetimeSparksEarned += 50;
     }
 
-    // 3. Trigger Ashram Gong Victory Sound
+    // Save profile via StorageAdapter
+    if (typeof window !== 'undefined' && window.storageAdapter) {
+      await window.storageAdapter.saveProfile(profile);
+    } else if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('vak_player_profile_v1', JSON.stringify(profile));
+    }
+
+    // Audio chime
     if (typeof window !== 'undefined' && window.soundEngine) {
-      const themeMode = document.body.classList.contains('theme-aspiration') ? 'aspiration' : 'sanctuary';
-      window.soundEngine.playAshramGong(themeMode);
+      window.soundEngine.playAshramGong('morning');
     }
 
-    // 4. Render Level Complete Modal Overlay
-    this.renderLevelCompleteModal(userProfile);
+    // Render completion UI
+    this.renderLevelCompleteModal(profile, {
+      levelNumber: currentLvl,
+      levelData,
+      totalLevelSparks,
+      cleanBonus,
+      bonusWordsReward,
+      isPromo,
+      promoRank
+    });
 
-    return userProfile;
+    return profile;
   }
 
-  renderLevelCompleteModal(userProfile) {
+  /**
+   * Renders the Level Complete modal with sparks breakdown.
+   */
+  renderLevelCompleteModal(profile, details) {
     if (typeof document === 'undefined') return;
 
     let modal = document.getElementById('level-complete-modal');
@@ -6521,81 +6807,186 @@ class LevelManagerController {
       modal.style.position = 'absolute';
       modal.style.inset = '0';
       modal.style.margin = 'auto';
-      modal.style.width = '90%';
-      modal.style.maxWidth = '360px';
+      modal.style.width = '92%';
+      modal.style.maxWidth = '380px';
       modal.style.height = 'fit-content';
       modal.style.display = 'flex';
       modal.style.flexDirection = 'column';
       modal.style.alignItems = 'center';
-      modal.style.gap = '1rem';
-      modal.style.zIndex = '1000';
+      modal.style.gap = '0.8rem';
+      modal.style.zIndex = '5000';
       modal.style.textAlign = 'center';
-      modal.style.padding = '1.5rem';
+      modal.style.padding = '1.35rem 1rem';
+      modal.style.borderRadius = '24px';
+      modal.style.border = '2px solid rgba(251,191,36,0.4)';
+      modal.style.boxShadow = '0 12px 40px rgba(0,0,0,0.8), 0 0 30px rgba(251,191,36,0.2)';
 
       const container = document.getElementById('app-container') || document.body;
       container.appendChild(modal);
     }
 
+    const lvlNum = details.levelNumber;
+    const sparks = details.totalLevelSparks;
+    const cleanBonusText = details.cleanBonus > 0 ? `<div style="color:#6ee7b7; font-size:0.75rem;">✨ Mindful Clean Solve (+5 ⚡)</div>` : '';
+    const bonusWordsText = details.bonusWordsReward > 0 ? `<div style="color:#fde68a; font-size:0.75rem;">⭐ Bonus Words Discovered (+${details.bonusWordsReward} ⚡)</div>` : '';
+
+    const wordResolved = (details.levelData && details.levelData.targetWord) ? details.levelData.targetWord : '';
+    const quoteText = (details.levelData && details.levelData.quote) ? `“${details.levelData.quote}”` : '';
+    const authorText = (details.levelData && details.levelData.author) ? `— ${details.levelData.author}` : '';
+
     modal.style.display = 'flex';
     modal.innerHTML = `
-      <span class="micro-label" style="color: var(--accent-gold); font-weight: 700;">LEVEL COMPLETED</span>
-      <h2 style="margin: 0;">Inner Silence Attained</h2>
-      <div style="background: rgba(251, 191, 36, 0.15); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 0.75rem 1.25rem;">
-        <span style="font-size: 1.5rem;">🪷 +5 Lotus Petals</span>
-        <br>
-        <small class="caption" style="color: var(--text-secondary);">Total Balance: ${userProfile.lotusPetals} Petals</small>
+      <div style="font-size:2rem; filter:drop-shadow(0 0 12px rgba(251,191,36,0.6));">✨</div>
+      <span class="micro-label" style="color:var(--accent-gold); font-weight:800; letter-spacing:2px; font-size:0.75rem;">LEVEL ${lvlNum} COMPLETED</span>
+      <h2 style="margin:0; font-family:'Cinzel',serif; font-size:1.4rem; color:#fff; letter-spacing:2px;">
+        ${wordResolved}
+      </h2>
+
+      ${quoteText ? `
+        <div style="background:rgba(255,255,255,0.04); border-left:3px solid var(--accent-gold); padding:0.6rem 0.8rem; border-radius:8px; text-align:left; max-width:320px;">
+          <p style="font-family:Georgia,serif; font-style:italic; font-size:0.8rem; line-height:1.45; color:var(--text-secondary); margin:0;">${quoteText}</p>
+          <small style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--accent-gold); display:block; margin-top:0.3rem;">${authorText}</small>
+        </div>
+      ` : ''}
+
+      <div style="background:linear-gradient(135deg,rgba(251,191,36,0.18),rgba(192,132,252,0.18)); border:1px solid rgba(251,191,36,0.4); border-radius:16px; padding:0.75rem 1.25rem; width:100%; box-sizing:border-box;">
+        <span style="font-family:'Cinzel',serif; font-size:1.35rem; font-weight:800; color:var(--accent-gold);">
+          +${sparks} Sparks ⚡
+        </span>
+        ${cleanBonusText}
+        ${bonusWordsText}
+        <div style="font-size:0.72rem; color:rgba(255,255,255,0.7); margin-top:0.3rem;">
+          Total Balance: <strong>${profile.player.sparks} ⚡</strong>
+        </div>
       </div>
-      <button id="btn-share-victory" class="touch-target 3d-pill-btn" style="width: 100%; font-size: 0.85rem; font-weight: 700;">
-        📲 Share Victory Card
-      </button>
-      <button id="btn-next-level" class="touch-target btn-primary" style="width: 100%; margin-top: 0.25rem;">
-        Next Meditation Level
+
+      <button id="btn-next-level" class="touch-target 3d-pill-btn" style="width:100%; margin-top:0.3rem; padding:0.75rem; font-size:0.95rem; font-weight:800; font-family:'Cinzel',serif; background:linear-gradient(135deg,#fbbf24,#d97706); color:#1c0a00; border:none; box-shadow:0 4px 18px rgba(251,191,36,0.4);">
+        NEXT LEVEL ▶
       </button>
     `;
-
-    const shareBtn = document.getElementById('btn-share-victory');
-    if (shareBtn) {
-      shareBtn.onclick = async () => {
-        const shareData = {
-          title: 'VAK — The Control of Speech',
-          text: `🪷 VAK — Inner Silence Attained!\nLevel ${userProfile.levelIndex || 1} Completed | ${userProfile.lotusPetals || 5} Lotus Petals Earned ✨\nPracticing Integral Yoga & Speech Control.`,
-          url: window.location.href
-        };
-        try {
-          if (navigator.share) {
-            await navigator.share(shareData);
-          } else if (navigator.clipboard) {
-            await navigator.clipboard.writeText(`${shareData.text}\n${shareData.url}`);
-            if (window.showToast) window.showToast('Victory Card copied to clipboard!', 'success');
-          }
-        } catch (err) {
-          console.log('Share error:', err);
-        }
-      };
-    }
 
     const nextBtn = document.getElementById('btn-next-level');
     if (nextBtn) {
       nextBtn.onclick = () => {
         modal.style.display = 'none';
-        // Advance in place. Reloading tears down the audio context and the
-        // particle field and flashes the screen white between levels.
-        if (typeof window !== 'undefined' && typeof window.advanceToNextLevel === 'function') {
-          window.advanceToNextLevel();
-        } else if (typeof window !== 'undefined' && window.location) {
-          window.location.reload();
+
+        // If promotion milestone reached, show promotion celebration modal
+        if (details.isPromo && details.promoRank) {
+          this.renderPromotionModal(profile, details.promoRank);
+        } else if (lvlNum === 350) {
+          this.handleEndgameLevel350(profile);
+        } else {
+          if (typeof window !== 'undefined' && typeof window.advanceToNextLevel === 'function') {
+            window.advanceToNextLevel();
+          }
         }
       };
     }
   }
+
+  /**
+   * Renders the Grand Promotion Celebration Modal when crossing a milestone.
+   */
+  renderPromotionModal(profile, newRank) {
+    if (typeof document === 'undefined') return;
+
+    let promoModal = document.getElementById('rank-promotion-modal');
+    if (!promoModal) {
+      promoModal = document.createElement('div');
+      promoModal.id = 'rank-promotion-modal';
+      promoModal.className = 'glass-panel';
+      promoModal.style.position = 'absolute';
+      promoModal.style.inset = '0';
+      promoModal.style.margin = 'auto';
+      promoModal.style.width = '92%';
+      promoModal.style.maxWidth = '390px';
+      promoModal.style.height = 'fit-content';
+      promoModal.style.display = 'flex';
+      promoModal.style.flexDirection = 'column';
+      promoModal.style.alignItems = 'center';
+      promoModal.style.gap = '0.9rem';
+      promoModal.style.zIndex = '6000';
+      promoModal.style.textAlign = 'center';
+      promoModal.style.padding = '1.6rem 1.2rem';
+      promoModal.style.borderRadius = '28px';
+      promoModal.style.border = '2px solid #fbbf24';
+      promoModal.style.boxShadow = '0 0 50px rgba(251,191,36,0.5), 0 16px 50px rgba(0,0,0,0.9)';
+
+      const container = document.getElementById('app-container') || document.body;
+      container.appendChild(promoModal);
+    }
+
+    const name = profile.player ? profile.player.name : 'Seeker';
+
+    promoModal.style.display = 'flex';
+    promoModal.innerHTML = `
+      <div style="font-size:3rem; filter:drop-shadow(0 0 20px rgba(251,191,36,0.8));">🏆</div>
+      <span class="micro-label" style="color:#fbbf24; font-weight:800; letter-spacing:3px; font-size:0.8rem;">PROMOTION UNLOCKED!</span>
+      <h2 style="margin:0; font-family:'Cinzel',serif; font-size:1.6rem; color:#fff; letter-spacing:2px;">
+        ${newRank.title}
+      </h2>
+      <p class="body-text" style="font-size:0.88rem; line-height:1.45; color:var(--text-secondary); margin:0;">
+        Congratulations, <strong>${name}</strong>! Your dedication and mindfulness have elevated your consciousness to the rank of <strong>${newRank.name}</strong>.
+      </p>
+
+      <div style="background:rgba(251,191,36,0.15); border:1px solid rgba(251,191,36,0.4); border-radius:14px; padding:0.6rem 1rem;">
+        <span style="font-family:'Cinzel',serif; font-weight:700; color:#fbbf24; font-size:1rem;">
+          🎁 +50 Bonus Sparks Credited! ⚡
+        </span>
+      </div>
+
+      <button id="btn-continue-promo" class="touch-target 3d-pill-btn" style="width:100%; margin-top:0.4rem; padding:0.8rem; font-size:0.95rem; font-weight:800; font-family:'Cinzel',serif; background:linear-gradient(135deg,#fbbf24,#d97706); color:#1c0a00; border:none; box-shadow:0 4px 20px rgba(251,191,36,0.5);">
+        CONTINUE AS ${newRank.name.toUpperCase()} ▶
+      </button>
+    `;
+
+    const continueBtn = document.getElementById('btn-continue-promo');
+    if (continueBtn) {
+      continueBtn.onclick = () => {
+        promoModal.style.display = 'none';
+        if (typeof window !== 'undefined' && typeof window.advanceToNextLevel === 'function') {
+          window.advanceToNextLevel();
+        }
+      };
+    }
+  }
+
+  /**
+   * Endgame handler for Level 350.
+   */
+  handleEndgameLevel350(profile) {
+    const isV2Enabled = (typeof FEATURE_FLAGS !== 'undefined') ? FEATURE_FLAGS.ENABLE_V2_ASHRAM_SANCTUM : false;
+
+    if (isV2Enabled) {
+      // Award +500 Sparks graduation gift and open Ashram Sanctum
+      profile.player.sparks += 500;
+      profile.player.lifetimeSparksEarned += 500;
+      if (typeof window !== 'undefined' && window.storageAdapter) {
+        window.storageAdapter.saveProfile(profile);
+      }
+      this.renderPromotionModal(profile, SACRED_RANKS[0]); // Sadhak 🪷
+    } else {
+      // Display Grandmaster Luminous Completion Certificate
+      if (typeof window !== 'undefined' && window.showToast) {
+        window.showToast('🌟 Grandmaster Luminous! You have mastered all 350 Levels of Vak!', 'success');
+      }
+    }
+  }
+
+  // Backwards-compatible filter stubs
+  filterLevelsByMode(levels) { return levels; }
+  filterLevelsByPath(levels) { return levels; }
+  realmForMode() { return null; }
 }
 
 const levelManagerController = new LevelManagerController();
 if (typeof window !== 'undefined') {
   window.levelManagerController = levelManagerController;
+  window.RANKS = RANKS;
+  window.SACRED_RANKS = SACRED_RANKS;
 }
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { LevelManagerController, levelManagerController };
+  module.exports = { LevelManagerController, levelManagerController, RANKS, SACRED_RANKS };
 }
 
 /* --- src/controllers/glossary.js --- */
@@ -7458,24 +7849,31 @@ if (typeof module !== 'undefined' && module.exports) {
     <div id="menu-backdrop" style="display: none; position: absolute; inset: 0; background: rgba(3, 4, 12, 0.72); z-index: 4000; border-radius: inherit;"></div>
 
     <!-- Top Header Bar (transparent — sits inside #app-container glass frame) -->
-    <header class="main-header" style="position: relative; z-index: 4500; width: 100%; box-sizing: border-box; padding: 0.5rem 0.75rem; background: transparent; border: none; box-shadow: none; border-bottom: 1px solid rgba(255,255,255,0.08);">
-      <div class="header-brand">
-        <div class="brand-monogram">
-          <span class="brand-lotus-icon">🪷</span>
-          <div class="brand-title-row">
-            <h2 id="app-header-title" class="brand-vak-title">VAK</h2>
-            <span class="brand-title-sep">·</span>
-            <span class="brand-subtitle">The Control of Speech</span>
+    <header class="main-header" style="position: relative; z-index: 4500; width: 100%; box-sizing: border-box; padding: 0.45rem 0.75rem; background: transparent; border: none; box-shadow: none; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+      <div class="header-brand" style="display: flex; align-items: center; gap: 0.5rem;">
+        <div class="brand-monogram" style="display: flex; align-items: center; gap: 0.35rem;">
+          <span class="brand-lotus-icon" style="font-size: 1.15rem;">🪷</span>
+          <div class="brand-title-row" style="display: flex; align-items: center; gap: 0.3rem;">
+            <h2 id="app-header-title" class="brand-vak-title" style="margin: 0; font-size: 1.05rem; font-family: 'Cinzel', serif;">VAK</h2>
           </div>
+        </div>
+        <!-- Player Name & Rank Badge -->
+        <div id="header-player-badge" style="display: inline-flex; align-items: center; gap: 0.3rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(251,191,36,0.3); border-radius: 12px; padding: 0.2rem 0.55rem; font-size: 0.75rem; font-family: 'Outfit', sans-serif;">
+          <span id="header-player-name" style="color: #fff; font-weight: 700;">Friend</span>
+          <span style="color: rgba(255,255,255,0.4);">•</span>
+          <span id="header-player-rank" style="color: var(--accent-gold); font-weight: 600;">Aspirant 🌱</span>
         </div>
       </div>
       
-      <!-- Right Side: Ambient Audio & 3-Dots Menu -->
-      <div class="header-nav-actions" style="position: relative; display: flex; gap: 0.4rem; align-items: center;">
-        <button id="btn-toggle-ambient" class="touch-target 3d-pill-btn" style="font-size: 1.15rem; padding: 0.35rem 0.6rem; font-weight: 800; min-width: 44px; min-height: 44px;" title="Toggle Meditative Soundscape">
+      <!-- Right Side: Sparks Balance, Ambient Audio & 3-Dots Menu -->
+      <div class="header-nav-actions" style="position: relative; display: flex; gap: 0.35rem; align-items: center;">
+        <div id="header-sparks-pill" class="touch-target 3d-pill-btn" style="padding: 0.25rem 0.55rem; font-size: 0.78rem; font-weight: 800; color: #fbbf24; border-color: rgba(251,191,36,0.4); display: flex; align-items: center; gap: 0.25rem;" title="Your Sparks Balance">
+          ⚡ <span id="header-sparks-count">100</span>
+        </div>
+        <button id="btn-toggle-ambient" class="touch-target 3d-pill-btn" style="font-size: 1.05rem; padding: 0.3rem 0.5rem; font-weight: 800; min-width: 38px; min-height: 38px;" title="Toggle Meditative Soundscape">
           🔇
         </button>
-        <button id="btn-three-dots-menu" class="nav-icon-btn touch-target 3d-pill-btn" style="font-size: 1.35rem; padding: 0.35rem 0.75rem; font-weight: 800; min-width: 44px; min-height: 44px;" aria-label="Menu" title="Navigation Menu">
+        <button id="btn-three-dots-menu" class="nav-icon-btn touch-target 3d-pill-btn" style="font-size: 1.25rem; padding: 0.3rem 0.6rem; font-weight: 800; min-width: 38px; min-height: 38px;" aria-label="Menu" title="Navigation Menu">
           ⋮
         </button>
 
@@ -7913,6 +8311,7 @@ if (typeof module !== 'undefined' && module.exports) {
   
   
   
+  
   <script>
     // Premium In-App Toast Alert System
     window.showToast = (message, type = 'success') => {
@@ -7978,112 +8377,78 @@ if (typeof module !== 'undefined' && module.exports) {
         await window.contentGuardController.refresh();
       }
 
-      // Fetch Dynamic OTA teachings & levels database
+      // Fetch Dynamic OTA teachings & 350-level progressive database
+      let levelsSourceDb = null;
+      try {
+        const levelsRes = await fetch('data/levels_source.json?v=' + Date.now());
+        if (levelsRes.ok) {
+          levelsSourceDb = await levelsRes.json();
+        }
+      } catch (err) {
+        console.warn('levels_source.json fetch fallback:', err);
+      }
+
       if (window.scriptureCardRenderer) {
         await window.scriptureCardRenderer.loadTeachingsDatabase();
       }
 
+      // Update Header with Player Profile & Sparks
+      window.updateHeaderDisplay = (profile) => {
+        if (!profile || !profile.player) return;
+        const nameEl = document.getElementById('header-player-name');
+        const rankEl = document.getElementById('header-player-rank');
+        const sparksEl = document.getElementById('header-sparks-count');
+        if (nameEl) nameEl.textContent = profile.player.name || 'Friend';
+        if (rankEl) {
+          const rankObj = window.levelManagerController.getRankForLevel(profile.player.currentLevel || 1);
+          rankEl.textContent = rankObj ? rankObj.title : (profile.player.currentRank || 'Aspirant 🌱');
+        }
+        if (sparksEl) sparksEl.textContent = profile.player.sparks !== undefined ? profile.player.sparks : 100;
+      };
+
       // 5. Puzzle screen.
-      //
-      // Wrapped in a function so a completed level can be replaced in place.
-      // Previously the app called window.location.reload() to advance, which
-      // tore down the audio context and particle field and produced a white
-      // flash between levels — jarring in an app whose purpose is to settle
-      // the mind. Gesture handlers are assigned with onpointer* properties,
-      // so re-running this replaces them rather than stacking them.
       function buildPuzzleScreen(userProfile) {
-      const fallbackLevelsData = [
-        {
-          theme: 'THEME 1: SILENCE',
-          letters: ['S', 'I', 'L', 'E', 'N', 'C', 'E'],
-          targetWords: ['SILENCE', 'LINE', 'NICE'],
-          bonusWords: ['LICE', 'LENS', 'LIEN', 'SINE', 'SINCE', 'NIECE', 'SLICE', 'ISLE', 'SEEN', 'SCENE', 'ELSE', 'NILS']
-        },
-        {
-          theme: 'THEME 2: CALM',
-          letters: ['C', 'A', 'L', 'M', 'P', 'E', 'A', 'C', 'E'],
-          targetWords: ['CALM', 'PEACE', 'CAMEL'],
-          bonusWords: ['CAMP', 'PLACE', 'PACE', 'LACE', 'CAPE', 'LAMP', 'PALM', 'MEAL', 'MALE', 'PLEA', 'CAME', 'ACME', 'CLAM', 'PEAL', 'MAPLE']
-        },
-        {
-          theme: 'THEME 3: SWEETNESS',
-          letters: ['S', 'W', 'E', 'E', 'T', 'K', 'I', 'N', 'D'],
-          targetWords: ['SWEET', 'KIND', 'SEEK'],
-          bonusWords: ['SEEN', 'WEED', 'SEED', 'STEW', 'SKEW', 'WEEK', 'WINK', 'DIKE', 'SKIN', 'DINE', 'WINE', 'TEED', 'TEEN', 'KITE', 'TIDE', 'TIED', 'TEND', 'SIDE', 'SINE', 'NEED', 'TWEED', 'STEIN', 'STEED', 'INKED']
-        },
-        {
-          theme: 'THEME 4: TRUTH',
-          letters: ['T', 'R', 'U', 'T', 'H', 'L', 'I', 'G', 'H'],
-          targetWords: ['TRUTH', 'LIGHT', 'GRIT'],
-          bonusWords: ['HURT', 'GIRL', 'GIRTH', 'GILT', 'TILT', 'HILT', 'THUG', 'LUST', 'TUFT', 'TILTH']
+        const profile = userProfile.player ? userProfile : (window.storageAdapter ? window.storageAdapter.getProfileSync() : userProfile);
+        window.updateHeaderDisplay(profile);
+
+        let levelsToPlay = [];
+        if (levelsSourceDb && Array.isArray(levelsSourceDb.levels) && levelsSourceDb.levels.length > 0) {
+          levelsToPlay = levelsSourceDb.levels;
+        } else {
+          levelsToPlay = fallbackLevelsData;
         }
-      ];
 
-      const loadedDb = window.scriptureCardRenderer ? window.scriptureCardRenderer.teachingsDb : null;
-      // One default, matching onboarding and settings ('traditional').
-      // This previously defaulted to 'youth' here and 'traditional' 45 lines
-      // above, so a profile without the field silently got the Youth realm.
-      const sanctuaryMode = userProfile.settings.sanctuaryMode || 'traditional';
+        const currentLvlNum = profile.player ? profile.player.currentLevel : ((userProfile.levelIndex || 0) + 1);
+        const currentLevelIndex = Math.max(0, (currentLvlNum - 1) % levelsToPlay.length);
+        const rawLevelObj = levelsToPlay[currentLevelIndex];
 
-      let rawLevels = [];
-      if (loadedDb && Array.isArray(loadedDb.levels) && loadedDb.levels.length > 0) {
-        rawLevels = loadedDb.levels;
-      } else {
-        rawLevels = fallbackLevelsData;
-      }
-
-      const levelsData = window.levelManagerController
-        ? window.levelManagerController.filterLevelsByMode(rawLevels, sanctuaryMode)
-        : rawLevels;
-
-      let levelsToPlay = levelsData.length > 0 ? levelsData : rawLevels;
-
-      // Filter by selected theme category
-      const selectedTheme = userProfile.settings.selectedTheme || '';
-      if (selectedTheme && selectedTheme !== 'Infinite Meditative Mode') {
-        const filteredByTheme = levelsToPlay.filter(lvl => {
-          const lvlTheme = lvl.theme || lvl.category || '';
-          return lvlTheme.toLowerCase() === selectedTheme.toLowerCase();
-        });
-        if (filteredByTheme.length > 0) {
-          levelsToPlay = filteredByTheme;
+        // Format Level Data structure for Letter Wheel & Crossword Slots
+        let currentLevel = {};
+        if (rawLevelObj.words && Array.isArray(rawLevelObj.words)) {
+          const uniqueChars = Array.from(new Set(rawLevelObj.words.join('').toUpperCase().split('')));
+          currentLevel = {
+            title: rawLevelObj.title || `Level ${currentLvlNum}`,
+            category: rawLevelObj.category || 'Spiritual Virtues',
+            letters: uniqueChars.length >= 4 ? uniqueChars : [...uniqueChars, 'S', 'I', 'L', 'E', 'N', 'C', 'E'].slice(0, 7),
+            targetWords: rawLevelObj.words.map(w => w.toUpperCase()),
+            bonusWords: [],
+            hint: rawLevelObj.hint || ''
+          };
+        } else {
+          currentLevel = rawLevelObj;
         }
-      }
 
-      const currentLevelIndex = (userProfile.levelIndex || 0) % levelsToPlay.length;
-      const rawLevelObj = levelsToPlay[currentLevelIndex];
-
-      // Format Level Data structure for Letter Wheel & Crossword Slots
-      let currentLevel = {};
-      if (rawLevelObj.words && Array.isArray(rawLevelObj.words)) {
-        const uniqueChars = Array.from(new Set(rawLevelObj.words.join('').toUpperCase().split('')));
-        currentLevel = {
-          title: rawLevelObj.title || `Level ${currentLevelIndex + 1}`,
-          category: rawLevelObj.category || 'Spiritual Virtues',
-          letters: uniqueChars.length >= 4 ? uniqueChars : [...uniqueChars, 'S', 'I', 'L', 'E', 'N', 'C', 'E'].slice(0, 7),
-          targetWords: rawLevelObj.words.map(w => w.toUpperCase()),
-          bonusWords: [],
-          hint: rawLevelObj.hint || ''
-        };
-      } else {
-        currentLevel = rawLevelObj;
-      }
-
-      const levelThemeLabel = document.getElementById('level-theme-label');
-      if (levelThemeLabel) {
-        const realmName = rawLevelObj.realm
-          || (window.levelManagerController
-                ? window.levelManagerController.realmForMode(sanctuaryMode)
-                : null);
-        const lvlNum = (userProfile.levelIndex || 0) + 1;
-        const realmUpper = realmName ? String(realmName).toUpperCase() : 'VIRTUES';
-        // Responsive format: On small viewports show realm + lvl, full on desktop
-        const isNarrow = typeof window !== 'undefined' && window.innerWidth < 480;
-        levelThemeLabel.textContent = isNarrow
-          ? `${realmUpper} • LVL ${lvlNum}`
-          : `${realmUpper} • ${currentLevel.category || 'VIRTUES'}`;
-        levelThemeLabel.title = `${realmUpper} Realm — ${currentLevel.category || 'Virtues'} (Level ${lvlNum})`;
-      }
+        const levelThemeLabel = document.getElementById('level-theme-label');
+        if (levelThemeLabel) {
+          const rankObj = window.levelManagerController.getRankForLevel(currentLvlNum);
+          const rankName = rankObj ? rankObj.name.toUpperCase() : 'ASPIRANT';
+          const domainName = currentLevel.domain || 'Virtues';
+          const isNarrow = typeof window !== 'undefined' && window.innerWidth < 480;
+          levelThemeLabel.textContent = isNarrow
+            ? `${rankName} • LVL ${currentLvlNum}`
+            : `${rankName} • ${domainName} (LVL ${currentLvlNum})`;
+          levelThemeLabel.title = `${rankName} — ${domainName} (Level ${currentLvlNum})`;
+        }
 
       // Contemplative hint: the passage with the word blanked out.
       const hintBox = document.getElementById('hint-box') || document.getElementById('clarity-hint');
@@ -8168,19 +8533,16 @@ if (typeof module !== 'undefined' && module.exports) {
         }
       }
 
-      // Bind Progressive Hint Cycling Button
+      // Bind Hint Button with Sparks Economy (-20 ⚡)
       const hintBtn = document.getElementById('hint-btn');
       if (hintBtn) {
-        hintBtn.onclick = () => {
-          const res = window.hintSystemController.triggerHint(targetWords, solvedWords, nodeCoords);
-          if (res.status === 'NO_UNSOLVED_WORDS') {
-            if (wordDisplayEl) wordDisplayEl.textContent = '✨ Level Completed!';
-          } else if (res.stage === 1) {
-            if (wordDisplayEl) wordDisplayEl.textContent = `💡 Starts with "${res.startLetter}"`;
-          } else if (res.stage === 2) {
-            if (wordDisplayEl) wordDisplayEl.textContent = `💡 Hint: "${res.revealedChars}..."`;
-          } else if (res.stage === 3) {
-            if (wordDisplayEl) wordDisplayEl.textContent = `💡 Highlighted "${res.targetWord}"`;
+        hintBtn.innerHTML = `💡 Hint <small style="opacity:0.8;font-size:0.7rem;">(-20⚡)</small>`;
+        hintBtn.onclick = async () => {
+          const activeProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : profile;
+          const res = await window.hintSystemController.purchaseHint(activeProfile, targetWords, solvedWords, nodeCoords);
+          if (res.success) {
+            if (wordDisplayEl) wordDisplayEl.textContent = `💡 Starts with "${res.revealedChar}"`;
+            window.updateHeaderDisplay(activeProfile);
           }
         };
       }
@@ -8246,8 +8608,13 @@ if (typeof module !== 'undefined' && module.exports) {
             }
 
             if (window.levelManagerController.checkLevelCompletion(targetWords, solvedWords)) {
-              setTimeout(() => {
-                window.levelManagerController.completeLevel(userProfile, targetWords);
+              setTimeout(async () => {
+                const activeProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : profile;
+                await window.levelManagerController.completeLevel(activeProfile, currentLevel, {
+                  hintsUsed: window.hintSystemController.hintsUsedInLevel || 0,
+                  bonusWordsFound: bonusSolved.length
+                });
+                window.updateHeaderDisplay(activeProfile);
               }, 1200);
             }
           } else if (result.status === 'VALID_BONUS') {
@@ -8319,8 +8686,13 @@ if (typeof module !== 'undefined' && module.exports) {
           }
 
           if (window.levelManagerController.checkLevelCompletion(targetWords, solvedWords)) {
-            setTimeout(() => {
-              window.levelManagerController.completeLevel(userProfile, targetWords);
+            setTimeout(async () => {
+              const activeProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : profile;
+              await window.levelManagerController.completeLevel(activeProfile, currentLevel, {
+                hintsUsed: window.hintSystemController.hintsUsedInLevel || 0,
+                bonusWordsFound: bonusSolved.length
+              });
+              window.updateHeaderDisplay(activeProfile);
             }, 1200);
           }
         } else if (result.status === 'VALID_BONUS') {
@@ -8344,25 +8716,41 @@ if (typeof module !== 'undefined' && module.exports) {
       }
 
       // Advance to the next level without reloading the page.
-      function advanceToNextLevel() {
-        userProfile.levelIndex = (userProfile.levelIndex || 0) + 1;
-        try {
-          localStorage.setItem('auro_vak_user', JSON.stringify(userProfile));
-        } catch (e) { /* storage unavailable — progress stays in memory */ }
+      async function advanceToNextLevel() {
+        const activeProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : null;
+        if (activeProfile && activeProfile.player) {
+          activeProfile.player.currentLevel = (activeProfile.player.currentLevel || 1) + 1;
+          activeProfile.player.maxLevelUnlocked = Math.max(activeProfile.player.maxLevelUnlocked || 1, activeProfile.player.currentLevel);
+          const rankObj = window.levelManagerController.getRankForLevel(activeProfile.player.currentLevel);
+          if (rankObj) {
+            activeProfile.player.currentRank = rankObj.name;
+            activeProfile.player.rankIndex = rankObj.index;
+          }
+          if (window.storageAdapter) await window.storageAdapter.saveProfile(activeProfile);
+          userProfile.levelIndex = activeProfile.player.currentLevel - 1;
+        } else {
+          userProfile.levelIndex = (userProfile.levelIndex || 0) + 1;
+          try {
+            localStorage.setItem('auro_vak_user', JSON.stringify(userProfile));
+          } catch (e) {}
+        }
 
         const modal = document.getElementById('level-complete-modal');
         if (modal) modal.style.display = 'none';
+        const promoModal = document.getElementById('rank-promotion-modal');
+        if (promoModal) promoModal.style.display = 'none';
         const scripture = document.getElementById('scripture-card-modal');
         if (scripture) scripture.style.display = 'none';
 
         if (window.hintSystemController) window.hintSystemController.resetHintState();
         if (window.gestureTrackerController) window.gestureTrackerController.resetGestureState();
 
-        buildPuzzleScreen(userProfile);
+        const updatedProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : userProfile;
+        buildPuzzleScreen(updatedProfile);
 
         if (window.bloomingLotusRenderer) {
           window.bloomingLotusRenderer.renderBloomingLotus(
-            'blooming-lotus-container', userProfile.lotusPetals || 0);
+            'blooming-lotus-container', (updatedProfile && updatedProfile.player) ? updatedProfile.player.sparks : (userProfile.lotusPetals || 0));
         }
       }
       window.advanceToNextLevel = advanceToNextLevel;
@@ -8395,12 +8783,15 @@ if (typeof module !== 'undefined' && module.exports) {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `auro_vak_backup_${Date.now()}.json`;
+            const p = window.storageAdapter ? (await window.storageAdapter.getProfile()) : null;
+            const pName = (p && p.player) ? p.player.name : 'Player';
+            const pLvl = (p && p.player) ? p.player.currentLevel : 1;
+            a.download = `Vak_Backup_${pName}_Lvl${pLvl}_${Date.now()}.json`;
             a.click();
             if (window.showToast) {
-              window.showToast('Encrypted backup exported successfully!', 'success');
+              window.showToast(`Backup exported for ${pName} (Level ${pLvl})!`, 'success');
             } else {
-              alert('Encrypted backup exported successfully!');
+              alert('Backup exported successfully!');
             }
           } catch (e) {
             if (window.showToast) {
