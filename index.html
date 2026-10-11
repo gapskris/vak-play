@@ -8418,8 +8418,10 @@ if (typeof module !== 'undefined' && module.exports) {
         let levelsToPlay = [];
         if (levelsSourceDb && Array.isArray(levelsSourceDb.levels) && levelsSourceDb.levels.length > 0) {
           levelsToPlay = levelsSourceDb.levels;
+        } else if (typeof window !== 'undefined' && window.__EMBEDDED_TEACHINGS_DB__ && Array.isArray(window.__EMBEDDED_TEACHINGS_DB__.levels)) {
+          levelsToPlay = window.__EMBEDDED_TEACHINGS_DB__.levels;
         } else {
-          levelsToPlay = fallbackLevelsData;
+          levelsToPlay = [{ id: 1, targetWord: 'CALM', letters: ['C','A','L','M'], targetWords: ['CALM'], bonusWords: ['CAM','MAC'], hint: 'Remaining peaceful inside.', domain: 'Peace' }];
         }
 
         const currentLvlNum = profile.player ? profile.player.currentLevel : ((userProfile.levelIndex || 0) + 1);
