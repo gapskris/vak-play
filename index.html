@@ -4015,8 +4015,12 @@ class OnboardingController {
     const backdropEl = document.getElementById('menu-backdrop');
     if (modalEl) {
       this.renderOnboardingModalContent(modalEl);
+      modalEl.style.zIndex = '6000';
       modalEl.style.display = 'flex';
-      if (backdropEl) backdropEl.style.display = 'block';
+      if (backdropEl) {
+        backdropEl.style.zIndex = '5500';
+        backdropEl.style.display = 'block';
+      }
     }
 
     const startBtn = document.getElementById('btn-start-journey');
@@ -8241,7 +8245,7 @@ if (typeof module !== 'undefined' && module.exports) {
     </div>
 
     <!-- First-Boot Onboarding Path Selector Modal -->
-    <div id="onboarding-modal" class="glass-panel" style="position: absolute; inset: 0; margin: auto; width: 92%; max-width: 390px; max-height: 88dvh; height: fit-content; display: none; flex-direction: column; justify-content: flex-start; align-items: stretch; z-index: 1000; overflow-y: auto; -webkit-overflow-scrolling: touch; text-align: center; gap: 0.65rem; padding: 1.25rem 1rem; border-radius: 28px; box-sizing: border-box;">
+    <div id="onboarding-modal" class="glass-panel" style="position: absolute; inset: 0; margin: auto; width: 92%; max-width: 390px; max-height: 88dvh; height: fit-content; display: none; flex-direction: column; justify-content: flex-start; align-items: stretch; z-index: 6000; overflow-y: auto; -webkit-overflow-scrolling: touch; text-align: center; gap: 0.65rem; padding: 1.25rem 1rem; border-radius: 28px; box-sizing: border-box;">
       <span class="micro-label" style="color: var(--accent-gold); font-weight: 700; font-size: 0.75rem; letter-spacing: 2px;">WELCOME TO VAK</span>
       <h2 style="margin: 0; font-family: 'Cinzel', serif; font-size: 1.25rem; letter-spacing: 1.5px; color: var(--accent-gold);">Choose Your Path</h2>
       <p class="body-text" style="font-size: 0.82rem; line-height: 1.35; margin-bottom: 0.25rem; color: var(--text-secondary);">
