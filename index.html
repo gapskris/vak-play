@@ -1938,6 +1938,235 @@ body.theme-aspiration #card-path-scholar strong {
   }
 }
 
+/* ═══════════════════════════════════════════════
+   PREMIUM 3D ELEVATION & TACTILE NEO-GLASSMORPHISM
+   ═══════════════════════════════════════════════ */
+
+/* 1. Elevated App Header */
+#app-header {
+  border-bottom: 1.5px solid rgba(251, 191, 36, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* 2. Elevated 3D Tactile Pills */
+.3d-pill-btn {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 100%) !important;
+  border: 1px solid rgba(251, 191, 36, 0.38) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28), 0 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.45) !important;
+  border-radius: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.25s ease !important;
+}
+
+.3d-pill-btn:hover {
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+}
+
+.3d-pill-btn:active {
+  transform: translateY(1.5px) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 3. Player Badge & Name/Rank Contrast */
+#header-player-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  gap: 0.35rem !important;
+  padding: 0.22rem 0.65rem !important;
+  border-radius: 18px !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  border: 1px solid rgba(251, 191, 36, 0.45) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+#header-player-name {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+#header-player-rank {
+  color: #fbbf24;
+  font-weight: 700;
+  white-space: nowrap !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* 4. Sparks Pill 3D Jewel Depth */
+#header-sparks-pill {
+  color: #fbbf24 !important;
+  background: linear-gradient(145deg, rgba(251, 191, 36, 0.22) 0%, rgba(217, 119, 6, 0.12) 100%) !important;
+  border: 1px solid rgba(251, 191, 36, 0.5) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.26), 0 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.45) !important;
+}
+
+/* 5. Row 2 Subheader 3D Buttons */
+#btn-mode-toggle,
+#hint-btn {
+  border: 1px solid rgba(251, 191, 36, 0.45) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28), 0 2px 0 rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 6. Vertical Flow Compaction & Gap Elimination */
+#puzzle-screen {
+  justify-content: flex-start !important;
+  gap: 0.3rem !important;
+}
+
+#mode-a-stage {
+  gap: 0.2rem !important;
+  width: 100%;
+}
+
+#discovery-area {
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0.2rem !important;
+}
+
+.cloze-sentence-banner {
+  margin: 0.15rem auto 0.25rem !important;
+}
+
+#spelled-word-container {
+  min-height: 28px !important;
+  margin: 0 !important;
+}
+
+#letter-wheel-svg {
+  margin: 0.15rem auto 0 !important;
+}
+
+/* 7. Enhanced 3D Wheel Node Styling */
+.wheel-node-bg {
+  stroke-width: 2px;
+  stroke: rgba(251, 191, 36, 0.55);
+  fill: #130f24;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.55));
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.wheel-node-ring {
+  stroke-width: 1px;
+  stroke: rgba(251, 191, 36, 0.7);
+  fill: none;
+}
+
+.wheel-node-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  fill: #fef08a;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+/* ═══════════════════════════════════════════════
+   LIGHT THEME (DAWN OF ASPIRATION) 3D POLISH & CONTRAST
+   ═══════════════════════════════════════════════ */
+body.theme-aspiration #app-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(254, 243, 199, 0.82) 100%) !important;
+  border-bottom: 1.5px solid rgba(180, 83, 9, 0.35) !important;
+  box-shadow: 0 4px 18px rgba(180, 83, 9, 0.15), inset 0 1px 1px #ffffff !important;
+}
+
+body.theme-aspiration .3d-pill-btn {
+  background: linear-gradient(145deg, #ffffff 0%, #fef3c7 100%) !important;
+  border: 1px solid rgba(180, 83, 9, 0.32) !important;
+  border-top: 1.5px solid #ffffff !important;
+  color: #451a03 !important;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.16), 0 2px 0 rgba(180, 83, 9, 0.1), inset 0 1px 0 #ffffff !important;
+}
+
+body.theme-aspiration #header-player-badge {
+  background: linear-gradient(145deg, #ffffff 0%, #fef3c7 100%) !important;
+  border: 1px solid rgba(180, 83, 9, 0.35) !important;
+  border-top: 1.5px solid #ffffff !important;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.16), 0 2px 0 rgba(180, 83, 9, 0.1), inset 0 1px 0 #ffffff !important;
+}
+
+body.theme-aspiration #header-player-name {
+  color: #3b1703 !important;
+  font-weight: 800 !important;
+  filter: drop-shadow(0 1px 0 #ffffff) !important;
+}
+
+body.theme-aspiration #header-player-rank {
+  color: #92400e !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+body.theme-aspiration #header-sparks-pill {
+  color: #92400e !important;
+  background: linear-gradient(145deg, #fffbeb 0%, #fde68a 100%) !important;
+  border: 1px solid rgba(217, 119, 6, 0.45) !important;
+  border-top: 1.5px solid #ffffff !important;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.18), 0 2px 0 rgba(180, 83, 9, 0.12), inset 0 1px 0 #ffffff !important;
+}
+
+body.theme-aspiration #btn-mode-toggle,
+body.theme-aspiration #hint-btn {
+  background: linear-gradient(145deg, #ffffff 0%, #fef3c7 100%) !important;
+  border: 1.5px solid rgba(180, 83, 9, 0.35) !important;
+  border-top: 1.5px solid #ffffff !important;
+  color: #451a03 !important;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.16), 0 2px 0 rgba(180, 83, 9, 0.1), inset 0 1px 0 #ffffff !important;
+}
+
+body.theme-aspiration #level-theme-label {
+  color: #78350f !important;
+  font-weight: 800 !important;
+  filter: drop-shadow(0 1px 0 #ffffff) !important;
+}
+
+body.theme-aspiration .cloze-sentence-banner {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(254, 243, 199, 0.90) 100%) !important;
+  border: 1.5px solid rgba(180, 83, 9, 0.35) !important;
+  border-top: 1.5px solid #ffffff !important;
+  box-shadow: 0 8px 24px rgba(180, 83, 9, 0.14), inset 0 1px 1px #ffffff !important;
+}
+
+body.theme-aspiration .cloze-domain-badge {
+  color: #92400e !important;
+  filter: none !important;
+}
+
+body.theme-aspiration .cloze-sentence-text {
+  color: #291605 !important;
+}
+
+body.theme-aspiration .cloze-blank-slot {
+  color: #92400e !important;
+  border-bottom: 2px dashed #92400e !important;
+  background: rgba(251, 191, 36, 0.25) !important;
+}
+
+body.theme-aspiration .wheel-node-bg {
+  fill: #ffffff !important;
+  stroke: #b45309 !important;
+  filter: drop-shadow(0 4px 10px rgba(180, 83, 9, 0.22)) !important;
+}
+
+body.theme-aspiration .wheel-node-ring {
+  stroke: #d97706 !important;
+}
+
+body.theme-aspiration .wheel-node-text {
+  fill: #451a03 !important;
+  filter: drop-shadow(0 1px 0 #ffffff) !important;
+}
+
 
 
 
@@ -8027,11 +8256,11 @@ if (typeof module !== 'undefined' && module.exports) {
             <h2 id="app-header-title" class="brand-vak-title" style="margin: 0; font-size: 1.05rem; font-family: 'Cinzel', serif;">VAK</h2>
           </div>
         </div>
-        <!-- Player Name & Rank Badge -->
-        <div id="header-player-badge" style="display: inline-flex; align-items: center; gap: 0.3rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(251,191,36,0.3); border-radius: 12px; padding: 0.2rem 0.55rem; font-size: 0.75rem; font-family: 'Outfit', sans-serif;">
-          <span id="header-player-name" style="color: #fff; font-weight: 700;">Friend</span>
-          <span style="color: rgba(255,255,255,0.4);">•</span>
-          <span id="header-player-rank" style="color: var(--accent-gold); font-weight: 600;">Aspirant 🌱</span>
+        <!-- Player Name & Rank Badge (Elevated 3D Pill) -->
+        <div id="header-player-badge" class="touch-target 3d-pill-btn" style="display: inline-flex; align-items: center; white-space: nowrap; gap: 0.35rem; padding: 0.22rem 0.6rem; font-size: 0.76rem; font-family: 'Outfit', sans-serif;">
+          <span id="header-player-name">Friend</span>
+          <span style="opacity: 0.45;">•</span>
+          <span id="header-player-rank">Aspirant 🌱</span>
         </div>
       </div>
       
@@ -8076,7 +8305,7 @@ if (typeof module !== 'undefined' && module.exports) {
     </header>
 
     <!-- Main Content Panel: Remembrance Puzzle View & 3-Column Studio -->
-    <main id="puzzle-screen" style="width: 100%; text-align: center; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 0.2rem; z-index: 1; padding: 0.35rem 0.75rem 0.5rem; box-sizing: border-box; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch;">
+    <main id="puzzle-screen" style="width: 100%; text-align: center; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 0.35rem; z-index: 1; padding: 0.35rem 0.75rem 0.5rem; box-sizing: border-box; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch;">
       
       <!-- Top Title Bar & Mode Switcher Row -->
       <div class="puzzle-header-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 0.3rem;">
@@ -8572,6 +8801,10 @@ if (typeof module !== 'undefined' && module.exports) {
         if (rankEl) {
           const rankObj = window.levelManagerController.getRankForLevel(profile.player.currentLevel || 1);
           rankEl.textContent = rankObj ? rankObj.title : (profile.player.currentRank || 'Aspirant 🌱');
+          rankEl.style.whiteSpace = 'nowrap';
+          rankEl.style.display = 'inline-flex';
+          rankEl.style.alignItems = 'center';
+          rankEl.style.gap = '0.2rem';
         }
         if (sparksEl) sparksEl.textContent = profile.player.sparks !== undefined ? profile.player.sparks : 100;
       };
@@ -8677,8 +8910,8 @@ if (typeof module !== 'undefined' && module.exports) {
         };
       }
 
-      // FTUE Animated Finger Drag Demo Overlay on Level 1
-      if ((userProfile.levelIndex || 0) === 0) {
+      // FTUE Animated Finger Drag Demo Overlay ONLY on Level 1
+      if (currentLvlNum === 1 && (!profile.stats || !profile.stats.hasCompletedFTUE)) {
         const wheelContainer = document.getElementById('letter-wheel-svg') ? document.getElementById('letter-wheel-svg').parentNode : null;
         if (wheelContainer && !document.getElementById('ftue-demo-overlay')) {
           const ftueOverlay = document.createElement('div');
@@ -8699,6 +8932,7 @@ if (typeof module !== 'undefined' && module.exports) {
               ftueOverlay.style.opacity = '0';
               setTimeout(() => ftueOverlay.remove(), 500);
             }
+            if (profile.stats) profile.stats.hasCompletedFTUE = true;
             window.removeEventListener('pointerdown', removeFtue);
           };
           window.addEventListener('pointerdown', removeFtue);
