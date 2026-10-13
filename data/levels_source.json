@@ -23,16 +23,12 @@
         "A"
       ],
       "bonusWords": [
-        "CAM",
-        "LAC",
-        "LAM",
-        "MAC",
-        "CLAM"
+        "CAM"
       ],
       "hint": "Take three deep breaths when you feel nervous to stay _______.",
       "quote": "Not agitated, excited, or disturbed; peaceful",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Aspirant"
     },
     {
@@ -61,7 +57,6 @@
         "CAR",
         "EAR",
         "ERA",
-        "REC",
         "ACRE",
         "RACE"
       ],
@@ -92,7 +87,6 @@
       ],
       "bonusWords": [
         "ACT",
-        "AFT",
         "CAT",
         "FAT"
       ],
@@ -122,9 +116,7 @@
         "O"
       ],
       "bonusWords": [
-        "GOR",
-        "ROW",
-        "WOG"
+        "ROW"
       ],
       "hint": "Healthy meals and sound sleep help young bones _______.",
       "quote": "To increase in physical size, strength, and vitality",
@@ -152,12 +144,7 @@
         "E"
       ],
       "bonusWords": [
-        "HEP",
-        "HOE",
-        "HOP",
-        "OPE",
-        "PEH",
-        "POH"
+        "HOP"
       ],
       "hint": "Never lose _______; sunny skies always follow stormy clouds.",
       "quote": "A feeling of expectation and desire for a certain thing to happen",
@@ -185,9 +172,7 @@
         "D"
       ],
       "bonusWords": [
-        "AID",
-        "DIE",
-        "AIDE"
+        "AID"
       ],
       "hint": "A tiny _______ can grow into a magnificent invention.",
       "quote": "A thought, concept, or plan formed in the mind",
@@ -215,11 +200,8 @@
         "K"
       ],
       "bonusWords": [
-        "DIN",
         "INK",
-        "KID",
-        "KIN",
-        "DINK"
+        "KID"
       ],
       "hint": "It takes very little effort to be _______ to those around you.",
       "quote": "Having or showing a friendly, generous, and considerate nature",
@@ -247,10 +229,7 @@
         "T"
       ],
       "bonusWords": [
-        "RET",
-        "RUE",
-        "RUT",
-        "UTE"
+        "RUE"
       ],
       "hint": "Always speak what is _______, even when it feels difficult.",
       "quote": "In accordance with fact, reality, or actual circumstance",
@@ -278,10 +257,8 @@
         "A"
       ],
       "bonusWords": [
-        "ALP",
         "LAP",
         "NAP",
-        "PAL",
         "PAN"
       ],
       "hint": "A clear _______ turns a difficult dream into reality.",
@@ -310,11 +287,7 @@
         "C"
       ],
       "bonusWords": [
-        "CEL",
-        "CUE",
-        "ECU",
-        "LEU",
-        "LUCE"
+        "CUE"
       ],
       "hint": "Follow each subtle _______ to unravel the mystery.",
       "quote": "A piece of evidence that helps solve a riddle or puzzle",
@@ -344,8 +317,7 @@
       "bonusWords": [
         "LOG",
         "LOW",
-        "OWL",
-        "WOG"
+        "OWL"
       ],
       "hint": "Running in the cool morning air brings a healthy _______ to cheeks.",
       "quote": "A warm, healthy radiance seen on the skin",
@@ -376,9 +348,7 @@
         "ARE",
         "EAR",
         "ERA",
-        "RAD",
         "RED",
-        "DARE",
         "DEAR"
       ],
       "hint": "When you _______, you travel across space and time.",
@@ -407,15 +377,12 @@
         "Z"
       ],
       "bonusWords": [
-        "ALE",
-        "LEA",
-        "LEZ",
-        "LAZE"
+        "ALE"
       ],
       "hint": "The children worked with joyful _______ to clean up the park.",
       "quote": "Great energy, passion, and enthusiasm in pursuit of a cause",
-      "author": "Holistic Education • Mind & Science",
-      "domain": "Mind & Science",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Aspirant"
     },
     {
@@ -437,9 +404,7 @@
         "U",
         "P"
       ],
-      "bonusWords": [
-        "UMP"
-      ],
+      "bonusWords": [],
       "hint": "Children love to _______ over puddles on rainy afternoons.",
       "quote": "To push oneself off a surface into the air using legs",
       "author": "Holistic Education • Body & Movement",
@@ -467,15 +432,9 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALP",
         "APE",
         "LAP",
-        "LEA",
-        "PAL",
-        "PEA",
-        "PALE",
-        "PEAL",
-        "PLEA"
+        "PEA"
       ],
       "hint": "Frogs can _______ many times their own body length.",
       "quote": "To spring a great distance or height with energy",
@@ -506,11 +465,7 @@
         "ACE",
         "APE",
         "CAP",
-        "CEP",
-        "PAC",
-        "PEA",
-        "PEC",
-        "CAPE"
+        "PEA"
       ],
       "hint": "Find a comfortable _______ so you do not run out of breath.",
       "quote": "A consistent, steady speed of walking or running",
@@ -538,14 +493,7 @@
         "T"
       ],
       "bonusWords": [
-        "ERS",
-        "RES",
-        "RET",
-        "SER",
-        "SET",
-        "ERST",
-        "RETS",
-        "TRES"
+        "SET"
       ],
       "hint": "After a hard soccer match, take time to _______ and drink water.",
       "quote": "Ceasing work or movement in order to relax and recover",
@@ -575,7 +523,6 @@
       "bonusWords": [
         "LOW",
         "OWL",
-        "FOWL",
         "WOLF"
       ],
       "hint": "Let your breath _______ gently in and out during yoga.",
@@ -605,8 +552,6 @@
       ],
       "bonusWords": [
         "FIR",
-        "MIR",
-        "RIF",
         "RIM"
       ],
       "hint": "Keep your feet _______ on the mat when practicing balance.",
@@ -635,12 +580,8 @@
         "A"
       ],
       "bonusWords": [
-        "AFT",
-        "FAS",
         "FAT",
-        "SAT",
-        "TAS",
-        "FATS"
+        "SAT"
       ],
       "hint": "The cheetah is the most _______ four-legged animal on Earth.",
       "quote": "Moving or capable of moving at high speed",
@@ -668,17 +609,10 @@
         "T"
       ],
       "bonusWords": [
-        "AFT",
         "ATE",
         "EAT",
-        "EFT",
-        "ETA",
         "FAT",
-        "FET",
-        "TAE",
-        "TEA",
-        "FATE",
-        "FETA"
+        "TEA"
       ],
       "hint": "Climbing the tall rock wall was an impressive _______.",
       "quote": "An act showing great physical skill, courage, or strength",
@@ -706,7 +640,6 @@
         "K"
       ],
       "bonusWords": [
-        "AWL",
         "LAW"
       ],
       "hint": "An evening _______ through the park helps calm the mind.",
@@ -736,12 +669,8 @@
       ],
       "bonusWords": [
         "ART",
-        "RAD",
         "RAT",
-        "TAD",
-        "TAR",
-        "DRAT",
-        "TRAD"
+        "TAR"
       ],
       "hint": "Dragonflies _______ over the pond water catching mosquitoes.",
       "quote": "To move suddenly and rapidly like an arrow",
@@ -769,7 +698,6 @@
         "E"
       ],
       "bonusWords": [
-        "EON",
         "NET",
         "NOT",
         "ONE",
@@ -805,11 +733,8 @@
       ],
       "bonusWords": [
         "BED",
-        "BEN",
-        "DEB",
         "DEN",
-        "END",
-        "NEB"
+        "END"
       ],
       "hint": "Always _______ your knees when lifting a heavy box from the floor.",
       "quote": "To curve or flex a part of the body without straining",
@@ -837,16 +762,9 @@
         "H"
       ],
       "bonusWords": [
-        "ADS",
-        "AHS",
-        "ASH",
-        "DAH",
         "HAD",
         "HAS",
-        "SAD",
-        "SHA",
-        "DAHS",
-        "SHAD"
+        "SAD"
       ],
       "hint": "Make a quick _______ across the yard before the rain pours down.",
       "quote": "To run or travel somewhere in a great hurry",
@@ -873,14 +791,7 @@
         "V",
         "D"
       ],
-      "bonusWords": [
-        "DEV",
-        "DIE",
-        "VID",
-        "VIE",
-        "VIDE",
-        "VIED"
-      ],
+      "bonusWords": [],
       "hint": "Watch the pelican _______ into ocean waves to catch silver fish.",
       "quote": "To plunge headfirst into water or toward the ground",
       "author": "Holistic Education • Body & Movement",
@@ -906,10 +817,7 @@
         "E",
         "X"
       ],
-      "bonusWords": [
-        "ELF",
-        "LEX"
-      ],
+      "bonusWords": [],
       "hint": "Cat stretches help _______ spinal muscles after long desk work.",
       "quote": "To bend or contract a joint or muscle deliberately",
       "author": "Holistic Education • Body & Movement",
@@ -935,9 +843,7 @@
         "L",
         "F"
       ],
-      "bonusWords": [
-        "FLU"
-      ],
+      "bonusWords": [],
       "hint": "Inhale a _______ breath into your belly before exhaling slowly.",
       "quote": "Containing as much or as many as is possible; complete",
       "author": "Holistic Education • Body & Movement",
@@ -964,9 +870,6 @@
         "T"
       ],
       "bonusWords": [
-        "AIT",
-        "GAT",
-        "GIT",
         "TAG"
       ],
       "hint": "He walked with a confident, cheerful _______ across the field.",
@@ -997,18 +900,12 @@
         "B"
       ],
       "bonusWords": [
-        "ARB",
         "ARE",
-        "AVE",
         "BAR",
-        "BRA",
         "EAR",
         "ERA",
-        "REB",
-        "REV",
-        "VAR",
-        "AVER",
-        "BARE"
+        "BEAR",
+        "VERB"
       ],
       "hint": "Be _______ enough to stand up for a smaller child being teased.",
       "quote": "Ready to face and endure danger, pain, or difficulty with courage",
@@ -1040,16 +937,10 @@
       "bonusWords": [
         "ACE",
         "ALE",
-        "ANE",
         "CAN",
-        "CEL",
-        "LAC",
-        "LEA",
-        "NAE",
-        "ACNE",
-        "ALEC",
-        "CANE",
-        "CLAN"
+        "LACE",
+        "LANE",
+        "LEAN"
       ],
       "hint": "Drink pure, _______ water to keep every cell in your body happy.",
       "quote": "Free from dirt, marks, or pollutants; unpolluted",
@@ -1078,11 +969,7 @@
         "O",
         "C"
       ],
-      "bonusWords": [
-        "COS",
-        "FOU",
-        "SOU"
-      ],
+      "bonusWords": [],
       "hint": "The archer must _______ completely on the center of the target.",
       "quote": "Directing full care and attention toward one thing",
       "author": "Holistic Education • Mind & Science",
@@ -1114,15 +1001,11 @@
         "ARE",
         "ART",
         "ATE",
-        "EAR",
-        "EAT",
-        "ERA",
-        "ETA",
-        "ETH",
-        "HAE",
-        "HAT",
-        "HER",
-        "HET"
+        "HATE",
+        "HEAR",
+        "HEAT",
+        "RATE",
+        "EARTH"
       ],
       "hint": "Put your whole _______ into comforting someone who feels alone.",
       "quote": "The emotional center of human compassion, feeling, and courage",
@@ -1152,14 +1035,7 @@
         "N"
       ],
       "bonusWords": [
-        "HON",
-        "NOH",
-        "NOO",
         "NOR",
-        "OHO",
-        "ONO",
-        "OOH",
-        "RHO",
         "HORN"
       ],
       "hint": "Treat your elders and teachers with sincere and grateful _______.",
@@ -1191,17 +1067,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ANE",
         "ARE",
         "EAR",
-        "ERA",
-        "ERN",
-        "LAR",
-        "LEA",
-        "NAE",
-        "RAN",
-        "EARL",
-        "EARN"
+        "EARN",
+        "LANE",
+        "LEAN",
+        "NEAR",
+        "REAL"
       ],
       "hint": "The mind that loves to _______ stays young forever.",
       "quote": "To gain knowledge, understanding, or skill",
@@ -1231,18 +1103,14 @@
         "S"
       ],
       "bonusWords": [
-        "AHS",
         "ARE",
-        "ARS",
-        "ASH",
         "EAR",
         "ERA",
-        "ERS",
-        "HAE",
         "HAS",
         "HER",
-        "HES",
-        "RAH"
+        "SEA",
+        "SHE",
+        "HEAR"
       ],
       "hint": "Always offer to _______ your colored pencils with a classmate.",
       "quote": "To give a portion of something to another person",
@@ -1275,14 +1143,7 @@
         "ACE",
         "APE",
         "CAP",
-        "CEE",
-        "CEP",
-        "PAC",
         "PEA",
-        "PEC",
-        "PEE",
-        "CAPE",
-        "CEPE",
         "PACE"
       ],
       "hint": "Living in _______ with classmates makes school a joy for all.",
@@ -1312,16 +1173,7 @@
         "U",
         "T"
       ],
-      "bonusWords": [
-        "RUT",
-        "TUT",
-        "UTS",
-        "RUST",
-        "RUTS",
-        "TUTS",
-        "STRUT",
-        "STURT"
-      ],
+      "bonusWords": [],
       "hint": "It takes months to build _______, so guard it carefully.",
       "quote": "Firm belief in the reliability, truth, or ability of someone",
       "author": "Holistic Education • Heart & Feelings",
@@ -1349,20 +1201,7 @@
         "M",
         "B"
       ],
-      "bonusWords": [
-        "BOO",
-        "LOB",
-        "LOO",
-        "MOB",
-        "MOL",
-        "MOO",
-        "BOLO",
-        "BOOM",
-        "LOBO",
-        "LOOM",
-        "MOOL",
-        "OBOL"
-      ],
+      "bonusWords": [],
       "hint": "The desert flowers burst into sudden, dazzling _______ after rare spring showers.",
       "quote": "A flower, especially one cultivated for its beauty; to open into flower",
       "author": "Holistic Education • Nature & Ecology",
@@ -1391,12 +1230,7 @@
         "D"
       ],
       "bonusWords": [
-        "BID",
         "BUD",
-        "DIB",
-        "DUB",
-        "DUI",
-        "LIB",
         "LID"
       ],
       "hint": "Regular push-ups help _______ upper body strength gradually.",
@@ -1425,11 +1259,8 @@
         "P"
       ],
       "bonusWords": [
-        "GIP",
         "PIG",
-        "RIG",
-        "RIP",
-        "PRIG"
+        "RIP"
       ],
       "hint": "Ensure a firm _______ on the climbing wall holds before stepping.",
       "quote": "To take and keep a firm, secure hold of something",
@@ -1457,10 +1288,7 @@
         "L"
       ],
       "bonusWords": [
-        "ALE",
-        "HAE",
-        "LEA",
-        "HALE"
+        "ALE"
       ],
       "hint": "A scraped knee will _______ quickly with clean bandages and rest.",
       "quote": "To become sound, healthy, or whole again after injury",
@@ -1487,14 +1315,11 @@
         "K",
         "E"
       ],
-      "bonusWords": [
-        "HIE",
-        "KHI"
-      ],
+      "bonusWords": [],
       "hint": "Families love to _______ up scenic mountain trails in autumn.",
       "quote": "To walk for a long distance across country or trails",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Nature & Ecology",
+      "domain": "Nature & Ecology",
       "rankRequired": "Learner"
     },
     {
@@ -1516,9 +1341,7 @@
         "I",
         "K"
       ],
-      "bonusWords": [
-        "ICK"
-      ],
+      "bonusWords": [],
       "hint": "Soccer players learn how to _______ the ball with pinpoint accuracy.",
       "quote": "To strike forcibly with the foot or leg",
       "author": "Holistic Education • Body & Movement",
@@ -1545,11 +1368,8 @@
         "I"
       ],
       "bonusWords": [
-        "FIL",
         "FIT",
-        "LIT",
-        "TIL",
-        "FLIT"
+        "LIT"
       ],
       "hint": "Use the strength of your legs to _______ heavy laundry baskets.",
       "quote": "To raise to a higher position or level using strength",
@@ -1577,8 +1397,7 @@
         "L"
       ],
       "bonusWords": [
-        "LOG",
-        "NOG"
+        "LOG"
       ],
       "hint": "A _______ bike ride along the riverbank makes for a joyful Saturday.",
       "quote": "Lasting or taking a great amount of time or distance",
@@ -1606,14 +1425,7 @@
         "K"
       ],
       "bonusWords": [
-        "KIP",
-        "KIS",
-        "PIS",
-        "PSI",
-        "SIP",
-        "SKI",
-        "KIPS",
-        "SPIK"
+        "SIP"
       ],
       "hint": "Children love to _______ with jumping ropes on the sidewalk.",
       "quote": "To move along lightly, stepping from one foot to the other",
@@ -1640,12 +1452,7 @@
         "I",
         "W"
       ],
-      "bonusWords": [
-        "ISM",
-        "MIS",
-        "SIM",
-        "WIS"
-      ],
+      "bonusWords": [],
       "hint": "Learning to _______ is both great exercise and an essential safety skill.",
       "quote": "To propel oneself through water using the limbs",
       "author": "Holistic Education • Body & Movement",
@@ -1673,9 +1480,6 @@
       ],
       "bonusWords": [
         "ARM",
-        "MAR",
-        "MAW",
-        "RAM",
         "RAW",
         "WAR"
       ],
@@ -1705,12 +1509,7 @@
         "L"
       ],
       "bonusWords": [
-        "DAG",
-        "DAL",
-        "GAD",
-        "GAL",
-        "LAD",
-        "LAG"
+        "LAD"
       ],
       "hint": "We were so _______ to see our grandparents arrive for dinner.",
       "quote": "Pleased, delighted, and cheerful in spirit",
@@ -1737,10 +1536,7 @@
         "H",
         "E"
       ],
-      "bonusWords": [
-        "HEP",
-        "PEH"
-      ],
+      "bonusWords": [],
       "hint": "Always offer to _______ an elderly neighbor carry heavy bags.",
       "quote": "To make it easier for someone to do something by offering aid",
       "author": "Holistic Education • Heart & Feelings",
@@ -1768,9 +1564,7 @@
       ],
       "bonusWords": [
         "DIM",
-        "LID",
-        "MID",
-        "MIL"
+        "LID"
       ],
       "hint": "A _______ tone of voice can calm an angry disagreement.",
       "quote": "Gentle, temperate, and not harsh or severe in temperament",
@@ -1801,9 +1595,7 @@
         "ARE",
         "EAR",
         "ERA",
-        "RAD",
         "RED",
-        "DARE",
         "READ"
       ],
       "hint": "Write a sweet letter to a _______ friend who moved away.",
@@ -1831,13 +1623,7 @@
         "O",
         "E"
       ],
-      "bonusWords": [
-        "LEV",
-        "OLE",
-        "VOE",
-        "LEVO",
-        "VOLE"
-      ],
+      "bonusWords": [],
       "hint": "A mother's _______ provides a safe shelter for growing birds.",
       "quote": "An intense feeling of deep affection and heartfelt care",
       "author": "Holistic Education • Heart & Feelings",
@@ -1864,10 +1650,6 @@
         "S"
       ],
       "bonusWords": [
-        "EFS",
-        "FAS",
-        "FES",
-        "SAE",
         "SEA"
       ],
       "hint": "A warm hug makes a frightened child feel completely _______.",
@@ -1897,13 +1679,8 @@
       ],
       "bonusWords": [
         "AIR",
-        "ARF",
         "FAR",
-        "FIR",
-        "RAI",
-        "RIA",
-        "RIF",
-        "FIAR"
+        "FIR"
       ],
       "hint": "Be a _______ referee and apply the rules equally to both sides.",
       "quote": "Treating people equally without favoritism or discrimination",
@@ -1931,8 +1708,6 @@
         "N"
       ],
       "bonusWords": [
-        "DON",
-        "FON",
         "NOD"
       ],
       "hint": "She was deeply _______ of reading storybooks beside her cat.",
@@ -1962,8 +1737,7 @@
       ],
       "bonusWords": [
         "PIT",
-        "TIP",
-        "YIP"
+        "TIP"
       ],
       "hint": "Take _______ on a shivering stray puppy and bring it warm milk.",
       "quote": "The feeling of sorrow and compassion caused by the suffering of others",
@@ -1990,12 +1764,7 @@
         "T",
         "J"
       ],
-      "bonusWords": [
-        "JUS",
-        "JUT",
-        "UTS",
-        "JUTS"
-      ],
+      "bonusWords": [],
       "hint": "A _______ leader gives an equal hearing to both sides.",
       "quote": "Based on or behaving according to what is morally right and fair",
       "author": "Holistic Education • Character & Will",
@@ -2022,9 +1791,7 @@
         "G"
       ],
       "bonusWords": [
-        "DOG",
-        "GOD",
-        "GOO"
+        "DOG"
       ],
       "hint": "Quiet everyday _______ outlasts noisy, boastful actions.",
       "quote": "Possessing high moral qualities; virtuous, kind, and righteous",
@@ -2078,11 +1845,7 @@
         "U"
       ],
       "bonusWords": [
-        "PER",
-        "PUR",
-        "REP",
-        "RUE",
-        "URP"
+        "RUE"
       ],
       "hint": "Keep your intentions _______ and your pathway will stay bright.",
       "quote": "Free from moral corruption, deceit, or taint; clean and wholesome",
@@ -2109,12 +1872,7 @@
         "G",
         "I"
       ],
-      "bonusWords": [
-        "GIT",
-        "RIG",
-        "GIRT",
-        "TRIG"
-      ],
+      "bonusWords": [],
       "hint": "True _______ means picking yourself up every time you fall down.",
       "quote": "Courage, resolve, and strength of character; perseverance",
       "author": "Holistic Education • Character & Will",
@@ -2147,16 +1905,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AIT",
         "ATE",
-        "AVE",
         "CAT",
         "EAT",
-        "ETA",
         "ICE",
-        "TAE",
-        "TAV",
-        "TEA"
+        "TEA",
+        "CAVE"
       ],
       "hint": "Staying physically _______ improves both mood and schoolwork.",
       "quote": "Engaging in energetic physical work, sports, or exercise",
@@ -2191,15 +1945,11 @@
         "ACE",
         "ACT",
         "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "CAR",
-        "CAT",
-        "CEE",
-        "EAR",
-        "EAT",
-        "ERA"
+        "ACRE",
+        "CARE",
+        "CART",
+        "RACE",
+        "RATE"
       ],
       "hint": "Take wood and glue to _______ your own model wooden sailboat.",
       "quote": "To bring something into existence through imaginative skill",
@@ -2231,23 +1981,18 @@
         "F"
       ],
       "bonusWords": [
-        "EFF",
-        "EFT",
-        "FER",
-        "FET",
-        "FOE",
         "FOR",
-        "FRO",
         "OFF",
-        "OFT",
         "ORE",
-        "ORT",
-        "REF"
+        "ROT",
+        "TOE",
+        "FORT",
+        "TORE"
       ],
       "hint": "Crossing the finish line rewarded months of diligent _______.",
       "quote": "Vigorous, determined physical or mental exertion",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Thinker"
     },
     {
@@ -2274,18 +2019,14 @@
         "E"
       ],
       "bonusWords": [
-        "DEF",
         "DEN",
-        "DIE",
-        "DIF",
-        "DIN",
         "END",
-        "ERN",
         "FED",
-        "FEN",
-        "FER",
-        "FID",
-        "FIE"
+        "FERN",
+        "FIND",
+        "FINE",
+        "FIRE",
+        "RIDE"
       ],
       "hint": "To have a loyal _______, you must first be one yourself.",
       "quote": "A person with whom one has a bond of mutual affection",
@@ -2318,17 +2059,12 @@
       ],
       "bonusWords": [
         "EEL",
-        "ENG",
-        "GEE",
-        "GEL",
-        "GEN",
         "GET",
-        "LEE",
         "LEG",
         "LET",
-        "NEE",
-        "NEG",
-        "NET"
+        "NET",
+        "TEN",
+        "GLEN"
       ],
       "hint": "Be _______ when holding a newborn kitten in your hands.",
       "quote": "Mild in temperament or behavior; kind and tender",
@@ -2361,17 +2097,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALT",
         "ATE",
         "EAT",
-        "ETA",
-        "ETH",
-        "HAE",
-        "HAH",
-        "HAT",
-        "HEH",
-        "HET",
-        "LAT"
+        "HATE",
+        "HEAL",
+        "HEAT",
+        "LATE",
+        "TALE"
       ],
       "hint": "Good physical _______ is the foundation for all other adventures.",
       "quote": "The state of being free from illness or injury; wholeness",
@@ -2405,16 +2137,12 @@
       "bonusWords": [
         "DEN",
         "DEW",
-        "DOE",
-        "DON",
-        "DOR",
-        "DOW",
         "END",
-        "EON",
-        "ERN",
-        "NEW",
-        "NOD",
-        "NOR"
+        "DOWN",
+        "DREW",
+        "NODE",
+        "WORD",
+        "WORE"
       ],
       "hint": "Looking up at a starry night fills the heart with _______.",
       "quote": "A feeling of joyful amazement and curiosity",
@@ -2446,18 +2174,14 @@
         "N"
       ],
       "bonusWords": [
-        "ELS",
-        "ENS",
-        "INS",
         "ITS",
-        "LEI",
-        "LES",
         "LET",
         "LIE",
-        "LIN",
-        "LIS",
-        "LIT",
-        "NET"
+        "ISLE",
+        "LENS",
+        "LINE",
+        "LIST",
+        "NEST"
       ],
       "hint": "Take time to _______ carefully before forming your opinion.",
       "quote": "To give one's attention to sound or to hear with empathy",
@@ -2489,18 +2213,14 @@
         "T"
       ],
       "bonusWords": [
-        "ANE",
         "ANT",
         "ARE",
         "ART",
-        "ATE",
-        "EAR",
-        "EAT",
-        "EAU",
-        "ERA",
-        "ERN",
-        "ETA",
-        "NAE"
+        "AUNT",
+        "EARN",
+        "NEAR",
+        "RATE",
+        "TEAR"
       ],
       "hint": "Spending quiet hours in _______ heals and restores a tired mind.",
       "quote": "The phenomena of the physical world collectively, including plants and animals",
@@ -2534,15 +2254,8 @@
       "bonusWords": [
         "BIG",
         "BIT",
-        "GHI",
-        "GIB",
-        "GIT",
         "HIT",
         "RIB",
-        "RIG",
-        "BRIG",
-        "BRIT",
-        "GIRT",
         "GRIT"
       ],
       "hint": "Use _______ watercolors to depict the tropical reef fish.",
@@ -2573,18 +2286,9 @@
         "O"
       ],
       "bonusWords": [
-        "OPE",
         "ORE",
-        "PER",
-        "PRO",
-        "REP",
-        "REV",
-        "ROE",
-        "VOE",
         "OVER",
-        "PERV",
-        "PORE",
-        "REPO"
+        "ROPE"
       ],
       "hint": "Good scientists conduct experiments to _______ their theory.",
       "quote": "To show that something is true using evidence",
@@ -2614,18 +2318,9 @@
         "E"
       ],
       "bonusWords": [
-        "ELS",
-        "LES",
-        "LEV",
-        "OES",
-        "OLE",
-        "OSE",
-        "SEL",
-        "SOL",
-        "VOE",
-        "LEVO",
         "LOSE",
-        "LOVE"
+        "LOVE",
+        "SOLE"
       ],
       "hint": "Work patiently to _______ problems step by step.",
       "quote": "To find the correct answer or explanation for a problem",
@@ -2655,12 +2350,8 @@
         "S"
       ],
       "bonusWords": [
-        "STY",
-        "UTS",
         "DUST",
-        "DUTY",
-        "STUD",
-        "DUSTY"
+        "DUTY"
       ],
       "hint": "Take quiet time to _______ and understand how things work.",
       "quote": "To devote time and attention to acquiring knowledge",
@@ -2690,18 +2381,13 @@
         "N"
       ],
       "bonusWords": [
-        "HIN",
         "HIT",
         "INK",
-        "KHI",
-        "KIN",
         "KIT",
-        "NIT",
-        "NTH",
         "TIN",
         "HINT",
-        "KITH",
-        "KNIT"
+        "KNIT",
+        "THIN"
       ],
       "hint": "Pause to _______ deeply before speaking or acting.",
       "quote": "To use the mind actively to form ideas and judgements",
@@ -2732,17 +2418,12 @@
       ],
       "bonusWords": [
         "ARM",
-        "ARS",
         "ART",
-        "MAR",
-        "MAS",
         "MAT",
-        "RAM",
-        "RAS",
         "RAT",
         "SAT",
-        "TAM",
-        "TAR"
+        "TAR",
+        "STAR"
       ],
       "hint": "Being _______ means knowing when to ask questions.",
       "quote": "Quick-witted, intelligent, and capable",
@@ -2772,18 +2453,11 @@
         "W"
       ],
       "bonusWords": [
-        "IRE",
-        "REI",
-        "RET",
-        "TEW",
         "TIE",
         "WET",
         "WIT",
-        "RITE",
-        "TIER",
         "TIRE",
-        "WEIR",
-        "WERT"
+        "WIRE"
       ],
       "hint": "Learn to _______ your thoughts with clarity and joy.",
       "quote": "To express ideas, feelings, and facts in written words",
@@ -2813,14 +2487,8 @@
         "G"
       ],
       "bonusWords": [
-        "CIG",
-        "COG",
-        "COL",
         "LOG",
-        "OIL",
-        "CLOG",
-        "COIL",
-        "LOCI"
+        "OIL"
       ],
       "hint": "Apply calm _______ to untangle complicated arguments.",
       "quote": "Clear, sound, and step-by-step reasoning",
@@ -2850,18 +2518,13 @@
         "I"
       ],
       "bonusWords": [
-        "AIN",
         "AIR",
-        "ANI",
-        "ARB",
         "BAN",
         "BAR",
-        "BIN",
-        "BRA",
-        "NAB",
-        "NIB",
-        "RAI",
-        "RAN"
+        "RAN",
+        "RIB",
+        "BARN",
+        "RAIN"
       ],
       "hint": "Daily challenges exercise your _______ like a muscle.",
       "quote": "The organ of thought, memory, and nervous control",
@@ -2892,17 +2555,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALT",
         "ARE",
         "ART",
-        "ATE",
-        "EAR",
-        "EAT",
-        "ERA",
-        "ETA",
-        "LAR",
-        "LAT",
-        "LEA"
+        "LATE",
+        "RATE",
+        "REAL",
+        "TALE",
+        "TEAR"
       ],
       "hint": "Keep your eyes _______ for new and interesting details.",
       "quote": "Quick to notice and respond to what is happening",
@@ -2932,15 +2591,10 @@
         "A"
       ],
       "bonusWords": [
-        "APT",
-        "DAP",
         "PAD",
         "PAT",
-        "TAD",
         "TAP",
-        "ATAP",
-        "DATA",
-        "TAPA"
+        "DATA"
       ],
       "hint": "Animals _______ their coats to survive cold mountain winters.",
       "quote": "To adjust thoughtfully to new situations or environments",
@@ -2970,18 +2624,10 @@
         "G"
       ],
       "bonusWords": [
-        "AGS",
-        "ARS",
-        "ASP",
         "GAP",
-        "GAR",
         "GAS",
-        "PAR",
-        "PAS",
         "RAG",
-        "RAP",
-        "RAS",
-        "SAG"
+        "SPA"
       ],
       "hint": "With patient guidance, she began to _______ long division.",
       "quote": "To understand and mentally take hold of an idea",
@@ -3011,18 +2657,9 @@
         "B"
       ],
       "bonusWords": [
-        "BOP",
-        "BRO",
-        "OBE",
-        "OPE",
-        "ORB",
         "ORE",
-        "PER",
-        "PRO",
-        "REB",
-        "REP",
         "ROB",
-        "ROE"
+        "ROPE"
       ],
       "hint": "Space telescopes _______ deep into galaxies millions of light-years away.",
       "quote": "To explore, examine, or investigate deeply",
@@ -3054,15 +2691,7 @@
       "bonusWords": [
         "ILK",
         "ILL",
-        "KIS",
-        "LIS",
-        "SKI",
-        "ILKS",
-        "ILLS",
-        "KILL",
-        "SILK",
-        "SILL",
-        "KILLS"
+        "SILK"
       ],
       "hint": "Baking delicious bread is a _______ anyone can learn with patience.",
       "quote": "The ability to do something well through practice",
@@ -3096,14 +2725,10 @@
         "ACT",
         "ATE",
         "CAT",
-        "EAT",
-        "ETA",
-        "ETH",
-        "HAE",
-        "HAT",
-        "HET",
-        "TAE",
-        "TEA"
+        "CHAT",
+        "EACH",
+        "HATE",
+        "HEAT"
       ],
       "hint": "When you _______ a classmate, you understand the subject twice as well.",
       "quote": "To impart knowledge or instruct someone in a skill",
@@ -3134,17 +2759,13 @@
       ],
       "bonusWords": [
         "APE",
-        "APT",
         "ATE",
-        "DAP",
         "EAT",
-        "ETA",
         "PAD",
         "PAT",
         "PEA",
-        "PED",
         "PET",
-        "TAD"
+        "TAPE"
       ],
       "hint": "Beavers are remarkably _______ at building sturdy river dams.",
       "quote": "Very skilled or proficient at doing something",
@@ -3175,15 +2796,11 @@
       ],
       "bonusWords": [
         "ARE",
-        "AWA",
-        "AWE",
         "EAR",
         "ERA",
         "RAW",
-        "WAE",
         "WAR",
         "AREA",
-        "WARE",
         "WEAR"
       ],
       "hint": "Be _______ of your surroundings when walking through busy streets.",
@@ -3214,11 +2831,7 @@
         "C"
       ],
       "bonusWords": [
-        "CUD",
-        "DUI",
-        "LID",
-        "DUCI",
-        "LUDIC"
+        "LID"
       ],
       "hint": "The teacher gave a remarkably _______ explanation of photosynthesis.",
       "quote": "Expressed clearly and easy to understand; bright",
@@ -3248,9 +2861,7 @@
         "Q"
       ],
       "bonusWords": [
-        "RUE",
-        "RYE",
-        "QUEY"
+        "RUE"
       ],
       "hint": "Type your _______ into the catalog to find where the book is shelved.",
       "quote": "A question, especially one addressed to an official or expert",
@@ -3281,17 +2892,9 @@
       ],
       "bonusWords": [
         "FIT",
-        "IFS",
         "ITS",
         "SIT",
-        "TIS",
-        "WIS",
-        "WIT",
-        "FIST",
-        "FITS",
-        "SIFT",
-        "WIST",
-        "WITS"
+        "WIT"
       ],
       "hint": "The _______ swallow caught insects in mid-flight effortlessly.",
       "quote": "Moving or capable of moving with immense speed",
@@ -3324,14 +2927,7 @@
         "AGE",
         "AIL",
         "ALE",
-        "GAE",
-        "GAL",
-        "GEL",
-        "GIE",
-        "LAG",
-        "LEA",
         "LEG",
-        "LEI",
         "LIE"
       ],
       "hint": "An _______ gymnast flips across the balance beam with ease.",
@@ -3362,14 +2958,8 @@
         "A"
       ],
       "bonusWords": [
-        "AWA",
-        "AWE",
-        "KAE",
-        "KEA",
-        "WAE",
         "WAKE",
-        "WEAK",
-        "WEKA"
+        "WEAK"
       ],
       "hint": "Splash water on your face to feel fully _______ in the morning.",
       "quote": "Not asleep; fully conscious, alert, and alive to surroundings",
@@ -3398,13 +2988,7 @@
         "M",
         "C"
       ],
-      "bonusWords": [
-        "LIB",
-        "MIB",
-        "MIC",
-        "MIL",
-        "LIMB"
-      ],
+      "bonusWords": [],
       "hint": "Step carefully as you _______ up the wooden ladder into the treehouse.",
       "quote": "To go up or ascend using hands and feet",
       "author": "Holistic Education • Body & Movement",
@@ -3435,21 +3019,14 @@
       "bonusWords": [
         "ACE",
         "AND",
-        "ANE",
-        "CAD",
         "CAN",
-        "DAN",
         "DEN",
-        "END",
-        "NAE",
-        "ACED",
-        "ACNE",
-        "CADE"
+        "END"
       ],
       "hint": "Cultural festivals invite everyone to _______ and rejoice together.",
       "quote": "To move rhythmically to music, taking a sequence of steps",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Arts & Imagination",
+      "domain": "Arts & Imagination",
       "rankRequired": "Thinker"
     },
     {
@@ -3474,12 +3051,7 @@
         "C"
       ],
       "bonusWords": [
-        "CEE",
-        "CEL",
-        "EEL",
-        "LEE",
-        "LEX",
-        "EXEC"
+        "EEL"
       ],
       "hint": "Dedicate an hour each afternoon if you wish to _______ in tennis.",
       "quote": "To be exceptionally good at or proficient in an activity",
@@ -3510,17 +3082,11 @@
       ],
       "bonusWords": [
         "EEL",
-        "EFT",
-        "ELF",
-        "FEE",
-        "FET",
-        "LEE",
         "LET",
-        "TEE",
-        "TEL",
         "FEEL",
         "FEET",
-        "FELT"
+        "FELT",
+        "LEFT"
       ],
       "hint": "The _______ young gazelle escaped the pursuing predator easily.",
       "quote": "Fast, light, and nimble in movement on foot",
@@ -3550,18 +3116,8 @@
         "E"
       ],
       "bonusWords": [
-        "COR",
-        "FER",
-        "FOE",
         "FOR",
-        "FRO",
-        "ORC",
-        "ORE",
-        "REC",
-        "REF",
-        "ROC",
-        "ROE",
-        "CERO"
+        "ORE"
       ],
       "hint": "Use gentle technique rather than brutal _______ to untie knots.",
       "quote": "Strength, power, or physical energy exerted",
@@ -3591,23 +3147,13 @@
         "H"
       ],
       "bonusWords": [
-        "EFS",
-        "ERS",
-        "FEH",
-        "FER",
-        "FES",
         "HER",
-        "HES",
-        "REF",
-        "RES",
-        "SER",
-        "SHE",
-        "FEHS"
+        "SHE"
       ],
       "hint": "A cool shower makes you feel completely _______ after soccer.",
       "quote": "Not tired or depleted; full of renewed energy and vigor",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Nature & Ecology",
+      "domain": "Nature & Ecology",
       "rankRequired": "Thinker"
     },
     {
@@ -3632,18 +3178,11 @@
         "I"
       ],
       "bonusWords": [
-        "DEL",
-        "DIE",
         "DIG",
-        "ELD",
-        "GED",
-        "GEL",
-        "GID",
-        "GIE",
         "LED",
         "LEG",
-        "LEI",
-        "LID"
+        "LID",
+        "LIE"
       ],
       "hint": "Ice skaters _______ across the frozen rink with effortless ease.",
       "quote": "To move with a smooth, continuous, effortless motion",
@@ -3673,18 +3212,13 @@
         "Y"
       ],
       "bonusWords": [
-        "DAH",
         "DAY",
         "DRY",
         "HAD",
         "HAY",
-        "RAD",
-        "RAH",
         "RAY",
-        "RYA",
-        "YAH",
-        "YAR",
-        "DRAY"
+        "HARD",
+        "YARD"
       ],
       "hint": "Mountain sheep are remarkably _______ animals on rocky cliffs.",
       "quote": "Robust and capable of enduring difficult conditions",
@@ -3714,18 +3248,10 @@
         "O"
       ],
       "bonusWords": [
-        "OPE",
         "ORE",
-        "OWE",
-        "PER",
-        "PEW",
-        "POW",
-        "PRO",
-        "REP",
-        "ROE",
         "ROW",
-        "WOE",
-        "WOP"
+        "ROPE",
+        "WORE"
       ],
       "hint": "Weightlifters generate immense explosive _______ from their legs.",
       "quote": "The capacity or ability to exert bodily force and work",
@@ -3754,9 +3280,7 @@
         "Q",
         "I"
       ],
-      "bonusWords": [
-        "ICK"
-      ],
+      "bonusWords": [],
       "hint": "A _______ dodge kept the goalkeeper from conceding a goal.",
       "quote": "Moving or functioning fast with little delay",
       "author": "Holistic Education • Body & Movement",
@@ -3787,21 +3311,14 @@
       "bonusWords": [
         "ALE",
         "ARE",
-        "AXE",
         "EAR",
         "ERA",
-        "LAR",
-        "LAX",
-        "LEA",
-        "LEX",
-        "RAX",
-        "REX",
-        "AXEL"
+        "REAL"
       ],
       "hint": "Let your shoulders _______ away from your ears as you breathe.",
       "quote": "To make or become less tense, anxious, or rigid",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Thinker"
     },
     {
@@ -3826,18 +3343,11 @@
         "R"
       ],
       "bonusWords": [
-        "ERG",
-        "ERS",
-        "REG",
-        "RES",
         "RUE",
         "RUG",
-        "SEG",
-        "SER",
         "SUE",
         "USE",
-        "ERGS",
-        "GRUE"
+        "SURE"
       ],
       "hint": "A sudden _______ of adrenaline helped him sprint past the pack.",
       "quote": "A sudden, powerful rush of physical energy or force",
@@ -3868,22 +3378,17 @@
       ],
       "bonusWords": [
         "MET",
-        "MOP",
-        "MOT",
-        "OPE",
-        "OPT",
         "PET",
-        "POM",
         "POT",
         "TOE",
-        "TOM",
         "TOP",
-        "MOPE"
+        "POEM",
+        "POET"
       ],
       "hint": "Keep a steady musical _______ while skipping rope with friends.",
       "quote": "The rate, speed, or rhythm of an activity or motion",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Arts & Imagination",
+      "domain": "Arts & Imagination",
       "rankRequired": "Thinker"
     },
     {
@@ -3908,18 +3413,14 @@
         "I"
       ],
       "bonusWords": [
-        "AIN",
         "AIR",
-        "AIT",
-        "ANI",
         "ANT",
         "ART",
-        "NIT",
-        "RAI",
         "RAN",
         "RAT",
-        "RIA",
-        "RIN"
+        "TAN",
+        "TAR",
+        "RAIN"
       ],
       "hint": "Swimmers _______ in the pool before sunrise every single week.",
       "quote": "To practice a sport or physical skill to prepare for a goal",
@@ -3950,17 +3451,9 @@
       ],
       "bonusWords": [
         "AIL",
-        "AIT",
-        "ALT",
-        "LAT",
-        "LAV",
         "LIT",
-        "TAV",
-        "TIL",
-        "VAT",
         "VIA",
-        "ALIT",
-        "LATI"
+        "TAIL"
       ],
       "hint": "Clean oxygen and fresh water are _______ for human survival.",
       "quote": "Essential to life; full of life and lively energy",
@@ -3994,18 +3487,14 @@
         "N"
       ],
       "bonusWords": [
-        "AAL",
-        "ABA",
         "ACE",
-        "ALA",
-        "ALB",
         "ALE",
-        "ANA",
-        "ANE",
-        "BAA",
-        "BAL",
         "BAN",
-        "BEL"
+        "ABLE",
+        "BEAN",
+        "LACE",
+        "LANE",
+        "CLEAN"
       ],
       "hint": "Riding a bicycle requires developing good bodily _______.",
       "quote": "An even distribution of weight enabling someone to remain steady",
@@ -4041,16 +3530,12 @@
       "bonusWords": [
         "ACE",
         "AGE",
-        "AGO",
         "ARC",
-        "ARE",
-        "CAR",
-        "COG",
-        "COR",
-        "CRU",
-        "CUE",
-        "CUR",
-        "EAR"
+        "ACRE",
+        "CARE",
+        "CRAG",
+        "RACE",
+        "GRACE"
       ],
       "hint": "True _______ is doing the right thing despite your knees shaking.",
       "quote": "The mental or moral strength to venture, persevere, and withstand fear",
@@ -4084,18 +3569,8 @@
         "O"
       ],
       "bonusWords": [
-        "CIS",
-        "COR",
-        "COS",
-        "CRU",
-        "CUR",
-        "ORC",
-        "ORS",
         "OUR",
-        "ROC",
-        "SIC",
-        "SIR",
-        "SOU"
+        "SIR"
       ],
       "hint": "A _______ child asks why the sky is blue and how birds fly.",
       "quote": "Eager to learn, know, and explore new things",
@@ -4129,18 +3604,14 @@
         "P"
       ],
       "bonusWords": [
-        "AMP",
         "APE",
-        "APT",
         "ATE",
-        "AYE",
         "EAT",
-        "ETA",
-        "ETH",
-        "HAE",
-        "HAM",
-        "HAP",
-        "HAT"
+        "HATE",
+        "HEAT",
+        "MATE",
+        "MEAT",
+        "MYTH"
       ],
       "hint": "Listen with _______ to understand what words cannot express.",
       "quote": "The ability to understand and share the feelings of another",
@@ -4175,19 +3646,12 @@
       ],
       "bonusWords": [
         "EEL",
-        "ERE",
-        "LEE",
-        "LEX",
-        "LOP",
-        "LOX",
-        "OLE",
-        "OPE",
         "ORE",
-        "PEE",
-        "PER",
-        "POL"
+        "POLE",
+        "ROLE",
+        "ROPE"
       ],
-      "hint": "Courageous explorers _______ uncharted trails with curiosity.",
+      "hint": "Curious children love to _______ new trails and discover hidden treasures.",
       "quote": "To travel through or investigate something unfamiliar",
       "author": "Holistic Education • Mind & Science",
       "domain": "Mind & Science",
@@ -4222,15 +3686,11 @@
         "ANY",
         "ARM",
         "HAM",
-        "HAO",
         "HAY",
-        "HON",
-        "HOY",
-        "MAN",
-        "MAR",
-        "MAY",
-        "MHO",
-        "MOA"
+        "ARMY",
+        "HARM",
+        "HORN",
+        "MANY"
       ],
       "hint": "When children cooperate, their classroom functions in lovely _______.",
       "quote": "Agreement or concord; a pleasing arrangement of parts",
@@ -4264,18 +3724,14 @@
         "E"
       ],
       "bonusWords": [
-        "ENS",
-        "EON",
-        "ETH",
         "HEN",
-        "HES",
-        "HET",
-        "HEY",
-        "HOE",
-        "HON",
-        "HOS",
         "HOT",
-        "HOY"
+        "NET",
+        "HOST",
+        "NEST",
+        "NOSE",
+        "NOTE",
+        "HONEST"
       ],
       "hint": "Speak with _______ and you will never need to remember lies.",
       "quote": "The quality of being fair, truthful, and free from deceit",
@@ -4309,18 +3765,9 @@
         "R"
       ],
       "bonusWords": [
-        "ERN",
-        "IRE",
-        "REI",
-        "RIN",
         "RUE",
         "RUN",
-        "URN",
-        "QUIN",
-        "REIN",
-        "RUIN",
-        "RUNE",
-        "INURE"
+        "URN"
       ],
       "hint": "Curious minds _______ into the mysteries of outer space.",
       "quote": "To investigate or seek information with interest",
@@ -4354,18 +3801,14 @@
         "N"
       ],
       "bonusWords": [
-        "AIN",
-        "AIT",
-        "ANE",
-        "ANI",
         "ANT",
         "APE",
-        "APT",
         "ATE",
-        "ATT",
-        "EAT",
-        "ETA",
-        "NAE"
+        "PAIN",
+        "PINE",
+        "TAPE",
+        "TENT",
+        "PAINT"
       ],
       "hint": "A _______ gardener knows that blossoms cannot be hurried.",
       "quote": "Able to accept delay, trouble, or suffering without becoming angry",
@@ -4399,18 +3842,13 @@
         "C"
       ],
       "bonusWords": [
-        "CEE",
-        "CEP",
-        "ERE",
-        "ERS",
-        "PEC",
-        "PEE",
-        "PER",
-        "PES",
         "PET",
-        "PST",
-        "REC",
-        "REE"
+        "SEE",
+        "SET",
+        "PEST",
+        "REST",
+        "STEP",
+        "TREE"
       ],
       "hint": "Treat every human being with equal dignity and sincere _______.",
       "quote": "A feeling of deep admiration for someone elicited by their qualities",
@@ -4444,18 +3882,14 @@
         "H"
       ],
       "bonusWords": [
-        "GHI",
-        "GIN",
-        "GIT",
-        "HIN",
         "HIS",
         "HIT",
-        "INS",
         "ITS",
-        "NIT",
-        "NTH",
-        "SIN",
-        "SIT"
+        "HINT",
+        "SIGN",
+        "SING",
+        "THIN",
+        "THIS"
       ],
       "hint": "A flash of _______ can solve a puzzle that took hours to ponder.",
       "quote": "The capacity to gain deep and clear understanding",
@@ -4488,17 +3922,8 @@
       ],
       "bonusWords": [
         "DIM",
-        "DIS",
-        "DOM",
-        "DOS",
-        "DOW",
-        "IDS",
-        "ISM",
-        "MID",
-        "MIS",
-        "MOD",
-        "MOS",
-        "MOW"
+        "SOW",
+        "SWIM"
       ],
       "hint": "Age brings experience, but reflection brings genuine _______.",
       "quote": "The quality of having good judgment and deep understanding",
@@ -4531,17 +3956,13 @@
       ],
       "bonusWords": [
         "DEN",
-        "DOE",
-        "DON",
-        "DOR",
         "END",
-        "EON",
-        "ERN",
         "NOD",
-        "NOR",
-        "ODE",
-        "ONE",
-        "OPE"
+        "DROP",
+        "NODE",
+        "OPEN",
+        "POND",
+        "ROPE"
       ],
       "hint": "Great philosophers _______ questions that have no quick answers.",
       "quote": "To consider something deeply and thoroughly",
@@ -4573,18 +3994,14 @@
         "R"
       ],
       "bonusWords": [
-        "ANE",
         "ARE",
-        "ARS",
         "EAR",
-        "ENS",
-        "EON",
         "ERA",
-        "ERN",
-        "ERS",
-        "NAE",
         "NOR",
-        "NOS"
+        "EARN",
+        "NEAR",
+        "NOSE",
+        "ROSE"
       ],
       "hint": "Human beings possess the remarkable gift of _______.",
       "quote": "The power of the mind to think and judge logically",
@@ -4616,18 +4033,8 @@
         "M"
       ],
       "bonusWords": [
-        "MEM",
-        "MOM",
-        "MOR",
         "ORE",
-        "REM",
-        "ROE",
-        "ROM",
-        "RYE",
-        "YOM",
-        "EMMY",
-        "MEMO",
-        "MOME"
+        "MORE"
       ],
       "hint": "Practice sharpens your _______ for names, numbers, and poems.",
       "quote": "The wonderful capacity to store and recall experiences",
@@ -4659,18 +4066,9 @@
         "E"
       ],
       "bonusWords": [
-        "CEE",
-        "CEL",
         "EEL",
-        "ERE",
         "EVE",
-        "LEE",
-        "LEV",
-        "REC",
-        "REE",
-        "REV",
-        "VEE",
-        "CERE"
+        "EVER"
       ],
       "hint": "The _______ crow dropped pebbles in the jar to raise the water level.",
       "quote": "Quick to understand, learn, and devise good solutions",
@@ -4702,18 +4100,8 @@
         "C"
       ],
       "bonusWords": [
-        "CEE",
-        "CUD",
         "CUE",
-        "DEE",
-        "DUD",
-        "DUE",
-        "ECU",
-        "CEDE",
-        "CUED",
-        "DEED",
-        "DUCE",
-        "DUDE"
+        "DUE"
       ],
       "hint": "From muddy footprints, we can _______ that a puppy ran here.",
       "quote": "To arrive at a fact by reasoning from known clues",
@@ -4745,18 +4133,11 @@
         "S"
       ],
       "bonusWords": [
-        "ENG",
-        "ENS",
-        "GEN",
-        "GIE",
-        "GIN",
-        "GNU",
-        "GUN",
-        "INS",
-        "NEG",
-        "NUS",
-        "SEG",
-        "SEI"
+        "SUE",
+        "SUN",
+        "USE",
+        "SIGN",
+        "SING"
       ],
       "hint": "True _______ is often ninety-nine percent dedicated practice.",
       "quote": "Exceptional natural ability or intellectual power",
@@ -4790,16 +4171,12 @@
       "bonusWords": [
         "INN",
         "NET",
-        "NIT",
         "TEN",
         "TIE",
         "TIN",
         "VET",
-        "VIE",
-        "NEVI",
         "NINE",
-        "NITE",
-        "TINE"
+        "VINE"
       ],
       "hint": "Dreamers _______ new technologies to solve humanity's challenges.",
       "quote": "To design, create, or originate something brand new",
@@ -4833,16 +4210,12 @@
       "bonusWords": [
         "ARE",
         "ARM",
-        "ARS",
         "ART",
-        "ATE",
-        "EAR",
-        "EAT",
-        "EMS",
-        "ERA",
-        "ERS",
-        "ETA",
-        "MAE"
+        "EAST",
+        "MATE",
+        "MEAT",
+        "SMART",
+        "STREAM"
       ],
       "hint": "With daily practice, anyone can _______ a musical instrument.",
       "quote": "To acquire complete knowledge or skill in a subject",
@@ -4874,18 +4247,14 @@
         "D"
       ],
       "bonusWords": [
-        "DOE",
-        "DOM",
         "DOT",
-        "EDH",
-        "ETH",
-        "HEM",
-        "HET",
-        "HOD",
-        "HOE",
         "HOT",
-        "MED",
-        "MET"
+        "MET",
+        "ODE",
+        "THE",
+        "DOME",
+        "HOME",
+        "THEM"
       ],
       "hint": "Following a steady _______ prevents mistakes in science labs.",
       "quote": "A particular, orderly procedure for accomplishing something",
@@ -4917,18 +4286,14 @@
         "N"
       ],
       "bonusWords": [
-        "CON",
-        "COT",
-        "EON",
         "ICE",
-        "ION",
         "NET",
-        "NIT",
         "NOT",
-        "ONE",
-        "TEN",
-        "TIC",
-        "TIE"
+        "COIN",
+        "NICE",
+        "NOTE",
+        "ONCE",
+        "TONE"
       ],
       "hint": "Take time to _______ how sunlight filters through the leaves.",
       "quote": "To become aware of something through observation",
@@ -4961,17 +4326,13 @@
       ],
       "bonusWords": [
         "ACE",
-        "AHS",
         "ARC",
         "ARE",
-        "ARS",
-        "ASH",
-        "CAR",
-        "EAR",
-        "ERA",
-        "ERS",
-        "HAE",
-        "HAS"
+        "ACRE",
+        "ARCH",
+        "CARE",
+        "CASE",
+        "SHARE"
       ],
       "hint": "Seekers _______ for truth in both ancient books and nature.",
       "quote": "To look through or explore carefully in order to find something",
@@ -5004,17 +4365,12 @@
       ],
       "bonusWords": [
         "DEW",
-        "EDH",
-        "EDS",
-        "ERS",
         "HER",
-        "HES",
-        "HEW",
         "RED",
-        "RES",
-        "SER",
         "SEW",
-        "SHE"
+        "SHE",
+        "WED",
+        "DREW"
       ],
       "hint": "A _______ negotiator finds an outcome that benefits both sides.",
       "quote": "Having or showing sharp powers of judgment",
@@ -5047,17 +4403,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALT",
-        "ANE",
         "ANT",
         "ATE",
-        "ATT",
-        "EAT",
-        "ETA",
-        "LAT",
-        "LEA",
-        "LET",
-        "NAE"
+        "LANE",
+        "LATE",
+        "LEAN",
+        "TALE",
+        "TENT"
       ],
       "hint": "Nurture your _______ so it can blossom and serve your community.",
       "quote": "Natural aptitude or skill in a particular activity",
@@ -5089,18 +4441,14 @@
         "R"
       ],
       "bonusWords": [
-        "ETH",
         "HER",
-        "HET",
-        "HEY",
-        "HOE",
         "HOT",
-        "HOY",
         "ORE",
-        "ORT",
-        "RET",
-        "RHO",
-        "ROE"
+        "ROT",
+        "THE",
+        "HERO",
+        "THEY",
+        "TORE"
       ],
       "hint": "Einstein formulated the _______ of relativity through deep thought.",
       "quote": "A system of ideas intended to explain something observed",
@@ -5132,17 +4480,7 @@
         "N"
       ],
       "bonusWords": [
-        "INS",
-        "ION",
-        "NOS",
-        "ONS",
-        "SIN",
-        "SON",
-        "VIS",
-        "IONS",
-        "NISI",
-        "VINO",
-        "VINOS"
+        "SON"
       ],
       "hint": "Leaders with _______ inspire others to build a cleaner world.",
       "quote": "The ability to think about or plan the future with wisdom",
@@ -5176,16 +4514,12 @@
       "bonusWords": [
         "AID",
         "AIL",
-        "AIT",
         "ALE",
-        "ALT",
-        "ATE",
-        "DAL",
-        "DEL",
-        "DIE",
-        "DIT",
-        "EAT",
-        "ELD"
+        "DEAL",
+        "DIAL",
+        "DIET",
+        "IDEA",
+        "DELTA"
       ],
       "hint": "An eagle's eye can spot the tiniest _______ from high in the sky.",
       "quote": "An individual feature, fact, or item within a whole",
@@ -5217,18 +4551,12 @@
         "E"
       ],
       "bonusWords": [
-        "ERG",
-        "FER",
-        "FEU",
-        "FIE",
         "FIG",
         "FIR",
-        "FUG",
         "FUR",
-        "GIE",
-        "IRE",
-        "REF",
-        "REG"
+        "RUE",
+        "RUG",
+        "FIRE"
       ],
       "hint": "With a pencil and paper, try to _______ out the puzzle's answer.",
       "quote": "To calculate, solve, or understand through thinking",
@@ -5260,18 +4588,14 @@
         "F"
       ],
       "bonusWords": [
-        "EFT",
-        "ELF",
-        "FEN",
-        "FET",
-        "FEU",
-        "FLU",
         "FUN",
         "LET",
-        "LEU",
         "NET",
-        "NUT",
-        "TEL"
+        "FELT",
+        "FUEL",
+        "LEFT",
+        "TUNE",
+        "FLUTE"
       ],
       "hint": "Reading every evening helps you become _______ in a new language.",
       "quote": "Able to express oneself easily, smoothly, and articulately",
@@ -5304,16 +4628,10 @@
       ],
       "bonusWords": [
         "INN",
-        "ION",
-        "NIT",
-        "NOO",
         "NOT",
-        "ONO",
-        "OOT",
         "TIN",
         "TON",
         "TOO",
-        "INTO",
         "NOON"
       ],
       "hint": "She challenged the old _______ that math is too hard for anyone.",
@@ -5347,17 +4665,7 @@
       ],
       "bonusWords": [
         "ACT",
-        "AIT",
-        "ATT",
-        "CAT",
-        "TAT",
-        "TIC",
-        "TIT",
-        "TACT",
-        "ATTIC",
-        "CACTI",
-        "TACIT",
-        "TICTAC"
+        "CAT"
       ],
       "hint": "Passing the ball quickly was their winning _______ against defense.",
       "quote": "An action or strategy carefully planned to achieve an end",
@@ -5389,18 +4697,10 @@
         "I"
       ],
       "bonusWords": [
-        "FER",
-        "FEY",
-        "FIE",
         "FIR",
-        "FRY",
-        "IRE",
-        "IVY",
-        "REF",
-        "REI",
-        "REV",
-        "RIF",
-        "RYE"
+        "FIRE",
+        "FIVE",
+        "VERY"
       ],
       "hint": "Always _______ news sources before forwarding stories online.",
       "quote": "To make sure or demonstrate that something is true and accurate",
@@ -5432,16 +4732,8 @@
         "G"
       ],
       "bonusWords": [
-        "GOR",
-        "GUV",
         "OUR",
-        "RIG",
-        "RUG",
-        "VIG",
-        "VUG",
-        "GIRO",
-        "GUIRO",
-        "VIGOR"
+        "RUG"
       ],
       "hint": "Youth is blessed with an abundance of natural physical _______.",
       "quote": "Active bodily strength, physical energy, and robust force",
@@ -5473,18 +4765,14 @@
         "R"
       ],
       "bonusWords": [
-        "BOS",
-        "BOT",
-        "BRO",
-        "BUR",
         "BUS",
         "BUT",
-        "ORB",
-        "ORS",
-        "ORT",
         "OUR",
         "OUT",
-        "ROB"
+        "ROB",
+        "ROT",
+        "SORT",
+        "TOUR"
       ],
       "hint": "Regular hiking keeps the heart and leg muscles _______.",
       "quote": "Strong, healthy, and vigorous in constitution",
@@ -5516,14 +4804,13 @@
         "T"
       ],
       "bonusWords": [
-        "THY",
         "TRY",
         "MYTH"
       ],
       "hint": "Rowers pull their oars in perfect _______ across the lake.",
       "quote": "A regular, repeated pattern of physical movement or sound",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Arts & Imagination",
+      "domain": "Arts & Imagination",
       "rankRequired": "Discerner"
     },
     {
@@ -5550,18 +4837,11 @@
         "P"
       ],
       "bonusWords": [
-        "ELS",
-        "LES",
-        "LEU",
-        "PEP",
-        "PES",
-        "PUL",
         "PUP",
-        "PUS",
-        "SEL",
         "SUE",
-        "SUP",
-        "UPS"
+        "USE",
+        "PLUS",
+        "PULSE"
       ],
       "hint": "Daily stretching keeps tendons and joints _______ and pain-free.",
       "quote": "Bending and moving easily and gracefully; flexible",
@@ -5593,18 +4873,12 @@
         "M"
       ],
       "bonusWords": [
-        "BEL",
         "ELM",
-        "IRE",
-        "LEI",
-        "LIB",
         "LIE",
-        "MEL",
-        "MIB",
-        "MIL",
-        "MIR",
-        "REB",
-        "REI"
+        "RIB",
+        "RIM",
+        "LIME",
+        "MILE"
       ],
       "hint": "Dancers spend twenty minutes getting _______ before a recital.",
       "quote": "Warm, supple, and flexible in body and limbs",
@@ -5636,18 +4910,14 @@
         "E"
       ],
       "bonusWords": [
-        "DEE",
         "DEN",
         "DUE",
-        "DUN",
         "END",
-        "ERE",
-        "ERN",
-        "NEE",
         "RED",
-        "REE",
-        "RUE",
-        "RUN"
+        "DEER",
+        "DUNE",
+        "NEED",
+        "REED"
       ],
       "hint": "Marathoners train their minds to _______ physical fatigue.",
       "quote": "To undergo hardship or physical fatigue without giving up",
@@ -5680,16 +4950,8 @@
       ],
       "bonusWords": [
         "EMU",
-        "MEM",
         "MEN",
-        "MIM",
-        "MUM",
-        "MUN",
-        "NIM",
-        "UMM",
         "MENU",
-        "MIEN",
-        "MIME",
         "MINE"
       ],
       "hint": "A nutritious diet keeps your _______ system strong against colds.",
@@ -5722,23 +4984,16 @@
         "P"
       ],
       "bonusWords": [
-        "DIE",
         "DIP",
-        "DIS",
-        "DOE",
-        "DOS",
-        "EDS",
-        "IDS",
         "ODE",
-        "ODS",
-        "OES",
-        "OPE",
-        "OPS"
+        "PIE",
+        "SIP",
+        "SIDE"
       ],
       "hint": "The diver stood _______ on the platform before a perfect dive.",
       "quote": "Having a composed, graceful, and self-assured manner",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Discerner"
     },
     {
@@ -5765,23 +5020,12 @@
         "S"
       ],
       "bonusWords": [
-        "ENS",
-        "ERE",
-        "ERN",
-        "ERS",
-        "NEE",
-        "REE",
-        "RES",
-        "SEE",
-        "SEN",
-        "SER",
-        "ERNE",
-        "ERNS"
+        "SEE"
       ],
       "hint": "Her _______ face showed that she was completely relaxed.",
       "quote": "Calm, peaceful, untroubled, and tranquil",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Discerner"
     },
     {
@@ -5809,17 +5053,13 @@
       ],
       "bonusWords": [
         "ACT",
-        "AIN",
-        "AIT",
-        "ANI",
         "ANT",
         "CAN",
         "CAT",
-        "CON",
-        "COT",
-        "ION",
-        "NIT",
-        "NOT"
+        "NOT",
+        "OAT",
+        "COAT",
+        "COIN"
       ],
       "hint": "Put good ideas into physical _______ by helping in the garden.",
       "quote": "The fact or process of doing something physically",
@@ -5851,18 +5091,12 @@
         "O"
       ],
       "bonusWords": [
-        "BEN",
-        "BUN",
-        "COB",
-        "CON",
         "CUB",
         "CUE",
-        "ECU",
-        "EON",
-        "NEB",
-        "NOB",
-        "NUB",
-        "OBE"
+        "ONE",
+        "BONE",
+        "CUBE",
+        "ONCE"
       ],
       "hint": "Children love to _______ on trampolines on sunny afternoons.",
       "quote": "To move quickly up, back, or away from a surface",
@@ -5894,19 +5128,12 @@
         "E"
       ],
       "bonusWords": [
-        "BEE",
-        "ERE",
-        "REB",
-        "REE",
-        "ZEE",
-        "BEER",
-        "BREE",
-        "BEEZER"
+        "BEE"
       ],
       "hint": "A summer _______ cooled the runners after their morning race.",
       "quote": "A gentle, cool, and refreshing outdoor wind",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Nature & Ecology",
+      "domain": "Nature & Ecology",
       "rankRequired": "Discerner"
     },
     {
@@ -5934,22 +5161,18 @@
       ],
       "bonusWords": [
         "AID",
-        "AIN",
         "AIR",
         "AND",
-        "ANI",
-        "DAG",
-        "DAN",
-        "DIG",
-        "DIN",
-        "GAD",
-        "GAN",
-        "GAR"
+        "DRAG",
+        "GAIN",
+        "GRIN",
+        "RAIN",
+        "RING"
       ],
       "hint": "The _______ gymnast landed a complex double twist on the mat.",
       "quote": "Adventurous, bold, and physically courageous",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Discerner"
     },
     {
@@ -5979,15 +5202,11 @@
         "ARE",
         "ART",
         "ATE",
-        "AYE",
-        "EAR",
-        "EAT",
-        "ERA",
-        "ETA",
-        "ETH",
-        "HAE",
-        "HAT",
-        "HAY"
+        "HATE",
+        "HEAR",
+        "HEAT",
+        "EARTH",
+        "HEART"
       ],
       "hint": "A _______ bowl of warm soup revived the cold winter hikers.",
       "quote": "Wholesome, vigorous, substantial, and nourishing",
@@ -6019,18 +5238,10 @@
         "Y"
       ],
       "bonusWords": [
-        "ELL",
         "ILL",
-        "IVY",
-        "LEI",
-        "LEV",
-        "LEY",
         "LIE",
-        "LYE",
-        "VIE",
-        "EVIL",
-        "ILLY",
-        "LEVY"
+        "LIVE",
+        "YELL"
       ],
       "hint": "The playground was filled with the sound of _______ games.",
       "quote": "Full of life, physical energy, and vibrant animation",
@@ -6062,18 +5273,12 @@
         "T"
       ],
       "bonusWords": [
-        "ION",
-        "MON",
-        "MOO",
-        "MOT",
-        "NIM",
-        "NIT",
-        "NOM",
-        "NOO",
         "NOT",
-        "ONO",
-        "OOT",
-        "TIN"
+        "TIN",
+        "TON",
+        "TOO",
+        "MINT",
+        "MOON"
       ],
       "hint": "Swimming engages almost every muscle in continuous _______.",
       "quote": "The action or process of moving or being moved",
@@ -6105,18 +5310,14 @@
         "L"
       ],
       "bonusWords": [
-        "CEL",
         "CUE",
-        "CUM",
-        "ECU",
         "ELM",
-        "ELS",
-        "EMS",
         "EMU",
-        "LES",
-        "LEU",
-        "LUM",
-        "MEL"
+        "SUE",
+        "SUM",
+        "USE",
+        "CLUE",
+        "MUSE"
       ],
       "hint": "Regular pull-ups build back and shoulder _______ efficiently.",
       "quote": "A band of tissue that produces physical motion",
@@ -6148,18 +5349,13 @@
         "I"
       ],
       "bonusWords": [
-        "BEL",
-        "BEN",
-        "BIN",
         "ELM",
-        "LEI",
-        "LIB",
         "LIE",
-        "LIN",
-        "MEL",
         "MEN",
-        "MIB",
-        "MIL"
+        "LIME",
+        "LINE",
+        "MILE",
+        "MINE"
       ],
       "hint": "Mountain goats are incredibly _______ on steep, gravelly slopes.",
       "quote": "Quick and light in movement, action, or footwork",
@@ -6191,18 +5387,14 @@
         "R"
       ],
       "bonusWords": [
-        "INS",
         "ITS",
-        "NIP",
-        "NIT",
         "PIN",
-        "PIS",
         "PIT",
-        "PSI",
-        "PST",
-        "RIN",
         "RIP",
-        "SIN"
+        "SIP",
+        "SIR",
+        "SPIN",
+        "TRIP"
       ],
       "hint": "Give every ounce of energy in the final hundred-meter _______.",
       "quote": "To run at full top speed over a short distance",
@@ -6234,18 +5426,14 @@
         "E"
       ],
       "bonusWords": [
-        "ABS",
-        "ALB",
         "ALE",
-        "ALS",
-        "ALT",
         "ATE",
-        "BAL",
-        "BAS",
         "BAT",
-        "BEL",
-        "BES",
-        "BET"
+        "ABLE",
+        "BASE",
+        "BEAT",
+        "BELT",
+        "BEST"
       ],
       "hint": "A wide, balanced stance keeps martial artists _______ on their feet.",
       "quote": "Firmly established; not likely to wobble or topple over",
@@ -6277,23 +5465,19 @@
         "Y"
       ],
       "bonusWords": [
-        "ADS",
         "ATE",
-        "AYE",
-        "AYS",
         "DAY",
-        "DEY",
-        "DYE",
         "EAT",
-        "EDS",
-        "ETA",
         "SAD",
-        "SAE"
+        "EAST",
+        "EASY",
+        "SEAT",
+        "STAY"
       ],
       "hint": "Keep a _______ grip on the bicycle handlebars going downhill.",
       "quote": "Firmly fixed, supported, or balanced; not shaking",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Discerner"
     },
     {
@@ -6320,18 +5504,14 @@
         "R"
       ],
       "bonusWords": [
-        "DIE",
-        "DIS",
-        "DIT",
-        "EDS",
-        "ERS",
-        "IDS",
-        "IRE",
         "ITS",
         "RED",
-        "REI",
-        "RES",
-        "RET"
+        "RID",
+        "DIET",
+        "DIRT",
+        "REST",
+        "RIDE",
+        "RISE"
       ],
       "hint": "Walk with an upright _______ and a smile on your face.",
       "quote": "To walk with long, decisive, and confident steps",
@@ -6363,23 +5543,19 @@
         "E"
       ],
       "bonusWords": [
-        "ERS",
-        "IRE",
         "ITS",
-        "REI",
-        "RES",
-        "RET",
-        "REV",
-        "SEI",
-        "SER",
         "SET",
         "SIR",
-        "SIT"
+        "SIT",
+        "TIE",
+        "REST",
+        "RISE",
+        "TIRE"
       ],
       "hint": "Athletes _______ every day to beat their personal best time.",
       "quote": "To make strenuous physical or mental efforts toward a goal",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Character & Will",
+      "domain": "Character & Will",
       "rankRequired": "Discerner"
     },
     {
@@ -6406,18 +5582,14 @@
         "T"
       ],
       "bonusWords": [
-        "GOR",
-        "GOS",
         "GOT",
-        "NOG",
         "NOR",
-        "NOS",
         "NOT",
-        "ONS",
-        "ORS",
-        "ORT",
         "ROT",
-        "SON"
+        "SON",
+        "SONG",
+        "SORT",
+        "TORN"
       ],
       "hint": "Carry heavy groceries with both hands to keep your spine _______.",
       "quote": "Having the power to move heavy weights or resist attack",
@@ -6449,18 +5621,12 @@
         "H"
       ],
       "bonusWords": [
-        "ETH",
         "HER",
-        "HET",
-        "HIE",
         "HIT",
-        "IRE",
-        "REI",
-        "RET",
-        "REV",
         "THE",
         "TIE",
-        "VET"
+        "VET",
+        "TIRE"
       ],
       "hint": "Young seedlings _______ when given sunshine, soil, and water.",
       "quote": "To grow or develop vigorously; to flourish in health",
@@ -6493,22 +5659,18 @@
       ],
       "bonusWords": [
         "APE",
-        "APT",
         "ATE",
-        "BAP",
         "BAT",
         "BET",
         "BUT",
-        "EAT",
-        "EAU",
-        "ETA",
-        "PAT",
-        "PEA"
+        "BEAT",
+        "TAPE",
+        "TUBE"
       ],
       "hint": "Listen to an _______ song to get energized for a morning jog.",
       "quote": "Cheerful, energetic, lively, and optimistic in spirit",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Discerner"
     },
     {
@@ -6539,19 +5701,15 @@
         "ART",
         "HAM",
         "HAT",
-        "HAW",
-        "MAR",
         "MAT",
-        "MAW",
-        "RAH",
-        "RAM",
-        "RAT",
-        "RAW"
+        "HARM",
+        "WARM",
+        "WHAT"
       ],
       "hint": "Gentle morning sunshine brings soothing _______ to cool limbs.",
       "quote": "The comfortable quality of being moderately hot",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Discerner"
     },
     {
@@ -6585,15 +5743,11 @@
         "ACE",
         "ACT",
         "AIR",
-        "AIT",
-        "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "AVE",
-        "CAR",
-        "CAT",
-        "CEE"
+        "ACRE",
+        "CARE",
+        "CART",
+        "ACTIVE",
+        "CREATE"
       ],
       "hint": "Express your _______ ideas through painting, building, or writing.",
       "quote": "Able to use imagination to make original things",
@@ -6630,17 +5784,13 @@
       ],
       "bonusWords": [
         "DEN",
-        "DIE",
         "DIG",
-        "DIN",
         "DUE",
-        "DUG",
-        "DUI",
-        "DUN",
-        "END",
-        "ENG",
-        "ERG",
-        "ERN"
+        "DUNE",
+        "GRIN",
+        "NINE",
+        "RIDE",
+        "RIDGE"
       ],
       "hint": "Their friendship proved to be an _______ bond across fifty years.",
       "quote": "Continuing or long-lasting; able to withstand long trials",
@@ -6676,18 +5826,14 @@
         "S"
       ],
       "bonusWords": [
-        "EGO",
-        "ENG",
-        "ENS",
-        "EON",
-        "ERE",
-        "ERG",
-        "ERN",
-        "ERS",
-        "GEE",
-        "GEN",
-        "GNU",
-        "GOR"
+        "NOR",
+        "ONE",
+        "ORE",
+        "GONE",
+        "NOSE",
+        "ROSE",
+        "SONG",
+        "SURGE"
       ],
       "hint": "A _______ host ensures every guest has plenty of warm food.",
       "quote": "Showing a readiness to give more of something than necessary",
@@ -6721,18 +5867,14 @@
         "N"
       ],
       "bonusWords": [
-        "DIF",
         "DIM",
-        "DIN",
-        "DUI",
-        "DUN",
-        "FID",
-        "FIL",
         "FIN",
-        "FLU",
-        "FUD",
         "FUN",
-        "LID"
+        "FILM",
+        "FIND",
+        "FUND",
+        "MILD",
+        "MIND"
       ],
       "hint": "Eating in a _______ way lets you savor every single bite.",
       "quote": "Fully aware and present in the current moment",
@@ -6766,18 +5908,14 @@
         "O"
       ],
       "bonusWords": [
-        "HIN",
         "HIS",
-        "HON",
-        "HOS",
-        "HUN",
-        "INS",
-        "ION",
-        "NOH",
         "NOR",
-        "NOS",
-        "NUS",
-        "OHS"
+        "OUR",
+        "RUN",
+        "HORN",
+        "HOUR",
+        "IRON",
+        "RUSH"
       ],
       "hint": "Fresh fruits, nuts, and greens _______ growing muscles.",
       "quote": "To provide food and nutrients necessary for health and growth",
@@ -6812,17 +5950,13 @@
       ],
       "bonusWords": [
         "AID",
-        "AIN",
         "AIR",
-        "AIT",
-        "ANA",
         "AND",
-        "ANI",
-        "ANT",
-        "ART",
-        "DAN",
-        "DIN",
-        "DIT"
+        "DART",
+        "DATA",
+        "DIRT",
+        "RAIN",
+        "TRAIN"
       ],
       "hint": "Her healthy habits made her skin and smile look _______.",
       "quote": "Emanating great vitality, health, and bright happiness",
@@ -6858,18 +5992,14 @@
         "M"
       ],
       "bonusWords": [
-        "AHI",
         "AIM",
-        "AIN",
         "AIR",
-        "AMI",
-        "ANI",
         "ARC",
-        "ARM",
-        "CAM",
-        "CAN",
-        "CAR",
-        "CHI"
+        "ARCH",
+        "CHIN",
+        "COIN",
+        "CORN",
+        "HAIR"
       ],
       "hint": "Tuning forks produce pure _______ vibrations that ring through the room.",
       "quote": "Relating to or characterized by harmony in music; consonant",
@@ -6905,16 +6035,12 @@
       "bonusWords": [
         "AGE",
         "AIM",
-        "AIN",
-        "AMI",
-        "ANE",
-        "ANI",
-        "ENG",
-        "GAE",
-        "GAM",
-        "GAN",
-        "GEM",
-        "GEN"
+        "MEN",
+        "GAIN",
+        "GAME",
+        "MAIN",
+        "MEAN",
+        "IMAGE"
       ],
       "hint": "When you _______, you build worlds before building them in reality.",
       "quote": "To create pictures and new ideas in your mind",
@@ -6948,18 +6074,13 @@
         "L"
       ],
       "bonusWords": [
-        "CEE",
-        "CEL",
         "EEL",
-        "EFT",
-        "ELF",
-        "ERE",
-        "FEE",
-        "FER",
-        "FET",
-        "LEE",
         "LET",
-        "REC"
+        "FEEL",
+        "FEET",
+        "FELT",
+        "FREE",
+        "FLEET"
       ],
       "hint": "Before you sleep, pause to _______ on the lessons of the day.",
       "quote": "To think quietly and carefully about an experience",
@@ -6994,17 +6115,13 @@
       ],
       "bonusWords": [
         "BEE",
-        "BES",
-        "BOS",
-        "BRO",
-        "ERE",
-        "ERS",
         "EVE",
-        "OBE",
-        "OES",
-        "ORB",
         "ORE",
-        "ORS"
+        "EVER",
+        "OVER",
+        "ROSE",
+        "SOBER",
+        "VERSE"
       ],
       "hint": "Sit quietly and _______ how ants cooperate to carry food.",
       "quote": "To watch carefully and notice important details",
@@ -7038,18 +6155,14 @@
         "C"
       ],
       "bonusWords": [
-        "CIS",
         "DEN",
-        "DIE",
-        "DIN",
-        "DIS",
-        "EDS",
         "END",
-        "ENS",
-        "ERN",
-        "ERS",
         "ICE",
-        "IDS"
+        "DICE",
+        "NICE",
+        "RICE",
+        "RIDE",
+        "RISE"
       ],
       "hint": "True wisdom helps you _______ truth from mere appearance.",
       "quote": "To recognize and perceive differences clearly",
@@ -7083,18 +6196,14 @@
         "Y"
       ],
       "bonusWords": [
-        "AAL",
-        "AAS",
-        "ALA",
         "ALE",
-        "ALS",
-        "ANA",
-        "ANE",
         "ANY",
-        "AYE",
-        "AYS",
-        "ELS",
-        "ENS"
+        "LAY",
+        "EASY",
+        "LANE",
+        "LEAN",
+        "LENS",
+        "SEAL"
       ],
       "hint": "Before fixing a broken clock, _______ each moving gear.",
       "quote": "To break something down into parts to understand it",
@@ -7128,18 +6237,14 @@
         "T"
       ],
       "bonusWords": [
-        "ANE",
         "ANT",
         "ARE",
-        "ARS",
         "ART",
-        "ATE",
-        "EAR",
-        "EAT",
-        "ENS",
-        "ERA",
-        "ERE",
-        "ERN"
+        "EARN",
+        "EASE",
+        "EAST",
+        "NEAR",
+        "NEST"
       ],
       "hint": "His _______ desire to learn won the respect of his teachers.",
       "quote": "Sincere, serious, and deeply committed in purpose",
@@ -7173,18 +6278,14 @@
         "O"
       ],
       "bonusWords": [
-        "AGO",
         "AIL",
         "ALL",
-        "CIG",
-        "COG",
-        "COL",
-        "GAL",
-        "GOA",
         "ILL",
-        "LAC",
-        "LAG",
-        "LOG"
+        "LOG",
+        "OIL",
+        "COAL",
+        "GOAL",
+        "LOGIC"
       ],
       "hint": "Follow a _______ sequence when writing a computer program.",
       "quote": "Based on sound, orderly, and valid reasoning",
@@ -7218,18 +6319,9 @@
         "R"
       ],
       "bonusWords": [
-        "ERE",
-        "ERN",
-        "IRE",
-        "NEE",
-        "REE",
-        "REI",
-        "RIN",
         "RUE",
         "RUN",
-        "URN",
-        "ERNE",
-        "QUIN"
+        "URN"
       ],
       "hint": "Do not hesitate to _______ when you do not understand a topic.",
       "quote": "To ask questions in order to seek knowledge",
@@ -7263,12 +6355,8 @@
         "R"
       ],
       "bonusWords": [
-        "RIN",
         "RUN",
-        "URN",
-        "YIN",
-        "QUIN",
-        "RUIN"
+        "URN"
       ],
       "hint": "Scientific _______ begins with wonder and careful observation.",
       "quote": "An act of asking for information or deep investigation",
@@ -7303,17 +6391,12 @@
       ],
       "bonusWords": [
         "AIM",
-        "AIN",
-        "AMI",
-        "ANE",
-        "ANI",
-        "AXE",
-        "EME",
-        "MAE",
-        "MAN",
-        "MAX",
         "MEN",
-        "MIX"
+        "MIX",
+        "MAIN",
+        "MEAN",
+        "MINE",
+        "NAME"
       ],
       "hint": "Use a magnifying glass to _______ the veins of a fallen leaf.",
       "quote": "To inspect someone or something in detail",
@@ -7349,16 +6432,12 @@
       "bonusWords": [
         "ARE",
         "ARM",
-        "ARS",
         "ART",
-        "ATE",
-        "AYE",
-        "AYS",
-        "EAR",
-        "EAT",
-        "EMS",
-        "ERA",
-        "ERS"
+        "ARMY",
+        "EAST",
+        "SMART",
+        "MASTER",
+        "STREAM"
       ],
       "hint": "Years of woodworking gave the artisan complete _______ of tools.",
       "quote": "Comprehensive knowledge or exceptional skill in a field",
@@ -7395,15 +6474,11 @@
         "DIG",
         "DIP",
         "DOG",
-        "DOR",
         "DRY",
-        "GID",
-        "GIP",
-        "GOD",
-        "GOR",
-        "GOY",
-        "GYP",
-        "PIG"
+        "PIG",
+        "RID",
+        "DROP",
+        "GRIP"
       ],
       "hint": "The young piano _______ played Mozart with effortless grace.",
       "quote": "A young person endowed with exceptional abilities",
@@ -7439,16 +6514,12 @@
       "bonusWords": [
         "DEN",
         "DUE",
-        "DUN",
-        "DUP",
         "END",
-        "ERN",
-        "NET",
-        "NUT",
-        "PED",
-        "PEN",
-        "PER",
-        "PET"
+        "DUNE",
+        "PURE",
+        "TRUE",
+        "TUNE",
+        "TURN"
       ],
       "hint": "It is _______ to save a portion of your allowance for a rainy day.",
       "quote": "Acting with or showing careful forethought for the future",
@@ -7483,17 +6554,13 @@
       ],
       "bonusWords": [
         "EEL",
-        "ELS",
-        "ERE",
-        "ERS",
         "EVE",
-        "LEE",
-        "LES",
-        "LEV",
-        "OES",
-        "OLE",
         "ORE",
-        "ORS"
+        "ELSE",
+        "EVER",
+        "LOSE",
+        "SOLVE",
+        "VERSE"
       ],
       "hint": "She faced the difficult climb with unwavering inner _______.",
       "quote": "Firm determination to accomplish a chosen purpose",
@@ -7527,18 +6594,14 @@
         "S"
       ],
       "bonusWords": [
-        "AHS",
-        "ALS",
         "ARC",
-        "ARS",
-        "ASH",
         "CAR",
-        "COL",
-        "COR",
-        "COS",
-        "HAO",
         "HAS",
-        "HOS"
+        "ALSO",
+        "ARCH",
+        "CASH",
+        "CORAL",
+        "SOLAR"
       ],
       "hint": "A humble _______ knows that learning is an endless ocean.",
       "quote": "A dedicated student or specialist in a field of knowledge",
@@ -7575,15 +6638,11 @@
         "ACE",
         "ACT",
         "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "CAR",
-        "CAT",
-        "CEE",
-        "EAR",
-        "EAT",
-        "ERA"
+        "ACRE",
+        "EARTH",
+        "HEART",
+        "TEACH",
+        "CREATE"
       ],
       "hint": "A great _______ lights a candle of curiosity inside every student.",
       "quote": "A person who guides, instructs, and inspires learners",
@@ -7617,18 +6676,14 @@
         "U"
       ],
       "bonusWords": [
-        "ERE",
-        "ERN",
         "EVE",
-        "NEE",
         "NET",
         "NUT",
-        "REE",
-        "RET",
-        "REV",
-        "RUE",
-        "RUN",
-        "RUT"
+        "EVEN",
+        "EVER",
+        "TREE",
+        "TRUE",
+        "TUNE"
       ],
       "hint": "Starting a garden is a rewarding _______ for the whole family.",
       "quote": "A daring or risky journey, undertaking, or enterprise",
@@ -7666,14 +6721,10 @@
         "AIR",
         "ARC",
         "ARE",
-        "CAR",
-        "CRU",
-        "CUE",
-        "CUR",
-        "EAR",
-        "EAU",
-        "ECU",
-        "ERA"
+        "ACRE",
+        "CARE",
+        "RACE",
+        "RICE"
       ],
       "hint": "Practice helps you _______ fluent reading skills over time.",
       "quote": "To buy, obtain, or develop a skill or asset",
@@ -7708,17 +6759,11 @@
       ],
       "bonusWords": [
         "AIL",
-        "AIT",
-        "ALT",
-        "GAL",
-        "GAT",
-        "GAY",
-        "GIT",
-        "LAG",
-        "LAT",
         "LAY",
         "LIT",
-        "TAG"
+        "TAG",
+        "GAIT",
+        "TAIL"
       ],
       "hint": "Solving puzzles improves mental _______ and keeps thinking nimble.",
       "quote": "The ability to think or move quickly and easily",
@@ -7755,15 +6800,11 @@
         "AIL",
         "AIR",
         "ARC",
-        "ARF",
         "CAR",
-        "CAY",
-        "CRY",
-        "FAR",
-        "FAY",
-        "FIL",
-        "FIR",
-        "FLY"
+        "CLAY",
+        "FAIR",
+        "RAIL",
+        "LYRIC"
       ],
       "hint": "Ask a polite question if you need the teacher to _______ a point.",
       "quote": "To make a statement or situation clear and less confused",
@@ -7797,18 +6838,14 @@
         "T"
       ],
       "bonusWords": [
-        "CEP",
-        "CON",
-        "COP",
-        "COT",
-        "EON",
         "NET",
         "NOT",
         "ONE",
-        "OPE",
-        "OPT",
-        "PEC",
-        "PEN"
+        "COPE",
+        "NOTE",
+        "ONCE",
+        "OPEN",
+        "POET"
       ],
       "hint": "Gravity is a fundamental _______ in understanding the universe.",
       "quote": "An abstract idea or general notion formed in thought",
@@ -7845,13 +6882,9 @@
         "ACE",
         "ACT",
         "ATE",
-        "CAD",
         "CAT",
-        "CEE",
-        "CUD",
         "CUE",
         "CUT",
-        "DEE",
         "DUE",
         "EAT"
       ],
@@ -7887,18 +6920,11 @@
         "Y"
       ],
       "bonusWords": [
-        "CEL",
         "CUE",
-        "ECU",
-        "ELF",
-        "FEN",
-        "FEU",
-        "FEY",
-        "FLU",
         "FLY",
         "FUN",
-        "LEU",
-        "LEY"
+        "CLUE",
+        "FUEL"
       ],
       "hint": "Daily conversation practice builds incredible _______ in languages.",
       "quote": "The ability to speak or write easily, clearly, and smoothly",
@@ -7932,18 +6958,14 @@
         "C"
       ],
       "bonusWords": [
-        "CEE",
-        "CEP",
-        "CIS",
-        "ERE",
-        "ERS",
         "ICE",
-        "IRE",
-        "PEC",
-        "PEE",
-        "PER",
-        "PES",
-        "PIC"
+        "PIE",
+        "RIP",
+        "SEE",
+        "SIP",
+        "SIR",
+        "RICE",
+        "RISE"
       ],
       "hint": "Give _______ directions so guests can easily find the library.",
       "quote": "Marked by exactness and accuracy of expression or detail",
@@ -7979,16 +7001,12 @@
       "bonusWords": [
         "DEN",
         "DUE",
-        "DUN",
-        "EDS",
         "END",
-        "ENS",
-        "NET",
-        "NUS",
-        "NUT",
-        "SEN",
-        "SET",
-        "SUE"
+        "DUNE",
+        "DUST",
+        "NEST",
+        "SEND",
+        "TENT"
       ],
       "hint": "Every great master was once an eager and humble _______.",
       "quote": "A person who is studying at school or dedicated to learning",
@@ -8022,18 +7040,14 @@
         "M"
       ],
       "bonusWords": [
-        "AAS",
         "AIM",
-        "AIN",
-        "AIS",
-        "AIT",
-        "AMA",
-        "AMI",
-        "ANA",
-        "ANI",
         "ANT",
-        "INS",
-        "ISM"
+        "ITS",
+        "MAT",
+        "SAT",
+        "MAIN",
+        "MINT",
+        "MIST"
       ],
       "hint": "Daily cycling builds the _______ required for long trail rides.",
       "quote": "The physical endurance to sustain prolonged effort",
@@ -8067,18 +7081,14 @@
         "P"
       ],
       "bonusWords": [
-        "ERS",
-        "OES",
-        "OPE",
-        "OPS",
-        "OPT",
         "ORE",
-        "ORS",
-        "ORT",
-        "OSE",
         "OUR",
         "OUT",
-        "PER"
+        "PEST",
+        "POET",
+        "PORT",
+        "SPORT",
+        "SPROUT"
       ],
       "hint": "Sitting with straight _______ prevents shoulder strain at school.",
       "quote": "The position in which someone holds their body while standing or sitting",
@@ -8112,18 +7122,10 @@
         "E"
       ],
       "bonusWords": [
-        "CEE",
-        "COR",
-        "ERE",
-        "ERR",
         "EVE",
-        "ORC",
         "ORE",
-        "REC",
-        "REE",
-        "REV",
-        "ROC",
-        "ROE"
+        "EVER",
+        "OVER"
       ],
       "hint": "Adequate rest helps tired muscles _______ after track practice.",
       "quote": "To return to a normal state of energy, health, or strength",
@@ -8157,18 +7159,12 @@
         "S"
       ],
       "bonusWords": [
-        "EFS",
-        "ERE",
-        "ERR",
-        "ERS",
-        "FEE",
-        "FEH",
-        "FER",
-        "FES",
         "HER",
-        "HES",
-        "REE",
-        "REF"
+        "SEE",
+        "SHE",
+        "FREE",
+        "HERE",
+        "FRESH"
       ],
       "hint": "A splash of cool mountain water will _______ a weary hiker.",
       "quote": "To give new strength or energy to; to invigorate",
@@ -8202,18 +7198,14 @@
         "E"
       ],
       "bonusWords": [
-        "ARB",
         "ARE",
         "ART",
         "ATE",
-        "BAH",
-        "BAR",
-        "BAT",
-        "BEE",
-        "BET",
-        "BRA",
-        "EAR",
-        "EAT"
+        "BATH",
+        "BEAR",
+        "EARTH",
+        "HEART",
+        "BREATH"
       ],
       "hint": "When startled, close your eyes and _______ deeply three times.",
       "quote": "To draw air into the lungs and expel it to sustain life",
@@ -8247,18 +7239,14 @@
         "B"
       ],
       "bonusWords": [
-        "AAL",
-        "ABA",
         "ACE",
-        "ALA",
-        "ALB",
         "ALE",
-        "ALP",
         "APE",
-        "BAA",
-        "BAL",
-        "BAP",
-        "BEL"
+        "ABLE",
+        "CLAP",
+        "LACE",
+        "LEAP",
+        "PACE"
       ],
       "hint": "With regular practice, you are _______ of running a full mile.",
       "quote": "Having the physical ability, fitness, or quality necessary",
@@ -8294,16 +7282,12 @@
       "bonusWords": [
         "AID",
         "AIM",
-        "AIN",
-        "AMI",
         "AND",
-        "ANI",
         "ANY",
-        "CAD",
         "CAM",
-        "CAN",
-        "CAY",
-        "DAM"
+        "MAIN",
+        "MANY",
+        "MIND"
       ],
       "hint": "A _______ warm-up prepares cold muscles for rigorous sports.",
       "quote": "Characterized by constant change, activity, or progress",
@@ -8337,18 +7321,14 @@
         "S"
       ],
       "bonusWords": [
-        "EFS",
-        "EFT",
-        "ENS",
-        "ESS",
-        "FEN",
-        "FES",
-        "FET",
-        "FIE",
         "FIN",
         "FIT",
-        "IFS",
-        "INS"
+        "ITS",
+        "NET",
+        "SET",
+        "SIT",
+        "FINE",
+        "NEST"
       ],
       "hint": "Playing outdoors with friends builds lifelong bodily _______.",
       "quote": "The condition of being physically healthy and strong",
@@ -8383,17 +7363,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALT",
         "ATE",
-        "AYE",
         "EAT",
-        "ETA",
-        "ETH",
-        "HAE",
-        "HAH",
-        "HAT",
-        "HAY",
-        "HEH"
+        "HATE",
+        "HEAL",
+        "HEAT",
+        "LATE",
+        "HEALTH"
       ],
       "hint": "Eating colourful vegetables keeps the entire body _______.",
       "quote": "In a good physical or mental condition; vigorous",
@@ -8430,15 +7406,11 @@
         "ARE",
         "ART",
         "ATE",
-        "AYE",
-        "DAH",
-        "DAY",
-        "DEY",
-        "DRY",
-        "DYE",
-        "EAR",
-        "EAT",
-        "EDH"
+        "DART",
+        "EARTH",
+        "HARDY",
+        "HEART",
+        "HEARTY"
       ],
       "hint": "Remember to _______ regularly during sunny outdoor play.",
       "quote": "To drink adequate water to maintain bodily health",
@@ -8472,18 +7444,14 @@
         "S"
       ],
       "bonusWords": [
-        "ERS",
-        "ESS",
-        "OES",
-        "OPE",
-        "OPS",
         "ORE",
-        "ORS",
-        "OSE",
-        "OWE",
-        "PER",
-        "PES",
-        "PEW"
+        "ROW",
+        "SEW",
+        "SOW",
+        "ROPE",
+        "ROSE",
+        "WORE",
+        "POWER"
       ],
       "hint": "The young archer demonstrated marvelous _______ at the tournament.",
       "quote": "Distinguished skill or expertise in an activity or sport",
@@ -8517,18 +7485,14 @@
         "O"
       ],
       "bonusWords": [
-        "ERE",
-        "ERR",
-        "ERS",
-        "OES",
         "ORE",
-        "ORS",
-        "ORT",
-        "OSE",
-        "REE",
-        "RES",
-        "RET",
-        "ROE"
+        "ROT",
+        "SEE",
+        "REST",
+        "ROSE",
+        "SORT",
+        "TORE",
+        "TREE"
       ],
       "hint": "Warm herbal tea helped _______ the weary travelers' spirits.",
       "quote": "To bring back to a healthy, vigorous, or energetic state",
@@ -8562,18 +7526,14 @@
         "B"
       ],
       "bonusWords": [
-        "AIN",
         "AIR",
-        "AIT",
-        "ANI",
         "ANT",
-        "ARB",
         "ART",
-        "BAN",
-        "BAR",
-        "BAT",
-        "BIN",
-        "BIT"
+        "BARN",
+        "RAIN",
+        "VAIN",
+        "BRAIN",
+        "TRAIN"
       ],
       "hint": "Playing outdoors in fresh air makes children healthy and _______.",
       "quote": "Full of energy, enthusiasm, and bright life",
@@ -8607,18 +7567,14 @@
         "C"
       ],
       "bonusWords": [
-        "ABO",
         "ACE",
         "AIR",
-        "ARB",
         "ARC",
-        "ARE",
-        "BAR",
-        "BIO",
-        "BOA",
-        "BRA",
-        "BRO",
-        "CAB"
+        "ACRE",
+        "BEAR",
+        "CARE",
+        "RACE",
+        "RICE"
       ],
       "hint": "Running and dancing are fantastic _______ activities for youth.",
       "quote": "Relating to exercise that strengthens the heart and lungs",
@@ -8655,15 +7611,11 @@
         "ACE",
         "ACT",
         "AIL",
-        "AIS",
-        "AIT",
-        "ALE",
-        "ALS",
-        "ALT",
-        "ATE",
-        "CAT",
-        "CEL",
-        "CIS"
+        "CASE",
+        "EAST",
+        "ISLE",
+        "LACE",
+        "SCALE"
       ],
       "hint": "Warm muscles are remarkably _______ and resist sports injuries.",
       "quote": "Able to resume normal shape after being stretched",
@@ -8697,18 +7649,14 @@
         "R"
       ],
       "bonusWords": [
-        "EFS",
-        "ENS",
-        "ERE",
-        "ERN",
-        "ERS",
-        "FEE",
-        "FEH",
-        "FEN",
-        "FER",
-        "FES",
         "HEN",
-        "HER"
+        "HER",
+        "SEE",
+        "SHE",
+        "FERN",
+        "FREE",
+        "HERE",
+        "FRESH"
       ],
       "hint": "A quick face wash helps _______ you up for evening homework.",
       "quote": "To make or become fresh, cool, clean, or untired",
@@ -8744,16 +7692,12 @@
       "bonusWords": [
         "AGE",
         "ALE",
-        "ALP",
         "APE",
-        "APP",
         "ARE",
-        "EAR",
-        "ERA",
-        "ERG",
-        "GAE",
-        "GAL",
-        "GAP"
+        "LEAP",
+        "PAGE",
+        "PEAR",
+        "REAL"
       ],
       "hint": "Wrestlers _______ with respect on the circular competition mat.",
       "quote": "To engage in a close physical struggle or wrestling match",
@@ -8787,18 +7731,14 @@
         "N"
       ],
       "bonusWords": [
-        "AGS",
         "ANT",
         "ANY",
-        "AYS",
-        "GAM",
-        "GAN",
         "GAS",
-        "GAT",
-        "GAY",
-        "GYM",
-        "MAG",
-        "MAN"
+        "MAT",
+        "MAY",
+        "SAT",
+        "MANY",
+        "STAY"
       ],
       "hint": "The young _______ stuck a flawless landing on two feet.",
       "quote": "A person trained in gymnastics and bodily acrobatics",
@@ -8832,18 +7772,8 @@
         "N"
       ],
       "bonusWords": [
-        "GIG",
-        "GIN",
-        "IGG",
-        "ION",
-        "JIG",
-        "JIN",
         "JOG",
-        "NOG",
-        "GONG",
-        "JOIN",
-        "NOGG",
-        "GOING"
+        "JOIN"
       ],
       "hint": "Morning _______ is a gentle habit that strengthens the lungs.",
       "quote": "The activity of running at a steady, gentle pace as exercise",
@@ -8878,17 +7808,13 @@
       ],
       "bonusWords": [
         "ICE",
-        "ICK",
         "INK",
-        "KEN",
-        "KIN",
         "KIT",
         "NET",
-        "NIT",
-        "TEN",
-        "TIC",
-        "TIE",
-        "TIN"
+        "KITE",
+        "KNIT",
+        "NECK",
+        "NICE"
       ],
       "hint": "A speeding roller coaster car possesses immense _______ energy.",
       "quote": "Relating to or resulting from physical motion",
@@ -8922,23 +7848,19 @@
         "T"
       ],
       "bonusWords": [
-        "DOR",
         "DOT",
-        "DUO",
-        "OOT",
-        "ORT",
-        "OUD",
         "OUR",
         "OUT",
         "ROD",
         "ROT",
-        "RUT",
-        "TOD"
+        "DOOR",
+        "ROOT",
+        "TOUR"
       ],
       "hint": "Spending time in _______ sunlight strengthens bones naturally.",
       "quote": "Done, situated, or used out of doors; in the open air",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Nature & Ecology",
+      "domain": "Nature & Ecology",
       "rankRequired": "Illumined"
     },
     {
@@ -8968,17 +7890,13 @@
       ],
       "bonusWords": [
         "AIL",
-        "ALB",
         "ALE",
         "ALL",
-        "ALP",
-        "APE",
-        "BAL",
-        "BAP",
-        "BEL",
-        "ELL",
-        "ILL",
-        "LAB"
+        "ABLE",
+        "BALL",
+        "BELL",
+        "LEAP",
+        "PILE"
       ],
       "hint": "Warm dough is soft, _______, and easy to roll into shapes.",
       "quote": "Easily bent; flexible and supple without snapping",
@@ -9012,23 +7930,19 @@
         "R"
       ],
       "bonusWords": [
-        "EFS",
-        "EFT",
-        "ELF",
-        "ELS",
-        "ERS",
-        "FER",
-        "FES",
-        "FET",
-        "FEU",
-        "FLU",
         "FUR",
-        "LES"
+        "LET",
+        "RUE",
+        "FELT",
+        "FUEL",
+        "LEFT",
+        "REST",
+        "FLUTE"
       ],
       "hint": "A _______ afternoon nap prepares your mind for evening study.",
       "quote": "Having a quiet, relaxing, and soothing quality",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Illumined"
     },
     {
@@ -9059,16 +7973,12 @@
       "bonusWords": [
         "ACT",
         "AIM",
-        "AIS",
-        "AIT",
-        "AMI",
         "CAM",
-        "CAT",
-        "CIS",
-        "COS",
-        "COT",
-        "ISM",
-        "ITS"
+        "ATOM",
+        "COAT",
+        "COST",
+        "COAST",
+        "MOSAIC"
       ],
       "hint": "Gentle breathing exercises release deep _______ tension.",
       "quote": "Relating to the physical body, especially distinct from the mind",
@@ -9102,18 +8012,12 @@
         "H"
       ],
       "bonusWords": [
-        "ERS",
-        "ETH",
         "HER",
-        "HES",
-        "HET",
-        "REC",
-        "RES",
-        "RET",
-        "SEC",
-        "SER",
         "SET",
-        "SHE"
+        "SHE",
+        "THE",
+        "REST",
+        "TEST"
       ],
       "hint": "Always _______ your calves and hamstrings after a long run.",
       "quote": "To straighten or extend one's body or part of it",
@@ -9147,18 +8051,13 @@
         "E"
       ],
       "bonusWords": [
-        "EMS",
-        "ERS",
-        "IRE",
-        "ISM",
-        "MEM",
-        "MEW",
-        "MIM",
-        "MIR",
-        "MIS",
-        "REI",
-        "REM",
-        "RES"
+        "RIM",
+        "SEW",
+        "SIR",
+        "RISE",
+        "SWIM",
+        "WIRE",
+        "WISE"
       ],
       "hint": "The champion _______ sliced through the cool water like a dolphin.",
       "quote": "A person who swims, especially for sport or recreation",
@@ -9169,46 +8068,42 @@
     {
       "id": 229,
       "levelNumber": 229,
-      "targetWord": "WARM-UP",
+      "targetWord": "PLAYFUL",
       "targetWords": [
-        "WARM-UP"
+        "PLAYFUL"
       ],
       "letters": [
-        "W",
+        "P",
+        "L",
         "A",
-        "R",
-        "M",
-        "-",
+        "Y",
+        "F",
         "U",
-        "P"
+        "L"
       ],
       "scramble": [
-        "R",
-        "A",
-        "-",
+        "F",
+        "Y",
         "U",
-        "P",
-        "W",
-        "M"
+        "L",
+        "L",
+        "A",
+        "P"
       ],
       "bonusWords": [
-        "AMP",
-        "AMU",
-        "ARM",
-        "MAP",
-        "MAR",
-        "MAW",
-        "PAM",
-        "PAR",
-        "PAW",
-        "PUR",
-        "RAM",
-        "RAP"
+        "ALL",
+        "FLY",
+        "LAP",
+        "LAY",
+        "FALL",
+        "FULL",
+        "PLAY",
+        "PULL"
       ],
-      "hint": "Never skip your pre-game _______ to avoid pulling leg muscles.",
-      "quote": "A period of preparatory exercise to warm cold muscles",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "hint": "The _______ puppy chased its own tail around the sunny garden.",
+      "quote": "Full of fun and energy; enjoying games and laughter",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Illumined"
     },
     {
@@ -9237,18 +8132,14 @@
         "T"
       ],
       "bonusWords": [
-        "COO",
-        "COR",
-        "COT",
         "FOR",
-        "FRO",
-        "MOC",
-        "MOO",
-        "MOR",
-        "MOT",
-        "OFT",
-        "OOT",
-        "ORC"
+        "ROT",
+        "TOO",
+        "FOOT",
+        "FORM",
+        "FORT",
+        "FROM",
+        "MOTOR"
       ],
       "hint": "Offer words of _______ when a teammate is feeling down.",
       "quote": "Consolation in a time of distress, sadness, or pain",
@@ -9288,16 +8179,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AFF",
-        "AFT",
-        "AIN",
-        "AIT",
-        "ANE",
-        "ANI",
         "ANT",
-        "ATE",
-        "CAN",
-        "CAT"
+        "COAT",
+        "COIN",
+        "OCEAN",
+        "ACTION",
+        "NOTICE"
       ],
       "hint": "Dogs show unconditional _______ to their human families.",
       "quote": "A gentle feeling of fondness or liking toward someone",
@@ -9336,17 +8223,13 @@
       ],
       "bonusWords": [
         "AIL",
-        "AIN",
         "AIR",
-        "AIT",
-        "ALB",
         "ALL",
-        "ALT",
-        "ANI",
-        "ANT",
-        "ARB",
-        "ART",
-        "BAL"
+        "BALL",
+        "BARN",
+        "BRAIN",
+        "TRAIL",
+        "TRAIN"
       ],
       "hint": "A _______ idea lit up the discussion and solved the puzzle.",
       "quote": "Exceptionally clever, radiant, and talented",
@@ -9385,15 +8268,11 @@
         "ACE",
         "AGE",
         "ALE",
-        "ANE",
-        "CAN",
-        "CEE",
-        "CEL",
-        "EEL",
-        "ENG",
-        "GAE",
-        "GAL",
-        "GAN"
+        "GLEN",
+        "LACE",
+        "LANE",
+        "LEAN",
+        "CLEAN"
       ],
       "hint": "The ballerina moved across the stage with breathtaking _______.",
       "quote": "The quality of being graceful, stylish, and pleasing in appearance",
@@ -9434,15 +8313,11 @@
         "AGE",
         "AID",
         "AIR",
-        "AIT",
-        "ARE",
-        "ART",
-        "ATE",
-        "ATT",
-        "DAG",
-        "DIE",
-        "DIG",
-        "DIT"
+        "AGED",
+        "DART",
+        "DEAR",
+        "DIET",
+        "RIDGE"
       ],
       "hint": "A heart full of _______ finds joy in the simplest wildflowers.",
       "quote": "The quality of being thankful; readiness to show appreciation",
@@ -9478,18 +8353,14 @@
         "G"
       ],
       "bonusWords": [
-        "ENG",
-        "ENS",
-        "ERG",
-        "ERN",
-        "ERS",
-        "ETH",
-        "GEN",
         "GET",
         "HEN",
         "HER",
-        "HES",
-        "HET"
+        "NEST",
+        "REST",
+        "TENT",
+        "TEST",
+        "THEN"
       ],
       "hint": "Lifting garden tools builds genuine bodily _______ over time.",
       "quote": "The state or quality of being physically powerful",
@@ -9526,17 +8397,11 @@
       ],
       "bonusWords": [
         "AIL",
-        "AIT",
-        "ALT",
-        "ATT",
-        "IVY",
-        "LAT",
-        "LAV",
         "LAY",
         "LIT",
-        "TAT",
-        "TAV",
-        "TIL"
+        "VIA",
+        "TAIL",
+        "VITAL"
       ],
       "hint": "Deep breathing exercises fill the chest with radiant _______.",
       "quote": "The state of being strong, full of life, and active",
@@ -9574,16 +8439,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AIN",
-        "AIT",
-        "ANE",
-        "ANI",
         "ANT",
-        "APE",
-        "APT",
-        "ATE",
-        "CAN",
-        "CAP"
+        "NICE",
+        "PACE",
+        "PAIN",
+        "PAINT",
+        "PEACE"
       ],
       "hint": "Teaching a younger sibling requires endless love and _______.",
       "quote": "The capacity to accept delay or trouble without becoming annoyed",
@@ -9619,18 +8480,12 @@
         "E"
       ],
       "bonusWords": [
-        "CEE",
-        "CEP",
-        "ERE",
         "EVE",
         "ICE",
-        "IRE",
-        "PEC",
-        "PEE",
-        "PER",
-        "PIC",
         "PIE",
-        "REC"
+        "RIP",
+        "EVER",
+        "RICE"
       ],
       "hint": "A trained observer can _______ subtle shifts in the wind.",
       "quote": "To become aware of something through the senses or mind",
@@ -9666,18 +8521,13 @@
         "O"
       ],
       "bonusWords": [
-        "DIS",
-        "DIT",
-        "DOS",
         "DOT",
-        "DUI",
-        "DUO",
-        "IDS",
         "ITS",
-        "ODS",
-        "OUD",
         "OUT",
-        "SIS"
+        "SIT",
+        "DUST",
+        "SUIT",
+        "STUDIO"
       ],
       "hint": "A _______ student respects the wealth contained in libraries.",
       "quote": "Devoted to reading, learning, and academic effort",
@@ -9713,18 +8563,14 @@
         "I"
       ],
       "bonusWords": [
-        "DEL",
         "DEN",
-        "DIE",
         "DIG",
-        "DIN",
-        "DIT",
-        "ELD",
         "END",
-        "ENG",
-        "GED",
-        "GEL",
-        "GEN"
+        "DIET",
+        "GLEN",
+        "LEND",
+        "LINE",
+        "GLIDE"
       ],
       "hint": "The _______ builder lays each brick with great care.",
       "quote": "Showing steady, earnest, and careful effort",
@@ -9761,17 +8607,13 @@
       ],
       "bonusWords": [
         "EEL",
-        "EON",
-        "LEE",
         "LET",
-        "LEU",
         "LOT",
-        "NEE",
         "NET",
         "NOT",
-        "NUT",
-        "OLE",
-        "ONE"
+        "NOTE",
+        "TONE",
+        "TUNE"
       ],
       "hint": "The speaker was so _______ that everyone listened in silence.",
       "quote": "Expressing ideas gracefully, persuasively, and clearly",
@@ -9807,18 +8649,14 @@
         "O"
       ],
       "bonusWords": [
-        "AIN",
-        "AIT",
-        "ANE",
-        "ANI",
         "ANT",
         "ATE",
-        "AVE",
-        "AVO",
         "EAT",
-        "EON",
-        "ETA",
-        "INN"
+        "NINE",
+        "NONE",
+        "NOTE",
+        "TONE",
+        "INVENT"
       ],
       "hint": "Engineers constantly _______ to make clean energy affordable.",
       "quote": "To introduce new, fresh, and inventive methods",
@@ -9854,18 +8692,14 @@
         "E"
       ],
       "bonusWords": [
-        "CIS",
         "COD",
-        "COR",
-        "COS",
-        "DEV",
-        "DIE",
-        "DIS",
-        "DOC",
-        "DOE",
-        "DOR",
-        "DOS",
-        "EDS"
+        "ICE",
+        "ODE",
+        "CODE",
+        "DICE",
+        "DIVE",
+        "DOVE",
+        "OVER"
       ],
       "hint": "Every hike into the forest is a chance to _______ something new.",
       "quote": "To find or learn about something for the first time",
@@ -9901,18 +8735,14 @@
         "U"
       ],
       "bonusWords": [
-        "AAL",
-        "ALA",
         "ALE",
-        "ALT",
         "ATE",
-        "AVA",
-        "AVE",
         "EAT",
-        "EAU",
         "EEL",
-        "ETA",
-        "EVE"
+        "EVE",
+        "LATE",
+        "TALE",
+        "VAULT"
       ],
       "hint": "Always _______ information carefully before believing it.",
       "quote": "To judge the value, quality, or truth of something",
@@ -9950,16 +8780,12 @@
       "bonusWords": [
         "DEN",
         "DUE",
-        "DUG",
-        "DUN",
         "EMU",
         "END",
-        "ENG",
-        "GED",
-        "GEM",
-        "GEN",
         "GET",
-        "GNU"
+        "DUNE",
+        "MENU",
+        "TUNE"
       ],
       "hint": "Developing good _______ takes practice, reflection, and honesty.",
       "quote": "The ability to make considered decisions or come to conclusions",
@@ -9996,17 +8822,13 @@
       ],
       "bonusWords": [
         "AIM",
-        "AIT",
-        "AMI",
         "ATE",
-        "ATT",
-        "AVE",
-        "AVO",
         "EAT",
-        "ETA",
-        "MAE",
-        "MAT",
-        "MET"
+        "ATOM",
+        "ITEM",
+        "MATE",
+        "MEAT",
+        "MOVE"
       ],
       "hint": "Praise and encouragement _______ young runners to do their best.",
       "quote": "To provide a reason for doing something with enthusiasm",
@@ -10045,15 +8867,11 @@
         "ACE",
         "ACT",
         "AIR",
-        "AIT",
-        "APE",
-        "APT",
-        "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "CAP",
-        "CAR"
+        "ACRE",
+        "CARE",
+        "CART",
+        "PACE",
+        "ARCTIC"
       ],
       "hint": "Daily _______ transforms clumsy fingers into nimble musicians.",
       "quote": "Repeated exercise in an activity to build skill",
@@ -10089,18 +8907,14 @@
         "N"
       ],
       "bonusWords": [
-        "AAL",
         "AIL",
-        "AIN",
         "AIR",
-        "AIT",
-        "ALA",
-        "ALT",
-        "ANA",
-        "ANI",
         "ANT",
-        "ART",
-        "ION"
+        "IRON",
+        "LION",
+        "LOAN",
+        "TRAIL",
+        "TRAIN"
       ],
       "hint": "Keep a _______ head when rumors cause unnecessary panic.",
       "quote": "Based on or in accordance with sound reason or logic",
@@ -10136,18 +8950,12 @@
         "L"
       ],
       "bonusWords": [
-        "FIL",
-        "FLU",
-        "IFS",
         "ILK",
         "ILL",
-        "KIF",
-        "KIS",
-        "LIS",
-        "SKI",
-        "SUK",
         "FILL",
-        "FILS"
+        "FULL",
+        "SILK",
+        "SKILL"
       ],
       "hint": "The _______ potter shaped the spinning clay into an elegant vase.",
       "quote": "Having or showing high competence and dexterity",
@@ -10184,17 +8992,13 @@
       ],
       "bonusWords": [
         "AGE",
-        "AGS",
         "ARE",
-        "ARS",
         "ART",
-        "ATE",
-        "ATT",
-        "AYE",
-        "AYS",
-        "EAR",
-        "EAT",
-        "ERA"
+        "EAST",
+        "EASY",
+        "GATE",
+        "GRAY",
+        "RATE"
       ],
       "hint": "A wise chess player develops a quiet _______ three moves ahead.",
       "quote": "A plan of action designed to achieve a major goal",
@@ -10232,16 +9036,8 @@
       "bonusWords": [
         "ARC",
         "CAR",
-        "CAY",
-        "CRU",
         "CRY",
-        "CUR",
-        "RAY",
-        "RYA",
-        "YAR",
-        "AURA",
-        "CACA",
-        "RACY"
+        "RAY"
       ],
       "hint": "In mathematics, double-check your steps to ensure _______.",
       "quote": "The quality or state of being correct or precise",
@@ -10280,15 +9076,11 @@
         "ACE",
         "ACT",
         "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "CAR",
-        "CAT",
-        "CRU",
-        "CUE",
-        "CUR",
-        "CUT"
+        "ACRE",
+        "AREA",
+        "CARE",
+        "CART",
+        "RACE"
       ],
       "hint": "An _______ map helps hikers navigate safely through the mountains.",
       "quote": "Correct in all details; exact and truthful",
@@ -10325,17 +9117,13 @@
       ],
       "bonusWords": [
         "AID",
-        "AIT",
         "APE",
-        "APT",
         "ATE",
-        "ATT",
-        "DAP",
-        "DIE",
-        "DIP",
-        "DIT",
-        "DUE",
-        "DUI"
+        "DIET",
+        "IDEA",
+        "PAID",
+        "TAPE",
+        "ADEPT"
       ],
       "hint": "He showed a strong _______ for drawing from an early age.",
       "quote": "A natural ability or talent for doing something",
@@ -10372,17 +9160,13 @@
       ],
       "bonusWords": [
         "ACT",
-        "AIT",
-        "APT",
         "CAP",
         "CAT",
-        "CAY",
-        "ICY",
-        "PAC",
         "PAT",
         "PAY",
-        "PIA",
-        "PIC"
+        "PIT",
+        "CITY",
+        "PITY"
       ],
       "hint": "Every child has an enormous _______ for kindness and creativity.",
       "quote": "The ability or power to do, experience, or understand",
@@ -10418,18 +9202,14 @@
         "E"
       ],
       "bonusWords": [
-        "CEL",
         "COD",
-        "COL",
-        "CON",
-        "CUD",
         "CUE",
-        "DEL",
         "DEN",
-        "DOC",
-        "DOE",
-        "DOL",
-        "DON"
+        "CLUE",
+        "CODE",
+        "COLD",
+        "DUNE",
+        "CLOUD"
       ],
       "hint": "From the dark storm clouds, we can _______ that rain is near.",
       "quote": "To arrive at a judgment or opinion by reasoning",
@@ -10465,18 +9245,14 @@
         "C"
       ],
       "bonusWords": [
-        "CEE",
-        "CEP",
-        "CHI",
-        "DEE",
-        "DIE",
         "DIP",
-        "EDH",
-        "ERE",
-        "HEP",
         "HER",
-        "HIC",
-        "HID"
+        "HID",
+        "CHIP",
+        "DEEP",
+        "DEER",
+        "DICE",
+        "HERE"
       ],
       "hint": "Archaeologists worked for years to _______ ancient hieroglyphs.",
       "quote": "To convert a coded or confusing message into intelligible text",
@@ -10512,18 +9288,14 @@
         "C"
       ],
       "bonusWords": [
-        "CEE",
-        "DEE",
         "DEN",
-        "DEV",
-        "DIE",
-        "DIN",
         "END",
         "EVE",
-        "ICE",
-        "NEE",
-        "VEE",
-        "VID"
+        "DICE",
+        "DIVE",
+        "EVEN",
+        "NEED",
+        "NICE"
       ],
       "hint": "Scientists demand verifiable _______ before accepting a new claim.",
       "quote": "The available facts indicating whether a belief is true",
@@ -10559,18 +9331,10 @@
         "E"
       ],
       "bonusWords": [
-        "EME",
-        "ERE",
-        "IRE",
-        "MEM",
-        "MIM",
-        "MIR",
-        "MOM",
-        "MOR",
         "ORE",
-        "REE",
-        "REI",
-        "REM"
+        "RIM",
+        "MORE",
+        "ZERO"
       ],
       "hint": "Actors _______ their lines so they can speak naturally on stage.",
       "quote": "To commit something accurately to memory",
@@ -10606,18 +9370,14 @@
         "S"
       ],
       "bonusWords": [
-        "AAS",
         "ACT",
-        "AGA",
-        "AGS",
-        "AIS",
-        "AIT",
-        "AYS",
         "CAT",
-        "CAY",
-        "CIG",
-        "CIS",
-        "GAS"
+        "GAS",
+        "ITS",
+        "SAT",
+        "CITY",
+        "GAIT",
+        "STAY"
       ],
       "hint": "Her _______ guided the team away from several costly mistakes.",
       "quote": "The quality of being wise and showing sound judgment",
@@ -10653,18 +9413,14 @@
         "R"
       ],
       "bonusWords": [
-        "CIS",
-        "CRU",
         "CRY",
-        "CUR",
         "CUT",
-        "ICY",
-        "INS",
         "ITS",
-        "NIT",
-        "NUS",
-        "NUT",
-        "RIN"
+        "CITY",
+        "SUIT",
+        "TINY",
+        "TURN",
+        "UNITY"
       ],
       "hint": "The new bridge design passed rigorous engineering _______.",
       "quote": "Critical observation or close, careful examination",
@@ -10700,18 +9456,13 @@
         "L"
       ],
       "bonusWords": [
-        "FIL",
         "FLY",
-        "IFS",
-        "IMP",
-        "ISM",
         "LIP",
-        "LIS",
-        "MIL",
-        "MIS",
-        "PIS",
-        "PLY",
-        "PSI"
+        "SIP",
+        "SLY",
+        "SPY",
+        "FILM",
+        "FLIP"
       ],
       "hint": "A good teacher knows how to _______ tough formulas for kids.",
       "quote": "To make something easier to understand or do",
@@ -10747,18 +9498,14 @@
         "A"
       ],
       "bonusWords": [
-        "AAL",
         "AID",
         "AIL",
-        "AIT",
-        "ALA",
         "ALE",
-        "ALT",
-        "ATE",
-        "AVA",
-        "AVE",
-        "DAL",
-        "DEL"
+        "DATA",
+        "ALIVE",
+        "DELTA",
+        "VITAL",
+        "DETAIL"
       ],
       "hint": "Independent tests helped _______ the scientist's new discovery.",
       "quote": "To check or prove the validity or accuracy of something",
@@ -10795,17 +9542,13 @@
       ],
       "bonusWords": [
         "BEE",
-        "BEL",
         "EEL",
-        "ELF",
-        "ELL",
-        "FEE",
-        "FIB",
-        "FIE",
-        "FIL",
         "FIX",
-        "ILL",
-        "LEE"
+        "BEEF",
+        "BELL",
+        "FEEL",
+        "FELL",
+        "BELIEF"
       ],
       "hint": "Willow branches are remarkably _______ in fierce winds.",
       "quote": "Able to bend easily without breaking or straining",
@@ -10844,20 +9587,16 @@
         "ACE",
         "AGE",
         "ALE",
-        "ARC",
-        "ARE",
-        "ARF",
-        "CAR",
-        "CEL",
-        "CRU",
-        "CUE",
-        "CUR",
-        "EAR"
+        "ACRE",
+        "CARE",
+        "CLUE",
+        "CRAG",
+        "GRACE"
       ],
       "hint": "The deer made a _______ leap over the wooden garden fence.",
       "quote": "Characterized by elegance or beauty of movement and form",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Arts & Imagination",
+      "domain": "Arts & Imagination",
       "rankRequired": "Devoted"
     },
     {
@@ -10889,22 +9628,18 @@
       ],
       "bonusWords": [
         "AIL",
-        "AIN",
         "AIR",
-        "AIT",
-        "ALT",
-        "ANI",
         "ANT",
-        "ART",
-        "LAR",
-        "LAT",
-        "LIN",
-        "LIT"
+        "AUNT",
+        "QUIT",
+        "RAIL",
+        "TRAIL",
+        "TRAIN"
       ],
       "hint": "A walk beside a forest stream leaves the senses _______.",
       "quote": "Free from disturbance; peacefully quiet and calm",
-      "author": "Holistic Education • Body & Movement",
-      "domain": "Body & Movement",
+      "author": "Holistic Education • Heart & Feelings",
+      "domain": "Heart & Feelings",
       "rankRequired": "Devoted"
     },
     {
@@ -10937,16 +9672,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AHI",
         "AIL",
-        "AIT",
-        "ALE",
-        "ALT",
-        "ATE",
-        "ATT",
-        "CAT",
-        "CEL",
-        "CHI"
+        "CHAT",
+        "EACH",
+        "HATE",
+        "TEACH",
+        "ETHICAL"
       ],
       "hint": "Joining the school relay team is a fun _______ challenge.",
       "quote": "Physically strong, fit, and active in sports",
@@ -10982,18 +9713,13 @@
         "I"
       ],
       "bonusWords": [
-        "ENG",
-        "ENS",
-        "ERE",
-        "ERG",
-        "ERN",
-        "ERS",
-        "GEE",
-        "GEN",
-        "GIE",
-        "GIN",
-        "INS",
-        "IRE"
+        "SEE",
+        "SIR",
+        "GRIN",
+        "RING",
+        "RISE",
+        "SIGN",
+        "SERENE"
       ],
       "hint": "A brisk walk in the park will _______ your tired legs.",
       "quote": "To give vitality, vigor, and enthusiasm to someone",
@@ -11029,18 +9755,12 @@
         "E"
       ],
       "bonusWords": [
-        "CEE",
-        "CIS",
-        "ERE",
-        "ERS",
         "ICE",
-        "IRE",
-        "REC",
-        "REE",
-        "REI",
-        "RES",
-        "REX",
-        "SEC"
+        "SEE",
+        "SIR",
+        "SIX",
+        "RICE",
+        "RISE"
       ],
       "hint": "Daily physical _______ keeps hearts strong and bodies nimble.",
       "quote": "Activity requiring physical effort to sustain health",
@@ -11076,18 +9796,14 @@
         "M"
       ],
       "bonusWords": [
-        "EME",
-        "EON",
         "EVE",
-        "MEM",
         "MEN",
         "MET",
-        "MOM",
-        "MON",
-        "MOT",
-        "NEE",
-        "NET",
-        "NOM"
+        "EVEN",
+        "MEET",
+        "MOVE",
+        "NOTE",
+        "TONE"
       ],
       "hint": "Watch the slow, deliberate _______ of a praying mantis.",
       "quote": "An act of changing physical position or posture",
@@ -11123,18 +9839,14 @@
         "L"
       ],
       "bonusWords": [
-        "ELF",
-        "FER",
-        "FEU",
         "FEW",
-        "FLU",
-        "FOE",
-        "FOP",
         "FOR",
-        "FOU",
-        "FRO",
         "FUR",
-        "LEU"
+        "FLEW",
+        "FLOW",
+        "FOUR",
+        "FUEL",
+        "POWER"
       ],
       "hint": "The _______ ocean waves crashed majestically against the rocks.",
       "quote": "Having great physical strength, energy, or force",
@@ -11173,15 +9885,11 @@
         "ACE",
         "AGE",
         "ARC",
-        "ARE",
-        "CAR",
-        "CEE",
-        "EAR",
-        "ERA",
-        "ERE",
-        "ERG",
-        "ERR",
-        "GAE"
+        "ACRE",
+        "ARCH",
+        "CARE",
+        "CRAG",
+        "GRACE"
       ],
       "hint": "Eight hours of sound sleep will _______ your body for school.",
       "quote": "To regain energy, strength, and vitality through rest",
@@ -11218,17 +9926,13 @@
       ],
       "bonusWords": [
         "EEL",
-        "ELS",
-        "ERE",
-        "ERS",
-        "ESS",
-        "IRE",
         "ITS",
-        "LEE",
-        "LEI",
-        "LES",
         "LET",
-        "LIE"
+        "ELSE",
+        "ISLE",
+        "LESS",
+        "LIST",
+        "REST"
       ],
       "hint": "Sheepdogs are _______ guardians when herding flocks across hills.",
       "quote": "Having or showing great effort without becoming fatigued",
@@ -11264,18 +9968,10 @@
         "I"
       ],
       "bonusWords": [
-        "GOO",
-        "GOR",
-        "GOS",
-        "GUV",
-        "ORS",
         "OUR",
-        "RIG",
         "RUG",
         "SIR",
-        "SOU",
-        "SRI",
-        "VIG"
+        "VIGOUR"
       ],
       "hint": "A _______ half-hour bike ride gets the blood pumping warmly.",
       "quote": "Strong, healthy, and full of intense energy",
@@ -11312,17 +10008,13 @@
       ],
       "bonusWords": [
         "EEL",
-        "ELL",
-        "ELS",
-        "ENS",
-        "ESS",
         "EWE",
-        "LEE",
-        "LES",
-        "NEE",
         "NEW",
-        "SEE",
-        "SEL"
+        "ELSE",
+        "LENS",
+        "LESS",
+        "NEWS",
+        "SELL"
       ],
       "hint": "Nutritious food, exercise, and friendship create true _______.",
       "quote": "The state of being in good physical and mental health",
@@ -11358,18 +10050,14 @@
         "N"
       ],
       "bonusWords": [
-        "AHI",
         "AIM",
-        "AIN",
-        "AMI",
-        "AMP",
-        "ANI",
-        "APO",
         "CAM",
         "CAN",
-        "CAP",
-        "CHI",
-        "CON"
+        "CAMP",
+        "CHIN",
+        "CHIP",
+        "COIN",
+        "PIANO"
       ],
       "hint": "A true sporting _______ displays modesty in victory and grace in loss.",
       "quote": "A person who has surpassed all rivals in a contest",
@@ -11405,18 +10093,14 @@
         "E"
       ],
       "bonusWords": [
-        "EON",
-        "ERE",
-        "ERN",
-        "ION",
-        "IRE",
-        "NEE",
         "NET",
-        "NIT",
-        "NIX",
         "NOR",
         "NOT",
-        "ONE"
+        "IRON",
+        "NOTE",
+        "TIRE",
+        "TONE",
+        "EXERT"
       ],
       "hint": "Sweating is the body's natural cooling response to _______.",
       "quote": "Physical or mental effort put into an activity",
@@ -11453,17 +10137,13 @@
       ],
       "bonusWords": [
         "FOR",
-        "FRO",
-        "KOR",
-        "OFT",
-        "OOT",
-        "ORT",
         "ROT",
         "ROW",
-        "TOO",
-        "TOR",
-        "TOW",
-        "TWO"
+        "FOOT",
+        "FORK",
+        "FORT",
+        "ROOF",
+        "ROOT"
       ],
       "hint": "Boxing and tennis both demand lightning-fast, nimble _______.",
       "quote": "The manner of moving or using the feet in sports or dance",
@@ -11499,18 +10179,14 @@
         "U"
       ],
       "bonusWords": [
-        "ALS",
-        "AMU",
         "ARC",
         "ARM",
-        "ARS",
         "CAM",
         "CAR",
-        "CRU",
-        "CUM",
-        "CUR",
-        "LAC",
-        "LAM"
+        "SUM",
+        "CALM",
+        "CURL",
+        "MURAL"
       ],
       "hint": "Rowers develop strong _______ backs from pulling heavy oars.",
       "quote": "Having well-developed muscles; strong and powerful",
@@ -11546,18 +10222,14 @@
         "L"
       ],
       "bonusWords": [
-        "AHI",
-        "AHS",
         "AIL",
-        "AIS",
-        "ALP",
-        "ALS",
-        "ASH",
-        "ASP",
-        "AYS",
         "CAP",
-        "CAY",
-        "CHI"
+        "HAS",
+        "CASH",
+        "CHIP",
+        "CLAP",
+        "CLAY",
+        "CLIP"
       ],
       "hint": "Daily _______ education classes keep school children fit and alert.",
       "quote": "Relating to the body as opposed to the mind",
@@ -11593,18 +10265,14 @@
         "E"
       ],
       "bonusWords": [
-        "HEP",
-        "HES",
-        "HEY",
-        "HIE",
         "HIP",
         "HIS",
         "HUE",
-        "HUP",
-        "HYP",
-        "PEH",
-        "PES",
-        "PHI"
+        "PIE",
+        "SHE",
+        "SHY",
+        "PUSH",
+        "SHIP"
       ],
       "hint": "Swimmers typically develop a lean, tall, and broad _______.",
       "quote": "The form, size, and development of a person's body",
@@ -11641,17 +10309,13 @@
       ],
       "bonusWords": [
         "DEN",
-        "DIE",
-        "DIN",
-        "DIS",
-        "EDS",
         "END",
-        "ENS",
-        "ESS",
-        "IDS",
         "INK",
-        "INN",
-        "INS"
+        "DESK",
+        "KIND",
+        "KISS",
+        "NINE",
+        "SEND"
       ],
       "hint": "A small act of _______ creates ripples that travel for miles.",
       "quote": "The quality of being friendly, generous, and considerate",
@@ -11689,16 +10353,12 @@
       "bonusWords": [
         "ACE",
         "ALE",
-        "ALP",
         "APE",
-        "CAP",
-        "CEE",
-        "CEL",
-        "CEP",
-        "CUE",
-        "CUP",
-        "EAU",
-        "ECU"
+        "CLAP",
+        "CLUE",
+        "FACE",
+        "FEEL",
+        "PEACE"
       ],
       "hint": "A _______ resolution to an argument leaves both sides happy.",
       "quote": "Free from disturbance; tranquil, untroubled, and calm",
@@ -11736,16 +10396,12 @@
       "bonusWords": [
         "ACE",
         "AID",
-        "AIN",
         "AIR",
-        "ANA",
-        "AND",
-        "ANE",
-        "ANI",
-        "ARC",
-        "ARE",
-        "CAD",
-        "CAN"
+        "ACRE",
+        "AREA",
+        "CARD",
+        "DANCE",
+        "DANCER"
       ],
       "hint": "Her pure heart spread an infectious _______ wherever she went.",
       "quote": "Light or heat as emitted or reflected; glowing warmth",
@@ -11781,18 +10437,14 @@
         "R"
       ],
       "bonusWords": [
-        "ENS",
-        "ERE",
-        "ERN",
-        "ERS",
         "EYE",
-        "INS",
-        "IRE",
         "ITS",
-        "NEE",
         "NET",
-        "NIT",
-        "REE"
+        "NEST",
+        "REST",
+        "RISE",
+        "TINY",
+        "TIRE"
       ],
       "hint": "Cultivate inner _______ so harsh words cannot wound your spirit.",
       "quote": "The state of being calm, peaceful, and untroubled",
@@ -11831,15 +10483,11 @@
         "AIL",
         "AIM",
         "AIR",
-        "AIS",
-        "AIT",
-        "ALS",
-        "ALT",
-        "AMI",
-        "AMU",
-        "ARM",
-        "ARS",
-        "ART"
+        "LAST",
+        "LIST",
+        "MURAL",
+        "SMART",
+        "TRAIL"
       ],
       "hint": "True _______ asks nothing in return for doing good deeds.",
       "quote": "Selfless concern for the well-being and happiness of others",
@@ -11875,18 +10523,14 @@
         "N"
       ],
       "bonusWords": [
-        "BEN",
-        "BIN",
-        "BIO",
-        "BOO",
-        "EON",
-        "HEM",
         "HEN",
-        "HIE",
         "HIM",
-        "HIN",
-        "HOB",
-        "HOE"
+        "MEN",
+        "ONE",
+        "BONE",
+        "HOME",
+        "MINE",
+        "MOON"
       ],
       "hint": "The holiday dinner was filled with laughter and natural _______.",
       "quote": "Cheerful friendliness, geniality, and warm sociability",
@@ -11922,18 +10566,14 @@
         "E"
       ],
       "bonusWords": [
-        "CEE",
-        "CEL",
-        "CRU",
         "CUE",
-        "CUR",
-        "ECU",
         "EEL",
-        "ELF",
-        "ERE",
-        "FEE",
-        "FEH",
-        "FER"
+        "FUR",
+        "CLUE",
+        "CURL",
+        "FEEL",
+        "FREE",
+        "FUEL"
       ],
       "hint": "A _______ greeting in the morning lifts everyone's spirits.",
       "quote": "Noticeably happy, optimistic, and pleasant in mood",
@@ -11969,18 +10609,14 @@
         "U"
       ],
       "bonusWords": [
-        "COR",
-        "COS",
-        "COT",
-        "COY",
-        "CRU",
         "CRY",
         "CUE",
-        "CUR",
         "CUT",
-        "ECU",
-        "ERS",
-        "OES"
+        "COST",
+        "REST",
+        "ROSE",
+        "SORT",
+        "STORY"
       ],
       "hint": "Holding the elevator door for someone is simple, daily _______.",
       "quote": "The showing of politeness and consideration in attitude",
@@ -12017,17 +10653,13 @@
       ],
       "bonusWords": [
         "DEN",
-        "DEV",
-        "DIE",
-        "DIN",
-        "DIT",
-        "DOE",
-        "DON",
         "DOT",
         "END",
-        "EON",
-        "ION",
-        "NET"
+        "DIET",
+        "DIVE",
+        "DOVE",
+        "NODE",
+        "NOTE"
       ],
       "hint": "He cared for his elderly dog with tender, unwavering _______.",
       "quote": "Love, loyalty, or enthusiasm for a person, activity, or cause",
@@ -12065,16 +10697,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AHI",
         "AIM",
-        "AIT",
-        "AMI",
-        "AMP",
-        "APE",
-        "APT",
-        "ATE",
-        "CAM",
-        "CAP"
+        "CAMP",
+        "CHAT",
+        "CHIP",
+        "EACH",
+        "TEACH"
       ],
       "hint": "An _______ response acknowledges tears before offering advice.",
       "quote": "Showing an ability to understand and share another's feelings",
@@ -12115,17 +10743,13 @@
       ],
       "bonusWords": [
         "AIM",
-        "AIN",
-        "AIS",
-        "AMI",
-        "AMP",
-        "ANI",
-        "APO",
-        "ASP",
-        "ASS",
         "CAM",
         "CAN",
-        "CAP"
+        "CAMP",
+        "COIN",
+        "OASIS",
+        "PIANO",
+        "MOSAIC"
       ],
       "hint": "True _______ does not merely watch; it steps forward to assist.",
       "quote": "Sympathetic pity and concern for the sufferings of others",
@@ -12168,15 +10792,11 @@
         "ACE",
         "ACT",
         "AIR",
-        "AIT",
-        "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "ATT",
-        "AVE",
-        "AYE",
-        "CAR"
+        "ACRE",
+        "CARE",
+        "CART",
+        "ACTIVE",
+        "VERACITY"
       ],
       "hint": "Building with colorful building blocks nurtures childhood _______.",
       "quote": "The use of imagination or original ideas in the production of art",
@@ -12214,18 +10834,14 @@
         "V"
       ],
       "bonusWords": [
-        "CIS",
         "COD",
-        "COR",
-        "COS",
-        "COY",
         "CRY",
-        "DEV",
-        "DEY",
-        "DIE",
-        "DIS",
-        "DOC",
-        "DOE"
+        "DRY",
+        "CODE",
+        "DICE",
+        "DIVE",
+        "DOVE",
+        "DISCOVER"
       ],
       "hint": "The _______ of penicillin saved millions of human lives.",
       "quote": "The act of finding something unknown or groundbreaking",
@@ -12265,18 +10881,14 @@
         "N"
       ],
       "bonusWords": [
-        "EGO",
-        "ENG",
-        "ENS",
-        "EON",
-        "ERE",
-        "ERG",
-        "ERN",
-        "ERS",
         "EYE",
-        "GEE",
-        "GEN",
-        "GET"
+        "GET",
+        "GOT",
+        "GONE",
+        "STORY",
+        "GEYSER",
+        "STRONG",
+        "SERENITY"
       ],
       "hint": "Her _______ was evident in how readily she shared her paints.",
       "quote": "The quality of being kind and giving freely to others",
@@ -12321,17 +10933,13 @@
       ],
       "bonusWords": [
         "ACE",
-        "ANE",
         "APE",
         "ARC",
-        "ARE",
-        "ARS",
-        "ASP",
-        "AVE",
-        "CAN",
-        "CAP",
-        "CAR",
-        "CEE"
+        "ACRE",
+        "PEACE",
+        "VERSE",
+        "SERENE",
+        "PERSEVERE"
       ],
       "hint": "Winning the spelling bee took months of daily _______.",
       "quote": "Persistence in doing something despite difficulty or delay in success",
@@ -12369,18 +10977,14 @@
         "T"
       ],
       "bonusWords": [
-        "ENG",
-        "ERG",
-        "ERN",
-        "GEN",
         "GET",
-        "GEY",
-        "GIE",
-        "GIN",
-        "GIT",
-        "IRE",
-        "NEG",
-        "NET"
+        "NET",
+        "TEN",
+        "GRIN",
+        "GRIT",
+        "RING",
+        "TENT",
+        "TINY"
       ],
       "hint": "True _______ is doing the right thing when no one is watching.",
       "quote": "The quality of being honest and having strong moral principles",
@@ -12422,18 +11026,14 @@
         "S"
       ],
       "bonusWords": [
-        "DEF",
-        "DEL",
         "DEN",
-        "DIE",
-        "DIF",
         "DIM",
-        "DIN",
-        "DIS",
         "DUE",
-        "DUI",
-        "DUN",
-        "EDS"
+        "DIME",
+        "DUNE",
+        "FILE",
+        "FILM",
+        "MINDFUL"
       ],
       "hint": "Practicing _______ helps children focus before afternoon study.",
       "quote": "The quality or state of being conscious or aware of something; presence",
@@ -12469,18 +11069,14 @@
         "F"
       ],
       "bonusWords": [
-        "AFF",
-        "AFT",
-        "AHI",
         "AIL",
-        "AIT",
-        "ALT",
         "FAT",
-        "FIL",
         "FIT",
-        "FLU",
-        "HAT",
-        "HIT"
+        "FLAT",
+        "HALF",
+        "LIFT",
+        "TAIL",
+        "FAITH"
       ],
       "hint": "A _______ companion never abandons you when challenges arise.",
       "quote": "Remaining loyal, steadfast, and steadfastly true to promises",
@@ -12516,18 +11112,14 @@
         "N"
       ],
       "bonusWords": [
-        "DEF",
         "DEN",
-        "DOE",
-        "DON",
-        "DOS",
-        "EDS",
-        "EFS",
         "END",
-        "ENS",
-        "EON",
-        "ESS",
-        "FED"
+        "FED",
+        "FOND",
+        "NODE",
+        "NONE",
+        "NOSE",
+        "SEND"
       ],
       "hint": "He looked back with great _______ on his childhood village.",
       "quote": "Affection or liking for someone or something cherished",
@@ -12563,18 +11155,14 @@
         "F"
       ],
       "bonusWords": [
-        "DEF",
-        "DEL",
         "DEN",
-        "DEY",
-        "DIE",
-        "DIF",
-        "DIN",
         "DRY",
-        "DYE",
-        "ELD",
-        "ELF",
-        "END"
+        "END",
+        "FERN",
+        "FILE",
+        "FIND",
+        "FINE",
+        "FRIEND"
       ],
       "hint": "A _______ wave across the street makes neighbors feel connected.",
       "quote": "Kind, pleasant, and behaving in an approachable manner",
@@ -12610,18 +11198,14 @@
         "S"
       ],
       "bonusWords": [
-        "ADS",
         "AGE",
-        "AGS",
         "ALE",
-        "ALS",
         "AND",
-        "ANE",
-        "ASS",
-        "DAG",
-        "DAL",
-        "DAN",
-        "DEL"
+        "AGED",
+        "DEAL",
+        "GLAD",
+        "GLEN",
+        "LAND"
       ],
       "hint": "Sharing festive treats brought heartfelt _______ to the family.",
       "quote": "The state of being happy, joyful, or deeply delighted",
@@ -12658,17 +11242,13 @@
       ],
       "bonusWords": [
         "DEN",
-        "DOE",
         "DOG",
-        "DON",
-        "DOS",
-        "EDS",
-        "EGO",
         "END",
-        "ENG",
-        "ENS",
-        "EON",
-        "ESS"
+        "GONE",
+        "GOOD",
+        "NODE",
+        "NOSE",
+        "SEND"
       ],
       "hint": "Never doubt that quiet _______ will outlast noisy boastfulness.",
       "quote": "The quality of being morally good, virtuous, or kind",
@@ -12704,18 +11284,14 @@
         "O"
       ],
       "bonusWords": [
-        "AGO",
-        "AGS",
         "AIR",
-        "AIS",
         "ARC",
-        "ARS",
         "CAR",
-        "CIG",
-        "CIS",
-        "COG",
-        "COR",
-        "COS"
+        "GAS",
+        "OAR",
+        "OUR",
+        "RAG",
+        "CRAG"
       ],
       "hint": "Be a _______ winner and praise your opponent's gallant effort.",
       "quote": "Courteous, kind, polite, and pleasant in behavior",
@@ -12752,17 +11328,13 @@
       ],
       "bonusWords": [
         "AIL",
-        "AIN",
-        "AIT",
-        "ALB",
-        "ALT",
-        "ANI",
         "ANT",
-        "BAL",
         "BAN",
         "BAT",
-        "BIN",
-        "BIT"
+        "BIT",
+        "AUNT",
+        "TAIL",
+        "UNIT"
       ],
       "hint": "The soccer team was _______ after winning the championship game.",
       "quote": "Feeling or expressing great triumph, happiness, and joy",
@@ -12798,18 +11370,14 @@
         "U"
       ],
       "bonusWords": [
-        "CEL",
-        "CRU",
         "CUE",
-        "CUM",
-        "CUR",
-        "ECU",
-        "ELF",
         "ELM",
         "EMU",
-        "FEM",
-        "FER",
-        "FEU"
+        "CLUE",
+        "CURL",
+        "FILE",
+        "FILM",
+        "FIRE"
       ],
       "hint": "A _______ judge considers mitigating circumstances with kindness.",
       "quote": "Treating others with compassion, forgiveness, and forbearance",
@@ -12846,17 +11414,10 @@
       ],
       "bonusWords": [
         "BIG",
-        "BIN",
-        "BIO",
-        "BOG",
-        "GIB",
-        "GIG",
-        "GIN",
-        "GOB",
-        "IGG",
-        "ION",
-        "LIB",
-        "LIN"
+        "LOG",
+        "OIL",
+        "LION",
+        "LONG"
       ],
       "hint": "The shopkeeper was remarkably _______ and found the rare book.",
       "quote": "Willing to do a service or kindness; helpful and accommodating",
@@ -12893,17 +11454,13 @@
       ],
       "bonusWords": [
         "ARE",
-        "ARS",
-        "ASS",
         "EAR",
-        "EAU",
         "ERA",
-        "ERE",
-        "ERR",
-        "ERS",
-        "ESS",
-        "RAS",
-        "REE"
+        "RUE",
+        "EASE",
+        "RARE",
+        "SURE",
+        "ASSURE"
       ],
       "hint": "A gentle smile can _______ a frightened child in the hospital.",
       "quote": "To say or do something to remove the doubts or fears of someone",
@@ -12941,16 +11498,12 @@
       "bonusWords": [
         "AIL",
         "AIR",
-        "ALB",
         "ALE",
-        "ALL",
-        "ARB",
-        "ARE",
-        "BAL",
-        "BAR",
-        "BEE",
-        "BEL",
-        "BRA"
+        "ABLE",
+        "BALL",
+        "BEAR",
+        "BELL",
+        "LIBERAL"
       ],
       "hint": "A _______ friend is one you can count on in any emergency.",
       "quote": "Consistently good in quality, performance, or character; dependable",
@@ -12986,18 +11539,14 @@
         "G"
       ],
       "bonusWords": [
-        "GHI",
-        "GIN",
-        "GIT",
-        "GOO",
-        "GOS",
         "GOT",
-        "HIN",
         "HIS",
         "HIT",
-        "HOG",
-        "HON",
-        "HOS"
+        "HINT",
+        "HOST",
+        "SHOT",
+        "SIGN",
+        "SING"
       ],
       "hint": "The sound of rain against the windowpane is remarkably _______.",
       "quote": "Having a gently calming, tranquil, and comforting effect",
@@ -13033,18 +11582,14 @@
         "M"
       ],
       "bonusWords": [
-        "AHS",
-        "AMP",
-        "APT",
-        "ASH",
-        "ASP",
-        "AYS",
         "HAM",
-        "HAP",
         "HAS",
         "HAT",
         "HAY",
-        "HYP"
+        "MYTH",
+        "PAST",
+        "PATH",
+        "STAY"
       ],
       "hint": "Send a handwritten note of _______ when a friend loses a pet.",
       "quote": "Feelings of pity and sorrow for someone else's misfortune",
@@ -13080,18 +11625,14 @@
         "F"
       ],
       "bonusWords": [
-        "AFT",
-        "ALT",
         "ANT",
-        "AUK",
         "FAN",
         "FAT",
-        "FLU",
-        "FUN",
-        "HAT",
-        "HUN",
-        "HUT",
-        "KAF"
+        "AUNT",
+        "FLAT",
+        "HALF",
+        "HUNT",
+        "TALK"
       ],
       "hint": "Be _______ for a warm bed, good food, and a loving home.",
       "quote": "Pleased and relieved; expressing gratitude for blessings",
@@ -13128,17 +11669,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALT",
-        "ANE",
         "ANT",
         "ARE",
-        "ART",
-        "ATE",
-        "ATT",
-        "EAR",
-        "EAT",
-        "EON",
-        "ERA"
+        "EARN",
+        "LANE",
+        "ALERT",
+        "LEARN",
+        "TALENT"
       ],
       "hint": "A democratic society is built upon fair and _______ dialogue.",
       "quote": "Showing willingness to allow the existence of opinions or habits one disproves",
@@ -13174,18 +11711,14 @@
         "U"
       ],
       "bonusWords": [
-        "GIN",
-        "GIT",
-        "GNU",
-        "GUN",
-        "GUT",
-        "INS",
         "ITS",
-        "NIT",
-        "NUS",
         "NUT",
-        "RIG",
-        "RIN"
+        "RUG",
+        "GRIN",
+        "GRIT",
+        "RING",
+        "SIGN",
+        "TRUST"
       ],
       "hint": "Dogs are naturally _______ companions when treated with love.",
       "quote": "Inclined to trust; showing confidence in others' goodwill",
@@ -13223,16 +11756,9 @@
       "bonusWords": [
         "HIM",
         "HIT",
-        "HUM",
         "HUT",
         "LIT",
-        "LUM",
-        "MIL",
-        "MUT",
-        "THY",
-        "TIL",
-        "TUI",
-        "YUM"
+        "MYTH"
       ],
       "hint": "True _______ is knowing your gifts without boasting of them.",
       "quote": "The quality of having a modest view of one's own importance",
@@ -13268,18 +11794,14 @@
         "I"
       ],
       "bonusWords": [
-        "AIN",
         "AIR",
-        "AIS",
-        "ANE",
-        "ANI",
         "ARE",
-        "ARF",
-        "ARS",
-        "ASS",
         "EAR",
-        "EFS",
-        "ENS"
+        "EARN",
+        "FAIR",
+        "FERN",
+        "FINE",
+        "FIRE"
       ],
       "hint": "Referees must judge every play with absolute, unbending _______.",
       "quote": "Impartial and just treatment or behavior without favoritism",
@@ -13317,16 +11839,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AIN",
-        "AIT",
-        "ANE",
-        "ANI",
         "ANT",
         "ANY",
-        "ATE",
-        "ATT",
-        "AYE",
-        "CAN"
+        "CITY",
+        "NICE",
+        "TENT",
+        "TINY"
       ],
       "hint": "Her _______ in studying paid off when she passed the exam.",
       "quote": "The quality or fact of being very determined and persistent",
@@ -13362,18 +11880,14 @@
         "Y"
       ],
       "bonusWords": [
-        "AHI",
         "AIL",
         "AIR",
         "ARC",
-        "CAR",
-        "CAY",
-        "CHI",
-        "CRY",
-        "HAY",
-        "HIC",
-        "ICH",
-        "ICY"
+        "ARCH",
+        "CLAY",
+        "HAIR",
+        "RAIL",
+        "LYRIC"
       ],
       "hint": "Opening doors for elderly people is a touch of timeless _______.",
       "quote": "Courteous, gallant, and protective behavior toward others",
@@ -13410,17 +11924,13 @@
       ],
       "bonusWords": [
         "ALE",
-        "ALS",
         "ARE",
-        "ARF",
-        "ARS",
-        "ASS",
         "EAR",
-        "EEL",
-        "EFS",
-        "ELF",
-        "ELS",
-        "ERA"
+        "EASE",
+        "ELSE",
+        "FEEL",
+        "FREE",
+        "LEAF"
       ],
       "hint": "Be _______ in standing up for classmates who are left out.",
       "quote": "Lacking fear; brave, bold, valiant, and courageous",
@@ -13456,18 +11966,14 @@
         "E"
       ],
       "bonusWords": [
-        "DEF",
-        "DEL",
-        "DEY",
-        "DIE",
-        "DIF",
-        "DIT",
-        "DYE",
-        "EFT",
-        "ELD",
-        "ELF",
         "FED",
-        "FET"
+        "FIT",
+        "FLY",
+        "DIET",
+        "FELT",
+        "FILE",
+        "LEFT",
+        "LIFE"
       ],
       "hint": "Soldiers swear an oath of _______ to protect their homeland.",
       "quote": "Faithfulness to a person, cause, or belief, demonstrated by loyalty",
@@ -13506,15 +12012,11 @@
         "AIL",
         "AIM",
         "AIR",
-        "AIT",
-        "ALT",
-        "AMI",
-        "ARM",
-        "ART",
-        "LAM",
-        "LAR",
-        "LAT",
-        "LAY"
+        "ARMY",
+        "ATOM",
+        "AMITY",
+        "MORAL",
+        "TRAIL"
       ],
       "hint": "A society thrives when honesty and _______ are cherished by all.",
       "quote": "Principles concerning the distinction between right and wrong",
@@ -13550,18 +12052,14 @@
         "B"
       ],
       "bonusWords": [
-        "BIN",
-        "BIO",
         "BIT",
-        "BOT",
         "BOY",
-        "ION",
-        "LIB",
-        "LIN",
         "LIT",
-        "LOB",
         "LOT",
-        "NIB"
+        "NOT",
+        "LION",
+        "ONLY",
+        "TINY"
       ],
       "hint": "The _______ of Abraham Lincoln was seen in his forgiving heart.",
       "quote": "The quality of having fine personal qualities or high moral character",
@@ -13599,16 +12097,12 @@
       "bonusWords": [
         "BED",
         "BEE",
-        "BEN",
         "BET",
-        "BID",
-        "BIN",
-        "BIO",
-        "BIT",
-        "BOD",
-        "BOT",
-        "DEB",
-        "DEE"
+        "BEND",
+        "BONE",
+        "DIET",
+        "NEED",
+        "NODE"
       ],
       "hint": "A well-trained puppy is happily _______ to gentle whistles.",
       "quote": "Complying with or willing to comply with orders or guidance",
@@ -13645,17 +12139,13 @@
       ],
       "bonusWords": [
         "ACT",
-        "ALP",
-        "ALT",
         "ANT",
-        "APT",
         "CAN",
         "CAP",
         "CAT",
-        "CUP",
-        "CUT",
-        "LAC",
-        "LAP"
+        "AUNT",
+        "CLAP",
+        "PLAN"
       ],
       "hint": "Being _______ shows that you respect other people's time.",
       "quote": "Happening or doing something at the agreed or proper time; on time",
@@ -13692,17 +12182,13 @@
       ],
       "bonusWords": [
         "EEL",
-        "ELS",
-        "ERE",
-        "ERS",
-        "LEE",
-        "LES",
         "LET",
-        "LEU",
         "LOT",
-        "OES",
-        "OLE",
-        "ORE"
+        "ELSE",
+        "LOSE",
+        "LOST",
+        "REST",
+        "ROLE"
       ],
       "hint": "The climbers were _______ in their quest to reach the summit.",
       "quote": "Admirably purposeful, determined, and unwavering in decision",
@@ -13739,17 +12225,12 @@
       ],
       "bonusWords": [
         "EEL",
-        "EFS",
-        "ELF",
-        "ELL",
-        "ELS",
-        "ESS",
-        "FEE",
-        "FES",
-        "LEE",
-        "LES",
         "SEE",
-        "SEL"
+        "ELSE",
+        "FEEL",
+        "FELL",
+        "LESS",
+        "SELF"
       ],
       "hint": "The heroic nurse provided _______ care to patients around the clock.",
       "quote": "Concerned more with the needs and wishes of others than with one's own",
@@ -13785,18 +12266,9 @@
         "R"
       ],
       "bonusWords": [
-        "FLU",
         "FUR",
         "HUT",
-        "RUT",
-        "TUT",
-        "ULU",
-        "FURL",
-        "HURL",
-        "HURT",
-        "RUTH",
-        "THRU",
-        "TUFT"
+        "HURT"
       ],
       "hint": "A _______ witness describes events exactly as they happened.",
       "quote": "Telling or expressing the truth; honest and accurate",
@@ -13835,15 +12307,11 @@
         "ACE",
         "ACT",
         "AIR",
-        "AIT",
-        "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "AVE",
-        "AYE",
-        "CAR",
-        "CAT"
+        "ACRE",
+        "CARE",
+        "CART",
+        "CAVE",
+        "ACTIVE"
       ],
       "hint": "We have no reason to doubt the _______ of her honest account.",
       "quote": "Conformity to facts; accuracy and habitual truthfulness",
@@ -13880,17 +12348,13 @@
       ],
       "bonusWords": [
         "ITS",
-        "ORS",
-        "ORT",
         "OUR",
         "OUT",
         "ROT",
-        "RUT",
         "SIR",
-        "SIT",
-        "SOT",
-        "SOU",
-        "SRI"
+        "SORT",
+        "SUIT",
+        "TOUR"
       ],
       "hint": "Living a _______ life brings a clear conscience and peaceful sleep.",
       "quote": "Having or showing high moral standards; righteous and good",
@@ -13926,18 +12390,14 @@
         "E"
       ],
       "bonusWords": [
-        "DEL",
         "DEN",
-        "DEY",
-        "DIE",
         "DIG",
-        "DIN",
-        "DYE",
-        "ELD",
         "END",
-        "ENG",
-        "GED",
-        "GEL"
+        "LED",
+        "GLEN",
+        "LEND",
+        "LINE",
+        "GLIDE"
       ],
       "hint": "A wise negotiator is firm on principles but _______ on details.",
       "quote": "Giving way under pressure; reasonably accommodating and gentle",
@@ -13973,18 +12433,13 @@
         "H"
       ],
       "bonusWords": [
-        "HON",
         "HOP",
-        "HOS",
-        "HOY",
-        "HYP",
-        "MHO",
-        "MON",
-        "MOP",
-        "MOS",
-        "NOH",
-        "NOM",
-        "NOS"
+        "SHY",
+        "SON",
+        "SOY",
+        "SPY",
+        "PONY",
+        "SHOP"
       ],
       "hint": "Beethoven composed his famous Fifth _______ with thunderous power.",
       "quote": "An elaborate musical composition for full orchestra",
@@ -14020,18 +12475,14 @@
         "L"
       ],
       "bonusWords": [
-        "AGO",
         "AIL",
-        "AIN",
         "AIR",
-        "ANI",
-        "GAL",
-        "GAN",
-        "GAR",
-        "GIN",
-        "GOA",
-        "GOR",
-        "ION"
+        "LOG",
+        "GAIN",
+        "GIRL",
+        "GOAL",
+        "GRIN",
+        "IRON"
       ],
       "hint": "Her costume design was completely _______ and won top prize.",
       "quote": "Present or existing from the beginning; not dependent on other ideas",
@@ -14069,16 +12520,12 @@
       "bonusWords": [
         "ACT",
         "AIR",
-        "AIS",
-        "AIT",
         "ARC",
-        "ARS",
         "ART",
-        "ATT",
         "CAR",
         "CAT",
-        "CIS",
-        "ITS"
+        "CART",
+        "STAR"
       ],
       "hint": "She arranged the autumn flowers with an innate _______ flair.",
       "quote": "Having or revealing natural creative skill in visual arts or music",
@@ -14114,18 +12561,12 @@
         "S"
       ],
       "bonusWords": [
-        "CEP",
-        "COO",
-        "COP",
-        "COR",
-        "COS",
-        "EMS",
-        "ERS",
-        "MOC",
-        "MOO",
-        "MOP",
-        "MOR",
-        "MOS"
+        "ORE",
+        "COME",
+        "COPE",
+        "CROP",
+        "MORE",
+        "COMPOSE"
       ],
       "hint": "The film _______ created a soaring orchestral theme for the heroes.",
       "quote": "A person who writes musical compositions professionally",
@@ -14163,16 +12604,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "AIN",
         "AIR",
-        "AIT",
-        "ANE",
-        "ANI",
-        "ANT",
-        "ARC",
-        "ARE",
-        "ART",
-        "ATE"
+        "OCEAN",
+        "TRAIN",
+        "ACTION",
+        "NECTAR",
+        "NOTICE"
       ],
       "hint": "Every painting in the museum is a unique, human _______.",
       "quote": "The action or process of bringing something into existence",
@@ -14210,16 +12647,12 @@
       "bonusWords": [
         "ACE",
         "ACT",
-        "ADO",
         "ARC",
-        "ARE",
-        "ART",
-        "ATE",
-        "CAD",
-        "CAR",
-        "CAT",
-        "CEE",
-        "COD"
+        "ACRE",
+        "CARD",
+        "CARE",
+        "CART",
+        "CREATE"
       ],
       "hint": "Children love to _______ the classroom with paper snowflakes.",
       "quote": "To make something look more attractive by adding ornaments",
@@ -14258,15 +12691,11 @@
         "ACT",
         "AID",
         "AIM",
-        "AIR",
-        "AIT",
-        "AMA",
-        "AMI",
-        "ARC",
-        "ARM",
-        "ART",
-        "CAD",
-        "CAM"
+        "CARD",
+        "CART",
+        "DART",
+        "DATA",
+        "DRAMA"
       ],
       "hint": "The play reached a _______ climax when the hero revealed his identity.",
       "quote": "Relating to drama or the performance of plays; striking",
@@ -14302,18 +12731,13 @@
         "N"
       ],
       "bonusWords": [
-        "INS",
-        "ION",
-        "ISM",
-        "LIN",
-        "LIS",
-        "LUM",
-        "MIL",
-        "MIS",
-        "MOL",
-        "MON",
-        "MOS",
-        "MUN"
+        "OIL",
+        "SON",
+        "SUM",
+        "SUN",
+        "LION",
+        "SOIL",
+        "SOUL"
       ],
       "hint": "The landscape painting had a magical, _______ sky at twilight.",
       "quote": "Full of or shedding light; bright or shining, especially in darkness",
@@ -14352,15 +12776,11 @@
         "ACE",
         "ACT",
         "AIM",
-        "AIS",
-        "AIT",
-        "AMI",
-        "ATE",
-        "CAM",
-        "CAT",
-        "CIS",
-        "EAT",
-        "EMS"
+        "CASE",
+        "EAST",
+        "ITEM",
+        "MATE",
+        "MEAT"
       ],
       "hint": "Towering redwoods create a _______ cathedral of nature in California.",
       "quote": "Having or showing impressive beauty or dignity; grand",
@@ -14396,18 +12816,14 @@
         "T"
       ],
       "bonusWords": [
-        "AMP",
         "APE",
-        "APO",
-        "APT",
         "ARE",
         "ARM",
-        "ART",
-        "ATE",
-        "EAR",
-        "EAT",
-        "ERA",
-        "ETA"
+        "ATOM",
+        "EARTH",
+        "HEART",
+        "OPERA",
+        "TEMPO"
       ],
       "hint": "Calling books 'ships of discovery' is a vivid and memorable _______.",
       "quote": "A figure of speech in which a word or phrase is applied to an object",
@@ -14444,17 +12860,13 @@
       ],
       "bonusWords": [
         "ELM",
-        "ELS",
-        "EMS",
-        "ENS",
-        "ERN",
-        "ERS",
-        "INS",
-        "IRE",
-        "ISM",
         "ITS",
-        "LEI",
-        "LES"
+        "LET",
+        "ISLE",
+        "ITEM",
+        "LENS",
+        "LIME",
+        "LISTEN"
       ],
       "hint": "The wandering _______ entertained travelers by the tavern fireplace.",
       "quote": "A medieval singer or musician who sang or recited poetry",
@@ -14491,17 +12903,12 @@
       ],
       "bonusWords": [
         "AIM",
-        "AIN",
-        "AIS",
-        "AMI",
-        "AMU",
-        "ANI",
         "CAM",
         "CAN",
-        "CIS",
-        "CUM",
-        "INS",
-        "ISM"
+        "SUM",
+        "SUN",
+        "MAIN",
+        "MUSIC"
       ],
       "hint": "The young _______ practiced his violin until every note rang true.",
       "quote": "A person who plays a musical instrument or writes music",
@@ -14537,18 +12944,14 @@
         "N"
       ],
       "bonusWords": [
-        "AIN",
-        "AIT",
-        "ANI",
         "ANT",
-        "APT",
-        "GAN",
         "GAP",
-        "GAT",
-        "GIN",
-        "GIP",
-        "GIT",
-        "INN"
+        "INN",
+        "NAP",
+        "GAIN",
+        "GAIT",
+        "PAIN",
+        "PAINT"
       ],
       "hint": "The oil _______ hung in the gallery glowed with warm candlelight.",
       "quote": "The action or skill of using paint; a painted picture",
@@ -14584,18 +12987,14 @@
         "H"
       ],
       "bonusWords": [
-        "CHI",
         "CRY",
-        "HIC",
         "HIM",
         "HIT",
-        "ICH",
-        "ICY",
-        "MIC",
-        "MIR",
-        "MYC",
-        "RIM",
-        "THY"
+        "CITY",
+        "MYTH",
+        "RICH",
+        "TRIM",
+        "RHYTHM"
       ],
       "hint": "The dancers moved to the steady, _______ beat of hand drums.",
       "quote": "Having or relating to a pleasingly regular repeated pattern",
@@ -14631,18 +13030,14 @@
         "U"
       ],
       "bonusWords": [
-        "COL",
-        "COP",
-        "COR",
-        "COS",
-        "COT",
-        "CRU",
         "CUP",
-        "CUR",
         "CUT",
-        "LOP",
         "LOT",
-        "OPS"
+        "COST",
+        "CROP",
+        "SPORT",
+        "SCULPT",
+        "SPROUT"
       ],
       "hint": "Michelangelo was a master Italian _______ who carved marble flawlessly.",
       "quote": "An artist who makes sculptures out of stone, clay, metal, or wood",
@@ -14679,17 +13074,13 @@
       ],
       "bonusWords": [
         "APE",
-        "APT",
         "ARE",
-        "ARS",
         "ART",
-        "ASP",
-        "ATE",
-        "ATT",
-        "AYE",
-        "AYS",
-        "EAR",
-        "EAT"
+        "EAST",
+        "EASY",
+        "PART",
+        "PAST",
+        "PEAR"
       ],
       "hint": "Medieval castles hung woven woolen _______ to keep stone walls warm.",
       "quote": "A piece of thick textile fabric with pictures or designs woven in",
@@ -14725,18 +13116,13 @@
         "O"
       ],
       "bonusWords": [
-        "DOR",
-        "DOW",
-        "KOR",
         "ROD",
         "ROW",
-        "WOK",
-        "WOO",
         "WOW",
         "DOOR",
-        "DORK",
-        "ODOR",
-        "ORDO"
+        "WOOD",
+        "WORD",
+        "WORK"
       ],
       "hint": "Carving a wooden spoon is an accessible and practical piece of _______.",
       "quote": "Things made of wood, or the craft of carving and joining wood",
@@ -14772,18 +13158,14 @@
         "T"
       ],
       "bonusWords": [
-        "ENS",
-        "ERN",
-        "ERS",
-        "INS",
-        "IRE",
         "ITS",
         "NET",
-        "NIP",
-        "NIT",
         "PEN",
-        "PER",
-        "PES"
+        "NEST",
+        "PEST",
+        "PINE",
+        "SPRINT",
+        "INSPIRE"
       ],
       "hint": "Leave the mountain campsite in _______ condition for future hikers.",
       "quote": "In its original condition; unspoiled, pure, clean, and fresh",
@@ -14819,18 +13201,14 @@
         "H"
       ],
       "bonusWords": [
-        "FIL",
         "FIR",
-        "FLU",
-        "FOH",
         "FOR",
-        "FOU",
-        "FRO",
         "FUR",
-        "HIS",
-        "HOS",
-        "IFS",
-        "LIS"
+        "FISH",
+        "FOUR",
+        "HOUR",
+        "RUSH",
+        "SOIL"
       ],
       "hint": "Wild orchids _______ in the damp, shaded canopy of cloud forests.",
       "quote": "To grow or develop in a healthy or vigorous way; to thrive",
@@ -14866,18 +13244,14 @@
         "O"
       ],
       "bonusWords": [
-        "CEE",
-        "CON",
-        "COR",
-        "COS",
-        "ENS",
-        "EON",
-        "ERE",
-        "ERN",
-        "ERS",
         "EVE",
-        "NEE",
-        "NOR"
+        "NOR",
+        "ONE",
+        "CORN",
+        "EVEN",
+        "EVER",
+        "NOSE",
+        "VERSE"
       ],
       "hint": "Turn off dripping taps to _______ precious fresh drinking water.",
       "quote": "To protect something of value, especially environment, from harm or waste",
@@ -14914,17 +13288,13 @@
       ],
       "bonusWords": [
         "AIM",
-        "AIN",
-        "AIT",
-        "AMI",
-        "AMU",
-        "ANI",
         "ANT",
         "INN",
-        "ION",
-        "MAN",
-        "MAT",
-        "MOA"
+        "ATOM",
+        "AUNT",
+        "MAIN",
+        "MINT",
+        "UNIT"
       ],
       "hint": "Eagle nests are tucked safely high on the crags of the rocky _______.",
       "quote": "A large natural elevation of the earth's surface rising abruptly from surroundings",

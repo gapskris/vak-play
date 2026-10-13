@@ -1,5 +1,5 @@
-// Service Worker for Vak: The Control of Speech (PWA Offline First)
-const CACHE_NAME = 'auro-vak-v1.6';
+// Service Worker for Vak: The Control of Speech (PWA Offline First with Fresh Online Updates)
+const CACHE_NAME = 'auro-vak-v1.8';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -30,19 +30,44 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Respond from cache first, then network fallback
+  const url = new URL(event.request.url);
+
+  // Network-First for HTML navigation and dynamic JSON data so updates propagate instantly
+  if (event.request.mode === 'navigate' || url.pathname.endsWith('.json') || url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseClone);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(event.request).then((cached) => {
+            if (cached) return cached;
+            if (event.request.mode === 'navigate') {
+              return caches.match('./index.html');
+            }
+          });
+        })
+    );
+    return;
+  }
+
+  // Cache-First with Network Fallback for fonts, audio, static media
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
         return cachedResponse;
       }
       return fetch(event.request).then((networkResponse) => {
-        // Cache successful GET requests
         if (
           event.request.method === 'GET' &&
           networkResponse &&
-          networkResponse.status === 200 &&
-          networkResponse.type === 'basic'
+          networkResponse.status === 200
         ) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -50,11 +75,6 @@ self.addEventListener('fetch', (event) => {
           });
         }
         return networkResponse;
-      }).catch(() => {
-        // Offline fallback
-        if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
-        }
       });
     })
   );
