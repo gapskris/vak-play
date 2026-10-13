@@ -2396,10 +2396,25 @@ class WordSlotsRenderer {
     const banner = document.createElement('div');
     banner.className = 'cloze-sentence-banner';
 
+    const badgeRow = document.createElement('div');
+    badgeRow.style.cssText = 'display:flex; justify-content:space-between; align-items:center; width:100%; gap:0.4rem;';
+
     const badge = document.createElement('div');
     badge.className = 'cloze-domain-badge';
     badge.textContent = `${rankIcon} ${rank.toUpperCase()} • ${domain.toUpperCase()}`;
-    banner.appendChild(badge);
+    badgeRow.appendChild(badge);
+
+    const bonusList = (levelData && Array.isArray(levelData.bonusWords)) ? levelData.bonusWords : [];
+    if (bonusList.length > 0) {
+      const bonusCounter = document.createElement('div');
+      bonusCounter.id = 'bonus-words-counter-pill';
+      bonusCounter.style.cssText = 'font-family:"Cinzel",serif; font-size:0.68rem; font-weight:700; color:var(--accent-gold); letter-spacing:1px; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); border-radius:12px; padding:0.12rem 0.5rem; white-space:nowrap;';
+      bonusCounter.textContent = `⭐ 0/${bonusList.length}`;
+      bonusCounter.title = 'Bonus words discovered (+3 Sparks each)';
+      badgeRow.appendChild(bonusCounter);
+    }
+
+    banner.appendChild(badgeRow);
 
     const sentenceDiv = document.createElement('div');
     sentenceDiv.className = 'cloze-sentence-text';
@@ -4569,9 +4584,97 @@ class LevelManagerController {
       this.renderPromotionModal(profile, SACRED_RANKS[0]); // Sadhak 🪷
     } else {
 
-      if (typeof window !== 'undefined' && window.showToast) {
-        window.showToast('🌟 Grandmaster Luminous! You have mastered all 350 Levels of Vak!', 'success');
-      }
+      this.renderGrandmasterCertificateModal(profile);
+    }
+  }
+
+  
+  renderGrandmasterCertificateModal(profile) {
+    if (typeof document === 'undefined') return;
+
+    let modal = document.getElementById('grandmaster-certificate-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'grandmaster-certificate-modal';
+      modal.className = 'glass-panel';
+      modal.style.position = 'fixed';
+      modal.style.top = '50%';
+      modal.style.left = '50%';
+      modal.style.transform = 'translate(-50%, -50%)';
+      modal.style.width = '90%';
+      modal.style.maxWidth = '420px';
+      modal.style.maxHeight = '90vh';
+      modal.style.overflowY = 'auto';
+      modal.style.display = 'flex';
+      modal.style.flexDirection = 'column';
+      modal.style.alignItems = 'center';
+      modal.style.gap = '0.9rem';
+      modal.style.zIndex = '5000';
+      modal.style.textAlign = 'center';
+      modal.style.padding = '1.75rem 1.25rem';
+      modal.style.borderRadius = '24px';
+      modal.style.border = '2px solid rgba(251,191,36,0.6)';
+      modal.style.boxShadow = '0 16px 50px rgba(0,0,0,0.85), 0 0 35px rgba(251,191,36,0.3)';
+
+      const container = document.getElementById('app-container') || document.body;
+      container.appendChild(modal);
+    }
+
+    const playerName = (profile && profile.player && profile.player.name) || 'Seeker of Light';
+    const totalSparks = (profile && profile.player && profile.player.sparks) || 0;
+    const completionDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+
+    modal.style.display = 'flex';
+    modal.innerHTML = `
+      <div style="font-size:2.6rem; filter:drop-shadow(0 0 16px rgba(251,191,36,0.8));">🌟</div>
+      <span class="micro-label" style="color:var(--accent-gold); font-weight:800; letter-spacing:3px; font-size:0.75rem;">CONGRATULATIONS GRANDMASTER</span>
+      <h2 style="margin:0; font-family:'Cinzel',serif; font-size:1.5rem; color:#fff; letter-spacing:2px; text-transform:uppercase;">
+        Master of Vak
+      </h2>
+      <div style="border:1px solid rgba(251,191,36,0.4); background:rgba(251,191,36,0.08); border-radius:16px; padding:1rem; width:100%; box-sizing:border-box;">
+        <p style="font-family:'Cinzel',serif; font-size:1.1rem; font-weight:700; color:#fbbf24; margin:0 0 0.4rem 0;">
+          ${playerName}
+        </p>
+        <p style="font-family:'Outfit',sans-serif; font-size:0.85rem; color:var(--text-secondary); line-height:1.5; margin:0;">
+          Has successfully completed all <strong>350 Levels</strong> of mindful contemplation, vocabulary mastery, and focused speech.
+        </p>
+        <div style="margin-top:0.6rem; font-size:0.75rem; color:rgba(255,255,255,0.7); font-style:italic;">
+          Conferred on ${completionDate} • Total Sparks: ${totalSparks} ⚡
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.5rem; width:100%; margin-top:0.4rem;">
+        <button id="btn-replay-levels" class="touch-target 3d-pill-btn" style="width:100%; padding:0.75rem; font-size:0.92rem; font-weight:800; font-family:'Cinzel',serif; background:linear-gradient(135deg,#fbbf24,#d97706); color:#1c0a00; border:none; box-shadow:0 4px 18px rgba(251,191,36,0.4);">
+          REPLAY FROM LEVEL 1 🔄
+        </button>
+        <button id="btn-close-certificate" class="touch-target" style="width:100%; padding:0.65rem; font-size:0.85rem; font-family:'Outfit',sans-serif; background:rgba(255,255,255,0.06); color:var(--text-secondary); border:1px solid rgba(255,255,255,0.2); border-radius:14px; cursor:pointer;">
+          STAY IN SANCTUARY 🕊️
+        </button>
+      </div>
+    `;
+
+    const replayBtn = document.getElementById('btn-replay-levels');
+    if (replayBtn) {
+      replayBtn.onclick = () => {
+        modal.style.display = 'none';
+        if (typeof window !== 'undefined' && typeof window.jumpToLevel === 'function') {
+          window.jumpToLevel(1);
+        } else if (typeof window !== 'undefined' && window.storageAdapter) {
+          profile.player.currentLevel = 1;
+          window.storageAdapter.saveProfile(profile);
+          window.location.reload();
+        }
+      };
+    }
+
+    const closeBtn = document.getElementById('btn-close-certificate');
+    if (closeBtn) {
+      closeBtn.onclick = () => {
+        modal.style.display = 'none';
+        if (typeof window !== 'undefined' && window.showToast) {
+          window.showToast('Sanctuary remains open for your quiet contemplation.', 'info');
+        }
+      };
     }
   }
 
@@ -5117,7 +5220,7 @@ class BackupEngineController {
   }
 
   
-  async deriveKey(password, salt) {
+  async deriveKey(password, salt, iterations = null) {
     if (typeof crypto === 'undefined' || !crypto.subtle) {
       throw new Error('Web Crypto API unsupported in this environment');
     }
@@ -5135,7 +5238,7 @@ class BackupEngineController {
       {
         name: 'PBKDF2',
         salt: salt,
-        iterations: this.pbkdf2Iterations,
+        iterations: iterations || this.pbkdf2Iterations,
         hash: 'SHA-256'
       },
       passwordKey,
@@ -5211,8 +5314,9 @@ class BackupEngineController {
     );
 
     const backupPayload = {
-      version: 1,
+      version: 2,
       format: 'AURO_VAK_ENCRYPTED_BACKUP',
+      iterations: this.pbkdf2Iterations,
       salt: this.bufferToBase64(salt),
       iv: this.bufferToBase64(iv),
       ciphertext: this.bufferToBase64(ciphertextBuffer)
@@ -5243,10 +5347,11 @@ class BackupEngineController {
     const salt = this.base64ToBuffer(payload.salt);
     const iv = this.base64ToBuffer(payload.iv);
     const ciphertext = this.base64ToBuffer(payload.ciphertext);
+    const iterations = payload.iterations || 10000;
 
     let decryptedBuffer;
     try {
-      const key = await this.deriveKey(password, salt);
+      const key = await this.deriveKey(password, salt, iterations);
       decryptedBuffer = await crypto.subtle.decrypt(
         { name: 'AES-GCM', iv: iv },
         key,
@@ -5260,11 +5365,20 @@ class BackupEngineController {
     const jsonString = decoder.decode(decryptedBuffer);
     const restoredData = JSON.parse(jsonString);
 
-    if (typeof localStorage !== 'undefined') {
-      if (restoredData.user) localStorage.setItem('auro_vak_user', JSON.stringify(restoredData.user));
-      if (restoredData.reflections) localStorage.setItem('auro_vak_reflections', JSON.stringify(restoredData.reflections));
-      if (restoredData.unlocked) localStorage.setItem('auro_vak_unlocked_words', JSON.stringify(restoredData.unlocked));
-      if (restoredData.events) localStorage.setItem('auro_vak_events', JSON.stringify(restoredData.events));
+    const WHITELISTED_KEYS = {
+      user: 'auro_vak_user',
+      profile: 'vak_player_profile_v1',
+      reflections: 'auro_vak_reflections',
+      unlocked: 'auro_vak_unlocked_words',
+      events: 'auro_vak_events'
+    };
+
+    if (typeof localStorage !== 'undefined' && restoredData && typeof restoredData === 'object') {
+      if (restoredData.user) localStorage.setItem(WHITELISTED_KEYS.user, JSON.stringify(restoredData.user));
+      if (restoredData.profile) localStorage.setItem(WHITELISTED_KEYS.profile, JSON.stringify(restoredData.profile));
+      if (restoredData.reflections) localStorage.setItem(WHITELISTED_KEYS.reflections, JSON.stringify(restoredData.reflections));
+      if (restoredData.unlocked) localStorage.setItem(WHITELISTED_KEYS.unlocked, JSON.stringify(restoredData.unlocked));
+      if (restoredData.events) localStorage.setItem(WHITELISTED_KEYS.events, JSON.stringify(restoredData.events));
     }
 
     return restoredData;
@@ -6134,6 +6248,12 @@ if (typeof module !== 'undefined' && module.exports) {
           if (!bonusSolved.includes(result.word)) {
             bonusSolved.push(result.word);
             showBonusToast(result.word);
+            const counterPill = document.getElementById('bonus-words-counter-pill');
+            if (counterPill && bonusWords.length > 0) {
+              counterPill.textContent = `⭐ ${bonusSolved.length}/${bonusWords.length}`;
+              counterPill.style.borderColor = 'var(--accent-gold)';
+              counterPill.style.background = 'rgba(251,191,36,0.25)';
+            }
           }
           if (wordDisplayEl) wordDisplayEl.textContent = `⭐ ${result.word}!`;
         } else if (result.status === 'VALID_ALREADY_SOLVED') {
