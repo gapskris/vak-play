@@ -3850,6 +3850,108 @@ if (typeof module !== 'undefined' && module.exports) {
 
 
 
+class LetterFillerEngine {
+  constructor() {
+
+    this.commonVowels = ['E', 'A', 'I', 'O', 'U'];
+    this.commonConsonants = ['S', 'T', 'R', 'N', 'L', 'D', 'C', 'M', 'P', 'H', 'B', 'G'];
+  }
+
+  
+  getFillerCountForLevel(levelNumber = 1) {
+    if (levelNumber <= 110) {
+
+      return 2;
+    } else {
+
+      return 3;
+    }
+  }
+
+  
+  createSeededRandom(seed) {
+    let s = seed % 2147483647;
+    if (s <= 0) s += 2147483646;
+    return () => {
+      s = (s * 16807) % 2147483647;
+      return (s - 1) / 2147483646;
+    };
+  }
+
+  
+  selectFillerLetters(targetWord = '', count = 2, levelNumber = 1) {
+    const wordUpper = String(targetWord).toUpperCase();
+    const wordLetters = wordUpper.split('');
+    const vowelsInWord = wordLetters.filter(c => this.commonVowels.includes(c));
+    const consonantsInWord = wordLetters.filter(c => !this.commonVowels.includes(c));
+
+    let seed = levelNumber * 997;
+    for (let i = 0; i < wordUpper.length; i++) {
+      seed += wordUpper.charCodeAt(i) * (i + 1) * 31;
+    }
+    const rng = this.createSeededRandom(seed);
+
+    const chosen = [];
+    const vowelRatio = vowelsInWord.length / Math.max(1, wordLetters.length);
+
+    for (let i = 0; i < count; i++) {
+
+      const wantVowel = (vowelRatio < 0.35 && i === 0) || (chosen.filter(c => this.commonVowels.includes(c)).length === 0 && rng() < 0.4);
+      const pool = wantVowel ? this.commonVowels : this.commonConsonants;
+
+      const available = pool.filter(c => !chosen.includes(c));
+      const candidateList = available.length > 0 ? available : pool;
+
+      const pickIndex = Math.floor(rng() * candidateList.length);
+      chosen.push(candidateList[pickIndex]);
+    }
+
+    return chosen;
+  }
+
+  
+  generateWheelLetters(targetWord = '', levelNumber = 1) {
+    const wordUpper = String(targetWord).toUpperCase();
+    const fillerCount = this.getFillerCountForLevel(levelNumber);
+    const fillers = this.selectFillerLetters(wordUpper, fillerCount, levelNumber);
+
+    const fullLetterSet = [...wordUpper.split(''), ...fillers];
+
+    let seed = levelNumber * 1337 + 42;
+    const rng = this.createSeededRandom(seed);
+
+    let shuffled = [...fullLetterSet];
+    let attempts = 0;
+
+    const isTrivial = (arr) => {
+      const str = arr.join('');
+      if (str.includes(wordUpper)) return true;
+      if (str.includes(wordUpper.split('').reverse().join(''))) return true;
+      return false;
+    };
+
+    do {
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      attempts++;
+    } while (isTrivial(shuffled) && attempts < 15);
+
+    return shuffled;
+  }
+}
+
+const letterFillerEngine = new LetterFillerEngine();
+if (typeof window !== 'undefined') {
+  window.letterFillerEngine = letterFillerEngine;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { LetterFillerEngine, letterFillerEngine };
+}
+
+
+
 class HintSystemController {
   constructor() {
     this.revealedLettersCount = 0;
@@ -5704,6 +5806,7 @@ if (typeof module !== 'undefined' && module.exports) {
   
   
   
+  
   <script>
     // Premium In-App Toast Alert System
     window.showToast = (message, type = 'success') => {
@@ -5869,12 +5972,17 @@ if (typeof module !== 'undefined' && module.exports) {
         hintBox.style.display = 'none';
       }
 
-      // Anti-Cake-Walk Scrambled Letters for Wheel Display
-      const lettersToRender = (Array.isArray(currentLevel.scramble) && currentLevel.scramble.length > 0)
+      // Progressive Intelligent Filler Letters (+2 on Ranks 1-3, +3 on Ranks 4-7)
+      let lettersToRender = (Array.isArray(currentLevel.scramble) && currentLevel.scramble.length > 0)
         ? currentLevel.scramble
         : (typeof currentLevel.scramble === 'string'
             ? currentLevel.scramble.split('')
             : currentLevel.letters);
+
+      if (window.letterFillerEngine && currentLevel.targetWord) {
+        lettersToRender = window.letterFillerEngine.generateWheelLetters(currentLevel.targetWord, currentLvlNum);
+      }
+
       const targetWords = currentLevel.targetWords || [currentLevel.targetWord];
       const bonusWords  = currentLevel.bonusWords || [];
 
