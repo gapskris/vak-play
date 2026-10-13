@@ -1785,6 +1785,33 @@ class OnboardingController {
     const startBtn = document.getElementById('btn-start-journey');
     const nameInput = document.getElementById('player-name-input');
 
+    const dismissModal = () => {
+      if (modalEl) modalEl.style.display = 'none';
+      if (backdropEl) backdropEl.style.display = 'none';
+
+      const defaultProfile = adapter ? adapter.createDefaultProfile('Friend') : {
+        version: '1.0.0',
+        player: { name: 'Friend', currentLevel: 1, maxLevelUnlocked: 1, currentRank: 'Aspirant', rankIndex: 1, sparks: 100, lifetimeSparksEarned: 100 },
+        progress: { completedLevelIds: [], unlockedWordKeys: [], bonusWordsFoundTotal: 0 },
+        stats: { hintsUsedTotal: 0, cleanSolvesCount: 0 }
+      };
+      if (callbacks.onComplete) callbacks.onComplete(defaultProfile);
+    };
+
+    const closeTopBtn = document.getElementById('btn-close-onboarding-top');
+    if (closeTopBtn) closeTopBtn.onclick = dismissModal;
+
+    const dismissBtn = document.getElementById('btn-dismiss-onboarding');
+    if (dismissBtn) dismissBtn.onclick = dismissModal;
+
+    if (backdropEl) {
+      backdropEl.onclick = () => {
+        if (modalEl && modalEl.style.display === 'flex') {
+          dismissModal();
+        }
+      };
+    }
+
     if (startBtn) {
       startBtn.onclick = async () => {
         const enteredName = nameInput ? nameInput.value.trim() : '';
@@ -1824,7 +1851,10 @@ class OnboardingController {
   renderOnboardingModalContent(modalEl) {
     if (!modalEl) return;
     modalEl.innerHTML = `
-      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:0.75rem; width:100%;">
+      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:0.75rem; width:100%; position:relative;">
+        <button id="btn-close-onboarding-top" class="touch-target 3d-pill-btn" style="position:absolute; top:-6px; right:-4px; padding:0.25rem 0.6rem; font-size:0.8rem; font-weight:700; min-height:36px; min-width:36px;" title="Dismiss & Keep Current">
+          ✕
+        </button>
         <div style="font-size:2.4rem; filter:drop-shadow(0 0 16px rgba(251,191,36,0.6));">✨</div>
         <span class="micro-label" style="color:var(--accent-gold); font-weight:800; font-size:0.75rem; letter-spacing:2.5px;">WELCOME TO THE WORLD OF PUZZLES</span>
         <h2 style="margin:0; font-family:'Cinzel',serif; font-size:1.35rem; letter-spacing:2px; background:linear-gradient(135deg,#fde68a,#fbbf24); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
@@ -1848,6 +1878,10 @@ class OnboardingController {
 
         <button id="btn-start-journey" class="touch-target 3d-pill-btn" style="width:100%; margin-top:0.4rem; padding:0.75rem 1rem; font-size:0.95rem; font-weight:800; font-family:'Cinzel',serif; letter-spacing:2px; background:linear-gradient(135deg,#fbbf24,#d97706); color:#1c0a00; border:none; box-shadow:0 4px 18px rgba(251,191,36,0.4);">
           LET'S BEGIN JOURNEY ▶
+        </button>
+
+        <button id="btn-dismiss-onboarding" class="touch-target" style="width:100%; font-size:0.78rem; background:transparent; border:1px solid rgba(255,255,255,0.18); color:var(--text-secondary); padding:0.4rem; border-radius:12px; margin-top:0.1rem;">
+          Continue as Friend (Default)
         </button>
       </div>
     `;
@@ -6680,6 +6714,86 @@ if (typeof module !== 'undefined' && module.exports) {
               });
             }
           }
+        }
+      });
+
+      // Universal Escape Key & Backdrop Dismissal Guard (AuroMatch Standard)
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          // 1. Close 3-dots dropdown if open
+          if (threeDotsDropdown && threeDotsDropdown.style.display === 'flex') {
+            closeMenu();
+            return;
+          }
+          // 2. Close Onboarding Modal
+          const onboardingModal = document.getElementById('onboarding-modal');
+          if (onboardingModal && onboardingModal.style.display === 'flex') {
+            onboardingModal.style.display = 'none';
+            if (menuBackdrop) menuBackdrop.style.display = 'none';
+            return;
+          }
+          // 3. Close Settings Modal
+          if (settingsModal && settingsModal.style.display === 'flex') {
+            settingsModal.style.display = 'none';
+            return;
+          }
+          // 4. Close Purge Modal
+          if (purgeModal && purgeModal.style.display === 'flex') {
+            purgeModal.style.display = 'none';
+            return;
+          }
+          // 5. Close Clue Zoom Modal
+          const zoomModal = document.getElementById('clue-zoom-modal');
+          if (zoomModal && zoomModal.style.display === 'flex') {
+            zoomModal.style.display = 'none';
+            return;
+          }
+          // 6. Close Scripture Card Modal
+          const scriptureModal = document.getElementById('scripture-card-modal');
+          if (scriptureModal && scriptureModal.style.display === 'flex') {
+            scriptureModal.style.display = 'none';
+            return;
+          }
+          // 7. Close Event Details Modal
+          const eventModal = document.getElementById('event-details-modal');
+          if (eventModal && eventModal.style.display === 'flex') {
+            eventModal.style.display = 'none';
+            return;
+          }
+          // 8. Close Breathing Overlay
+          if (breathingOverlay && breathingOverlay.style.display === 'flex') {
+            stopBreathingGuide();
+            return;
+          }
+          // 9. If on sub-screens (Constellation, Sanctuary, Lexicon, Themes), return to Puzzle Screen
+          if (constellationScreen && constellationScreen.style.display !== 'none') {
+            transitionToScreen(puzzleScreen);
+            return;
+          }
+          if (sanctuaryScreen && sanctuaryScreen.style.display !== 'none') {
+            transitionToScreen(puzzleScreen);
+            return;
+          }
+          if (glossaryScreen && glossaryScreen.style.display !== 'none') {
+            transitionToScreen(puzzleScreen);
+            return;
+          }
+          if (themesGridScreen && themesGridScreen.style.display !== 'none') {
+            transitionToScreen(puzzleScreen);
+            return;
+          }
+        }
+      });
+
+      // Backdrop Outside Tap-to-Dismiss for Floating Modals
+      ['settings-modal', 'scripture-card-modal', 'event-details-modal', 'purge-modal'].forEach((modalId) => {
+        const modalEl = document.getElementById(modalId);
+        if (modalEl) {
+          modalEl.addEventListener('click', (e) => {
+            if (e.target === modalEl) {
+              modalEl.style.display = 'none';
+            }
+          });
         }
       });
 
