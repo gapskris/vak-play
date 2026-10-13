@@ -1215,7 +1215,6 @@ if (typeof module !== 'undefined' && module.exports) {
       window.particleEngine.startRenderLoop();
 
       // 4. Initialize Local Events & Date Checker
-      localStorage.removeItem('auro_vak_events'); // force update to latest events list
       const ashramEvents = await window.dateCheckerController.initEventsRegistry();
       const todayEvent = window.dateCheckerController.checkTodayEvent();
       window.dateCheckerController.renderEventCard(todayEvent);
