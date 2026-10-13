@@ -1,0 +1,22 @@
+{
+  "short_name": "Vak",
+  "name": "Vak — Words of Light & Wisdom",
+  "description": "A mindful anagram and educational vocabulary game cultivating noble words, self-mastery, and speech control.",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><circle cx='96' cy='96' r='90' fill='%230b0914' stroke='%23fbbf24' stroke-width='8'/><text x='96' y='125' font-family='serif' font-size='88' font-weight='bold' fill='%23fbbf24' text-anchor='middle'>V</text></svg>",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='240' fill='%230b0914' stroke='%23fbbf24' stroke-width='20'/><text x='256' y='335' font-family='serif' font-size='240' font-weight='bold' fill='%23fbbf24' text-anchor='middle'>V</text></svg>",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#0b0914",
+  "theme_color": "#fbbf24",
+  "display": "standalone",
+  "orientation": "portrait"
+}
