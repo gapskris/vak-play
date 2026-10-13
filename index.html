@@ -1596,6 +1596,26 @@ if (typeof module !== 'undefined' && module.exports) {
             'blooming-lotus-container', (updatedProfile && updatedProfile.player) ? updatedProfile.player.sparks : (userProfile.lotusPetals || 0));
         }
       }
+      async function jumpToLevel(targetLevelNumber) {
+        const lvl = Math.max(1, Math.min(350, parseInt(targetLevelNumber, 10) || 1));
+        const activeProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : null;
+        if (activeProfile && activeProfile.player) {
+          activeProfile.player.currentLevel = lvl;
+          activeProfile.player.maxLevelUnlocked = Math.max(activeProfile.player.maxLevelUnlocked || 1, lvl);
+          const rankObj = window.levelManagerController.getRankForLevel(lvl);
+          if (rankObj) {
+            activeProfile.player.currentRank = rankObj.name;
+            activeProfile.player.rankIndex = rankObj.index;
+          }
+          if (window.storageAdapter) await window.storageAdapter.saveProfile(activeProfile);
+        }
+        if (window.hintSystemController) window.hintSystemController.resetHintState();
+        if (window.gestureTrackerController) window.gestureTrackerController.resetGestureState();
+        const updatedProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : userProfile;
+        buildPuzzleScreen(updatedProfile);
+        if (window.showToast) window.showToast(`Navigated to Level ${lvl}`, 'info');
+      }
+      window.jumpToLevel = jumpToLevel;
       window.advanceToNextLevel = advanceToNextLevel;
 
       buildPuzzleScreen(userProfile);
