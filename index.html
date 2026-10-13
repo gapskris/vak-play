@@ -1861,17 +1861,35 @@ if (typeof module !== 'undefined' && module.exports) {
       // === Meditative Ambient Soundscape Toggle ===
       const ambientBtn = document.getElementById('btn-toggle-ambient');
       if (ambientBtn) {
+        // Initialize state to reflect saved player settings (UX-7)
+        const isAmbientSaved = userProfile && userProfile.settings && userProfile.settings.ambientAudioEnabled;
+        if (isAmbientSaved && window.soundEngine && window.soundEngine.isAmbientPlaying) {
+          ambientBtn.textContent = '🧘';
+          ambientBtn.title = 'Turn Meditative Soundscape OFF';
+        } else {
+          ambientBtn.textContent = '🔇';
+          ambientBtn.title = 'Turn Meditative Soundscape ON';
+        }
+
         ambientBtn.onclick = () => {
           if (window.soundEngine.isAmbientPlaying) {
             window.soundEngine.stopAmbientDrone();
             ambientBtn.textContent = '🔇';
             ambientBtn.title = 'Turn Meditative Soundscape ON';
+            if (userProfile && userProfile.settings) {
+              userProfile.settings.ambientAudioEnabled = false;
+              if (window.storageAdapter) window.storageAdapter.saveProfile(userProfile);
+            }
             if (window.showToast) window.showToast('Meditative Soundscape paused', 'success');
           } else {
             const started = window.soundEngine.startAmbientDrone();
             if (started) {
               ambientBtn.textContent = '🧘';
               ambientBtn.title = 'Turn Meditative Soundscape OFF';
+              if (userProfile && userProfile.settings) {
+                userProfile.settings.ambientAudioEnabled = true;
+                if (window.storageAdapter) window.storageAdapter.saveProfile(userProfile);
+              }
               if (window.showToast) window.showToast('Meditative Soundscape active (432Hz)', 'success');
             }
           }
