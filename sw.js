@@ -39,8 +39,10 @@ self.addEventListener('fetch', (event) => {
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const responseClone = networkResponse.clone();
+            // Cache by clean URL without transient timestamp query string to prevent unbounded cache growth (9.1)
+            const cleanUrl = url.origin + url.pathname;
             caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, responseClone);
+              cache.put(cleanUrl, responseClone);
             });
           }
           return networkResponse;
