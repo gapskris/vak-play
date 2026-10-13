@@ -18,5 +18,6 @@
   "background_color": "#0b0914",
   "theme_color": "#fbbf24",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "categories": ["education", "games", "lifestyle"]
 }
