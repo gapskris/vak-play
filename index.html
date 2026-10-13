@@ -1208,8 +1208,11 @@ if (typeof module !== 'undefined' && module.exports) {
       // 2. Initialize Canvas Particle Engine
       window.particleEngine.initCanvas('particle-canvas');
 
-      // 3. Initialize Theme Loader
-      const userProfile = window.onboardingController.getProfile() || { lotusPetals: 0, settings: { sanctuaryMode: 'traditional' } };
+      // 3. Initialize Theme Loader & Async Profile (IndexedDB Safari-Purge Proof Boot)
+      let userProfile = window.storageAdapter ? (await window.storageAdapter.getProfile()) : null;
+      if (!userProfile) {
+        userProfile = window.onboardingController.getProfile() || { lotusPetals: 0, settings: { sanctuaryMode: 'traditional' } };
+      }
       const currentMode = window.themeLoaderController.initTheme(userProfile);
       window.particleEngine.setTheme(currentMode);
       window.particleEngine.startRenderLoop();
