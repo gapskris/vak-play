@@ -1695,12 +1695,15 @@ constructor() {
 this.activeTheme = 'aspiration';
 }
 resolveTheme(userProfile = null, mockHour = null) {
-let preference = (userProfile && userProfile.settings && userProfile.settings.themePreference)
-? userProfile.settings.themePreference
-: 'auto';
-if (preference === 'morning') preference = 'aspiration';
-if (preference === 'evening') preference = 'sanctuary';
-if (preference === 'aspiration' || preference === 'sanctuary' || preference === 'twilight' || preference === 'high-contrast') {
+let preference = 'auto';
+if (typeof userProfile === 'string') {
+preference = userProfile;
+} else if (userProfile && userProfile.settings && userProfile.settings.themePreference) {
+preference = userProfile.settings.themePreference;
+}
+if (preference === 'morning' || preference === 'dawn') preference = 'aspiration';
+if (preference === 'evening' || preference === 'twilight' || preference === 'high-contrast') preference = 'sanctuary';
+if (preference === 'aspiration' || preference === 'sanctuary') {
 this.activeTheme = preference;
 return preference;
 }
@@ -1710,12 +1713,13 @@ this.activeTheme = isMorning ? 'aspiration' : 'sanctuary';
 return this.activeTheme;
 }
 applyTheme(themeMode) {
-this.activeTheme = themeMode;
+const targetMode = (themeMode === 'aspiration') ? 'aspiration' : 'sanctuary';
+this.activeTheme = targetMode;
 if (typeof document !== 'undefined' && document.body) {
 document.body.classList.remove('theme-aspiration', 'theme-sanctuary', 'theme-twilight', 'theme-high-contrast');
-document.body.classList.add(`theme-${themeMode}`);
+document.body.classList.add(`theme-${targetMode}`);
 }
-return themeMode;
+return targetMode;
 }
 initTheme(userProfile = null, mockHour = null) {
 const resolvedMode = this.resolveTheme(userProfile, mockHour);
@@ -6026,7 +6030,7 @@ module.exports = { TelemetryController, telemetryController };
               Explore Realms / Switch Theme 🪷
             </button></div></div></div></section><div id="theme-selector-modal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(5,10,25,0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 1rem; box-sizing: border-box;"><div class="glass-panel" style="background: rgba(15,23,42,0.96); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; max-width: 390px; width: 100%; padding: 1.2rem; box-shadow: 0 25px 50px rgba(0,0,0,0.7); display: flex; flex-direction: column; gap: 0.75rem;"><div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;"><div style="display: flex; align-items: center; gap: 0.4rem;"><span style="font-size: 1.1rem;">✨</span><h3 style="margin: 0; font-family: 'Cinzel', serif; font-size: 1.05rem; color: #f8fafc; letter-spacing: 1px;">SELECT GAME THEME</h3></div><button id="btn-close-theme-modal" class="touch-target" style="background: transparent; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 0.2rem 0.5rem;" aria-label="Close">✕</button></div><button id="theme-opt-wisdom" class="touch-target 3d-pill-btn theme-modal-opt active" style="display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 0.9rem; text-align: left; width: 100%; border-radius: 12px; background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.5); cursor: pointer;"><span style="font-size: 1.7rem;">🪷</span><div style="flex: 1;"><div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.98rem; color: #fde68a;">Wisdom</span><span style="font-size: 0.7rem; background: rgba(251,191,36,0.25); color: #fde68a; padding: 0.15rem 0.45rem; border-radius: 999px;">350 Levels</span></div><div style="font-size: 0.75rem; color: #cbd5e1; margin-top: 0.15rem;">The Path of Speech, Mind & Character</div></div></button><button id="theme-opt-mandalas" class="touch-target 3d-pill-btn theme-modal-opt" style="display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 0.9rem; text-align: left; width: 100%; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); cursor: pointer;"><span style="font-size: 1.7rem;">🏛️</span><div style="flex: 1;"><div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.98rem; color: #f8fafc;">Mandalas</span><span style="font-size: 0.7rem; background: rgba(255,255,255,0.12); color: #e2e8f0; padding: 0.15rem 0.45rem; border-radius: 999px;">361 Levels</span></div><div style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.15rem;">The Living Matrimandir Crossword Gardens</div></div></button><button id="theme-opt-cosmos" class="touch-target 3d-pill-btn theme-modal-opt" style="display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 0.9rem; text-align: left; width: 100%; border-radius: 12px; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.4); cursor: pointer;"><span style="font-size: 1.7rem;">🌌</span><div style="flex: 1;"><div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.98rem; color: #7dd3fc;">Cosmos</span><span style="font-size: 0.7rem; background: rgba(56,189,248,0.25); color: #7dd3fc; padding: 0.15rem 0.45rem; border-radius: 999px;">600 Levels</span></div><div style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.15rem;">The 12 Sacred Worlds of Nature & Universe</div></div></button><button id="theme-opt-all-realms" class="touch-target 3d-pill-btn theme-modal-opt" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 0.9rem; text-align: center; width: 100%; border-radius: 12px; background: rgba(251,191,36,0.18); border: 1px solid rgba(251,191,36,0.5); cursor: pointer; color: #fde68a; font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.85rem; margin-top: 0.2rem;"><span>🌟</span><span>Explore All Sacred Realms ➔</span></button></div></div><div id="event-details-modal" class="glass-panel" style="position: absolute; inset: 0; margin: auto; width: calc(100% - 2rem); max-width: 420px; max-height: 80dvh; height: fit-content; display: none; flex-direction: column; justify-content: flex-start; z-index: 3000; overflow-y: auto; gap: 0.85rem; padding: 1.25rem; border-radius: 28px;"></div><div id="scripture-card-modal" class="glass-panel" style="position: absolute; inset: 0; margin: auto; width: calc(100% - 2rem); max-width: 420px; max-height: 80dvh; height: fit-content; display: none; flex-direction: column; justify-content: flex-start; z-index: 3000; overflow-y: auto; gap: 0.85rem; padding: 1.25rem; border-radius: 28px;"></div><div id="settings-modal" class="glass-panel" style="position: absolute; inset: 0; margin: auto; width: calc(100% - 1.5rem); max-width: 440px; max-height: 88dvh; height: fit-content; align-self: center; display: none; flex-direction: column; justify-content: flex-start; z-index: 3000; overflow-y: auto; gap: 0.9rem; padding: 1.25rem; border-radius: 32px; box-sizing: border-box;"><div style="display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 1px solid var(--panel-border); padding-bottom: 0.5rem; margin-bottom: 0.25rem;"><div><span class="micro-label" style="color: var(--accent-gold); font-weight: 700;">PREFERENCES</span><h2 style="margin: 0;">Settings</h2></div><button id="btn-close-settings-top" class="touch-target 3d-pill-btn" style="padding: 0.35rem 0.8rem; font-size: 0.85rem; font-weight: 700;">
           ✕ Close
-        </button></div><div style="width: 100%; text-align: left;"><span class="micro-label">REALM DIFFICULTY & PATH MODE</span><div style="display: flex; gap: 0.4rem; margin-top: 0.25rem;"><button class="mode-select-btn touch-target" data-mode="youth" style="flex: 1; font-size: 0.75rem;">🟢 Youth</button><button class="mode-select-btn touch-target" data-mode="seeker" style="flex: 1; font-size: 0.75rem;">🟡 Seeker</button><button class="mode-select-btn touch-target" data-mode="scholar" style="flex: 1; font-size: 0.75rem;">🔴 Scholar</button></div></div><div style="width: 100%; text-align: left;"><span class="micro-label">THEME PREFERENCE</span><div style="display: flex; gap: 0.3rem; margin-top: 0.25rem; flex-wrap: wrap;"><button class="theme-select-btn touch-target" data-theme-pref="aspiration" style="flex: 1; min-width: 70px; font-size: 0.7rem;">Dawn</button><button class="theme-select-btn touch-target" data-theme-pref="sanctuary" style="flex: 1; min-width: 70px; font-size: 0.7rem;">Sanctuary</button><button class="theme-select-btn touch-target" data-theme-pref="twilight" style="flex: 1; min-width: 70px; font-size: 0.7rem;">Twilight</button><button class="theme-select-btn touch-target" data-theme-pref="high-contrast" style="flex: 1; min-width: 70px; font-size: 0.7rem; border-color: #ffea00; color: #ffea00;">Contrast 👁️</button></div></div><div style="width: 100%; text-align: left; display: flex; flex-direction: column; gap: 0.4rem;"><span class="micro-label">LOCAL DAILY REMINDER</span><div style="display: flex; justify-content: space-between; align-items: center;"><label style="font-size: 0.9rem;">Enable Reminder Alert</label><input type="checkbox" id="reminder-toggle" style="width: 20px; height: 20px;"></div><input type="time" id="reminder-time-input" style="padding: 0.4rem; border-radius: 8px; border: var(--panel-border); background: var(--panel-bg); color: var(--text-primary);"></div><div style="width: 100%; text-align: left; display: flex; flex-direction: column; gap: 0.4rem; border-top: 1px solid var(--panel-border); padding-top: 0.5rem;"><span class="micro-label">ENCRYPTED BACKUPS (PBKDF2 AES-256)</span><input type="password" id="backup-password-input" placeholder="Backup Encryption Password" style="width: 100%; padding: 0.4rem; border-radius: 8px; border: var(--panel-border); background: var(--panel-bg); color: var(--text-primary);"><div style="display: flex; gap: 0.4rem;"><button id="btn-export-backup" class="touch-target" style="flex: 1; font-size: 0.8rem;">Export Backup</button><button id="btn-import-backup" class="touch-target" style="flex: 1; font-size: 0.8rem;">Import Backup</button></div><button id="btn-export-diagnostics" class="touch-target" style="width: 100%; font-size: 0.75rem; background: rgba(255,255,255,0.05); color: var(--text-secondary); border: 1px solid var(--panel-border); margin-top: 0.2rem;">
+        </button></div><div style="width: 100%; text-align: left;"><span class="micro-label">REALM DIFFICULTY & PATH MODE</span><div style="display: flex; gap: 0.4rem; margin-top: 0.25rem;"><button class="mode-select-btn touch-target" data-mode="youth" style="flex: 1; font-size: 0.75rem;">🟢 Youth</button><button class="mode-select-btn touch-target" data-mode="seeker" style="flex: 1; font-size: 0.75rem;">🟡 Seeker</button><button class="mode-select-btn touch-target" data-mode="scholar" style="flex: 1; font-size: 0.75rem;">🔴 Scholar</button></div></div><div style="width: 100%; text-align: left;"><span class="micro-label">THEME PREFERENCE</span><div style="display: flex; gap: 0.5rem; margin-top: 0.35rem;"><button class="theme-select-btn touch-target 3d-pill-btn" data-theme-pref="aspiration" style="flex: 1; padding: 0.6rem 0.8rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; border-radius: 10px;">☀️ Light (Dawn)</button><button class="theme-select-btn touch-target 3d-pill-btn" data-theme-pref="sanctuary" style="flex: 1; padding: 0.6rem 0.8rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px; border-radius: 10px;">🌙 Dark (Sanctuary)</button></div></div><div style="width: 100%; text-align: left; display: flex; flex-direction: column; gap: 0.4rem;"><span class="micro-label">LOCAL DAILY REMINDER</span><div style="display: flex; justify-content: space-between; align-items: center;"><label style="font-size: 0.9rem;">Enable Reminder Alert</label><input type="checkbox" id="reminder-toggle" style="width: 20px; height: 20px;"></div><input type="time" id="reminder-time-input" style="padding: 0.4rem; border-radius: 8px; border: var(--panel-border); background: var(--panel-bg); color: var(--text-primary);"></div><div style="width: 100%; text-align: left; display: flex; flex-direction: column; gap: 0.4rem; border-top: 1px solid var(--panel-border); padding-top: 0.5rem;"><span class="micro-label">ENCRYPTED BACKUPS (PBKDF2 AES-256)</span><input type="password" id="backup-password-input" placeholder="Backup Encryption Password" style="width: 100%; padding: 0.4rem; border-radius: 8px; border: var(--panel-border); background: var(--panel-bg); color: var(--text-primary);"><div style="display: flex; gap: 0.4rem;"><button id="btn-export-backup" class="touch-target" style="flex: 1; font-size: 0.8rem;">Export Backup</button><button id="btn-import-backup" class="touch-target" style="flex: 1; font-size: 0.8rem;">Import Backup</button></div><button id="btn-export-diagnostics" class="touch-target" style="width: 100%; font-size: 0.75rem; background: rgba(255,255,255,0.05); color: var(--text-secondary); border: 1px solid var(--panel-border); margin-top: 0.2rem;">
           📋 Export Diagnostic Log
         </button></div><button id="btn-open-purge" class="touch-target" style="width: 100%; border-color: #f87171; color: #f87171; margin-top: 0.25rem;">
         ⚠️ Reset & Purge Data
@@ -7726,8 +7730,7 @@ titleEl.innerText = 'VAK';
 }
 if (solarLabelEl) {
 const isSanctuary = document.body.classList.contains('theme-sanctuary');
-const isTwilight = document.body.classList.contains('theme-twilight');
-const themeText = isSanctuary ? 'SILENT SANCTUARY' : (isTwilight ? 'TWILIGHT COSMOS' : 'DAWN OF ASPIRATION');
+const themeText = isSanctuary ? 'SILENT SANCTUARY' : 'DAWN OF ASPIRATION';
 if (mode === 'youth') solarLabelEl.innerText = `STARLIGHT PATH • ${themeText}`;
 else if (mode === 'secular') solarLabelEl.innerText = `MINDFULNESS PATH • ${themeText}`;
 else solarLabelEl.innerText = `SADHANA PATH • ${themeText}`;
@@ -7743,10 +7746,10 @@ const themeIcon = document.getElementById('theme-icon');
 const themeLabel = document.getElementById('theme-label');
 const updateThemeToggleLabel = (mode) => {
 if (themeIcon) {
-themeIcon.textContent = mode === 'aspiration' ? '☀️' : (mode === 'sanctuary' ? '🌙' : (mode === 'twilight' ? '🌌' : '👁️'));
+themeIcon.textContent = mode === 'aspiration' ? '🌙' : '☀️';
 }
 if (themeLabel) {
-themeLabel.textContent = mode === 'aspiration' ? 'Switch to Sanctuary' : (mode === 'sanctuary' ? 'Switch to Twilight' : (mode === 'twilight' ? 'Switch to High Contrast' : 'Switch to Aspiration'));
+themeLabel.textContent = mode === 'aspiration' ? 'Switch to Dark (Sanctuary)' : 'Switch to Light (Dawn)';
 }
 };
 const initialMode = window.themeLoaderController.activeTheme;
@@ -7768,7 +7771,7 @@ const modeLabelEl = document.getElementById('solar-mode-label');
 if (modeLabelEl) {
 const profile = (window.onboardingController && window.onboardingController.getProfile()) || { settings: { sanctuaryMode: 'traditional' } };
 const pMode = profile.settings.sanctuaryMode;
-const themeText = newMode === 'aspiration' ? 'DAWN OF ASPIRATION' : (newMode === 'sanctuary' ? 'SILENT SANCTUARY' : (newMode === 'twilight' ? 'TWILIGHT COSMOS' : 'HIGH CONTRAST'));
+const themeText = newMode === 'aspiration' ? 'DAWN OF ASPIRATION' : 'SILENT SANCTUARY';
 if (pMode === 'youth') modeLabelEl.innerText = `STARLIGHT PATH • ${themeText}`;
 else if (pMode === 'secular') modeLabelEl.innerText = `MINDFULNESS PATH • ${themeText}`;
 else modeLabelEl.innerText = `SADHANA PATH • ${themeText}`;
@@ -7793,20 +7796,9 @@ if (window.showToast) window.showToast(`Theme updated to ${pref.toUpperCase()}`,
 if (themeBtn) {
 themeBtn.addEventListener('click', () => {
 const isAspiration = document.body.classList.contains('theme-aspiration');
-const isSanctuary = document.body.classList.contains('theme-sanctuary');
-const isTwilight = document.body.classList.contains('theme-twilight');
-let newMode = 'aspiration';
-if (isAspiration) {
-newMode = 'sanctuary';
-} else if (isSanctuary) {
-newMode = 'twilight';
-} else if (isTwilight) {
-newMode = 'high-contrast';
-} else {
-newMode = 'aspiration';
-}
+const newMode = isAspiration ? 'sanctuary' : 'aspiration';
 applyThemeSelection(newMode);
-setTimeout(() => closeMenu(), 500);
+setTimeout(() => closeMenu(), 300);
 });
 }
 if (window.SplashController) {
