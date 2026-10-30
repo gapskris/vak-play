@@ -1,10 +1,9 @@
 // Service Worker for Vak: The Control of Speech (PWA Offline First with Fresh Online Updates)
-const CACHE_NAME = 'auro-vak-v2.12';
+const CACHE_NAME = 'auro-vak-v2.13';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './data/levels_source.json',
-  './data/cosmos_levels.json',
   './manifest.webmanifest'
 ];
 
@@ -21,7 +20,8 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME) {
+          const isVakCache = key.startsWith('auro-vak-') || key.startsWith('vak-');
+          if (isVakCache && key !== CACHE_NAME) {
             return caches.delete(key);
           }
         })
