@@ -1,5 +1,5 @@
 // Service Worker for Vak: The Control of Speech (PWA Offline First with Fresh Online Updates)
-const CACHE_NAME = 'auro-vak-v2.13';
+const CACHE_NAME = 'auro-vak-v2.14';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
